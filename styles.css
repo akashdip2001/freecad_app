@@ -28,8 +28,8 @@ h1 {
 }
 
 iframe {
-    width: 560px;
-    height: 315px;
+    width: 100%;
+    height: 56.25%;
 }
 
 h3 {
