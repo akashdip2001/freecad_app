@@ -78,13 +78,4 @@ footer {
     font-weight: bold;
 }
 
-/* Fullscreen button styles */
-.fullscreen-button {
-    display: block;
-    text-align: center;
-    background-color: #0078d4;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-}
+
