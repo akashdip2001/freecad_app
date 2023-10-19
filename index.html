@@ -18,9 +18,11 @@
             <button class="fullscreen-button">Fullscreen</button>
         </div>
         <div class="video-card">
-            <iframe src="https://www.youtube.com/embed/qqoXQF2pUYk" frameborder="0" allowfullscreen></iframe>
+            <video id="fullscreen-video" width="560" height="315" controls>
+                <source src="https://www.youtube.com/embed/Dn6qoR2WmFU" type="video/mp4">
+            </video>
             <h3>First Angal Projection view</h3>
-            <button class="fullscreen-button">Fullscreen</button>
+            
         </div>
         <div class="video-card">
             <iframe src="https://www.youtube.com/embed/wOneugeSx-w" frameborder="0" allowfullscreen></iframe>
@@ -123,6 +125,27 @@
         <p>&copy; 2023 My YouTube Channel</p>
     </footer>
 
+     <button id="fullscreen-button">Fullscreen</button> <!-- Add the Fullscreen button -->
+
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const fullscreenButton = document.getElementById("fullscreen-button");
+            const video = document.getElementById("fullscreen-video");
+
+            fullscreenButton.addEventListener("click", () => {
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.mozRequestFullScreen) {
+                    video.mozRequestFullScreen();
+                } else if (video.webkitRequestFullscreen) {
+                    video.webkitRequestFullscreen();
+                } else if (video.msRequestFullscreen) {
+                    video.msRequestFullscreen();
+                }
+            });
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
