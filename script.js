@@ -27,3 +27,10 @@ document.getElementById('visit-count').textContent = visitCount;
 
 // Save the updated visit count in local storage
 localStorage.setItem('visitCount', visitCount.toString());
+
+
+
+function redirectToWebsite() {
+    // Replace 'your-website-url' with your actual website URL
+    window.location.href = 'https://akashdip2001.github.io/freecad_app/';
+}
