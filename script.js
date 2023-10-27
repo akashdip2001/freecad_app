@@ -14,3 +14,16 @@ function lockScreenOrientation() {
 
 // Call the function to lock the screen orientation when the app loads
 lockScreenOrientation();
+
+
+// Load the current visit count from local storage or set it to 0 if it doesn't exist
+let visitCount = parseInt(localStorage.getItem('visitCount')) || 0;
+
+// Increment the visit count
+visitCount++;
+
+// Update the visit count in the HTML
+document.getElementById('visit-count').textContent = visitCount;
+
+// Save the updated visit count in local storage
+localStorage.setItem('visitCount', visitCount.toString());
