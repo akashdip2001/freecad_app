@@ -79,3 +79,22 @@ footer {
 }
 
 
+#visit-counter {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #000;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+#eye-symbol {
+    margin-right: 5px;
+}
+
+#visit-count {
+    font-weight: bold;
+}
