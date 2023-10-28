@@ -109,3 +109,71 @@ footer {
 #visit-count {
     font-weight: bold;
 }
+
+
+/* Styles for the image slider */
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    flex: 0 0 100%;
+    text-align: center;
+}
+
+.slide img {
+    max-width: 100%;
+}
+
+.caption {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* Styles for the indicators and controls */
+.indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    background-color: #888;
+    margin: 0 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.controls {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Styles for active indicator */
+.active {
+    background-color: #333;
+}
+
+/* Styles for previous and next buttons */
+.prev, .next {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.prev {
+    margin-right: 10px;
+}
+
