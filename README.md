@@ -82,6 +82,13 @@ public class MainActivity extends AppCompatActivity {
 
 </manifest>
 ```
+# Strings.xml
+```
+<resources>
+    <string name="app_name">CAD pro</string>
+    <string name="webview_url">https://akashdip2001.github.io/freecad_app/</string>
+</resources>
+```
 
 ![webapp dev (1)](https://github.com/akashdip2001/freecad_app/assets/81384987/ce9f6d8e-965e-4aed-970e-28d0fa2babb7)
 ![webapp dev (4)](https://github.com/akashdip2001/freecad_app/assets/81384987/2054e341-77be-413b-aa33-58fa735e574e)
