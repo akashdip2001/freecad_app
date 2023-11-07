@@ -178,23 +178,3 @@ footer {
 }
 
 
-.button-container {
-            position: absolute;
-            left: 10px; /* Adjust the left position as needed */
-            top: 50%; /* Adjust the top position as needed */
-            transform: translateY(-50%);
-            background-color: #007BFF; /* Background color of the button */
-            padding: 10px 20px; /* Adjust padding as needed */
-            border: none;
-            border-radius: 5px; /* Adjust border radius as needed */
-            color: #FFF; /* Text color */
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add shadow */
-            cursor: pointer;
-            text-decoration: none;
-            transition: background-color 0.3s;
-            font-weight: bold;
-        }
-
-        .button-container:hover {
-            background-color: #0056b3; /* Change background color on hover */
-        }
