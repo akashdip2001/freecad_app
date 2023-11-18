@@ -107,10 +107,19 @@
 </div>
 
 <script>
+    // Check if the screen width is greater than a certain threshold (e.g., 600px for mobile)
+    if (window.innerWidth > 600) {
+        // Display an error message
+        document.body.innerHTML = '<div style="font-family: \'Arial\', sans-serif; text-align: center; margin: 0; padding: 50px; background-color: #f0f0f0;">' +
+            '<h2 style="color: #333;">Error</h2>' +
+            '<p style="color: #666; font-size: 1.2em;">Please use a mobile device to access this content.</p>' +
+            '</div>';
+    }
+
     document.querySelector('.back-btn').addEventListener('click', function () {
         document.querySelector('.popup').style.display = 'block';
     });
-    
+
     document.querySelector('.back-btn').addEventListener('click', function () {
         document.querySelector('.popup').style.display = 'block';
 
