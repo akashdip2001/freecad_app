@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Error - Page Not Found</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 6em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .back-btn {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .back-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+        }
+
+        .popup h2 {
+            color: #333;
+        }
+
+        .popup p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+      .popup-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1em;
+    margin-right: 10px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Include box-shadow in transition */
+}
+
+.popup-btn:hover {
+    background-color: #2980b9;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Change shadow on hover if desired */
+    border-color: #000;
+}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>404</h1>
+    <p>Page Not Found<br>@kashdip</p>
+    <a href="#" class="back-btn">Back</a>
+    <a href="https://akashdip2001.github.io/freecad_app/index2.html" class="popup-btn hidden-btn" style="display: none;">Hidden Button</a>    
+</div>
+
+<div class="popup">
+    <h2>❤️Sorry❤️</h2>
+    <p>Sorry, তোমাদের জন্যে অনেক গাল খেতে হয়েছে 🥲 আর পারছি না 🙃<br>    vide সব‌ই আছে, যদি দম থাকে খুজে দেখা 😎</p>
+    <a href="https://www.youtube.com/channel/UCxvmp634YDc41xCWOdvWqoQ" class="popup-btn">back💨</a>
+    <a href="https://akashdip2001.github.io/linktree/" class="popup-btn">contact</a>
+</div>
+
+<script>
+    document.querySelector('.back-btn').addEventListener('click', function () {
+        document.querySelector('.popup').style.display = 'block';
+    });
+    
+    document.querySelector('.back-btn').addEventListener('click', function () {
+        document.querySelector('.popup').style.display = 'block';
+
+        // Add a delay of 10 seconds before showing the hidden button
+        setTimeout(function () {
+            document.querySelector('.hidden-btn').style.display = 'inline-block';
+        }, 10000); // 10000 milliseconds = 10 seconds
+    });
+</script>
+
+</body>
+</html>    
