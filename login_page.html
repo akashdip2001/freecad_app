@@ -64,7 +64,9 @@
 
       // Check if name and email are not empty
       if (name && email) {
-        const userDetails = `Name: ${name}\nEmail: ${email}`;
+      const headline = 'User Details:';
+      const detailsParagraph = `Name: ${name}\nEmail: ${email}`;
+      const userDetails = `${headline}\n\n${detailsParagraph}`;
 
         // Save to text file (client-side only, not recommended for production)
         const blob = new Blob([userDetails], { type: 'text/plain' });
