@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sample Video Platform Layout</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.3/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-800 text-white">
+
+<!-- Top bar with banner image -->
+<div class="bg-cover bg-center h-32" style="background-image: url('https://user-images.githubusercontent.com/81384987/236854925-8284fc07-b28b-41eb-a00d-3b9a1b75cf43.png');">
+  <!-- Insert additional elements here if needed -->
+</div>
+
+<!-- Profile and actions section -->
+<div class="flex items-center justify-between p-4">
+  <div class="flex items-center">
+    <img class="h-24 w-24 rounded-full mr-4" src="https://thumbnails.odycdn.com/optimize/s:200:0/quality:95/plain/https://thumbs.odycdn.com/bf58cf4d7ec52c62f02c52e16f150a5b.webp" alt="Profile image">
+    <div>
+      <h1 class="text-2xl font-bold">AKASHDIP MAHAPATRA</h1>
+      <p>E=mc2</p>
+      <p>everything is physics</p>
+    </div>
+  </div>
+  <!-- Action buttons -->
+  <div>
+    <!-- Make the "Join" button clickable -->
+    <a href="https://www.youtube.com/channel/UCxvmp634YDc41xCWOdvWqoQ" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+      Join
+    </a>
+    <!-- <button class="ml-2 bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">
+      Customize channel
+    </button> -->
+  </div>
+</div>
+
+<!-- Navigation menu -->
+<nav class="flex justify-around bg-gray-900 p-2">
+  <a href="#" class="text-white">Home</a>
+  <a href="https://akashdip2001.github.io/freecad_app/login_page.html" class="text-white">Videos</a>
+  <a href="https://akashdip2001.github.io/linktree/" class="text-white">Contact</a>
+  <!-- More nav items -->
+</nav>
+
+<!-- Main content area -->
+<main class="p-4">
+  <!-- Sections like 'For You', 'Projects', etc. -->
+  <!-- Example section with YouTube video link and autoplay -->
+  <section class="mb-4">
+    <h2 class="text-xl font-semibold mb-2">For You</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <!-- Example thumbnail card with YouTube video link and autoplay -->
+      <div class="bg-gray-700 p-4 rounded-lg">
+        <!-- Replace 'VIDEO_ID' with your actual YouTube video ID -->
+        <iframe width="100%" height="150" src="https://www.youtube.com/embed/IkcPfEoTvcs?autoplay=1" frameborder="0" allowfullscreen></iframe>
+        <h3 class="text-lg font-semibold">Video Title</h3>
+        <p>Additional info...</p>
+      </div>
+      <!-- Repeat for more cards -->
+    </div>
+  </section>
+
+  <!-- Repeat sections for each category with relevant headings and cards -->
+</main>
+
+<!-- Transparent note button -->
+<div class="note-button" onclick="togglePopup()">
+    <i class="fas fa-sticky-note"></i> <!-- Font Awesome note icon -->
+  </div>
+  
+  <!-- Popup -->
+  <div id="popup" class="popup">
+    <h2 class="text-xl font-semibold mb-2">Popup Headline</h2>
+    <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" onclick="closePopupAndRedirect()">
+      Warning msg
+    </button>
+  </div>
+  
+  <script>
+    // JavaScript to toggle the popup visibility
+    function togglePopup() {
+      var popup = document.getElementById('popup');
+      popup.style.display = (popup.style.display === 'none' || popup.style.display === '') ? 'block' : 'none';
+    }
+  
+    // JavaScript to close the popup and redirect
+    function closePopupAndRedirect() {
+      var popup = document.getElementById('popup');
+      popup.style.display = 'none';
+      // Replace 'https://example.com' with the actual URL you want to redirect to
+      window.location.href = 'https://akashdip2001.github.io/freecad_app/note.html';
+    }
+  </script>
+
+<style>
+    /* Custom styles for the note button */
+    .note-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgba(255, 255, 255, 0.3); /* Transparent white */
+      padding: 10px;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* Custom styles for the popup */
+    .popup {
+      display: none;
+      position: fixed;
+      bottom: 70px;
+      right: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+  
+</body>
+</html>
