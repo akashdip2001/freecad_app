@@ -247,5 +247,29 @@
     
     <script src="script.js"></script>
 
+
+    <!-- Add this script at the end of your HTML body -->
+<script>
+  // Function to check if the user is on a desktop device
+  function isDesktop() {
+    return window.innerWidth > 768; // Adjust the width based on your design
+  }
+
+  // Function to display the warning message
+  function displayDesktopWarning() {
+    var warningContainer = document.createElement('div');
+    warningContainer.id = 'desktop-warning';
+    warningContainer.innerHTML = '<p>This page is best viewed on a mobile device. Please switch to a mobile device for optimal experience. @akashdip</p>';
+    document.body.insertBefore(warningContainer, document.body.firstChild);
+  }
+
+  // Check if the user is on a desktop and display the warning if true
+  window.addEventListener('DOMContentLoaded', function () {
+    if (isDesktop()) {
+      displayDesktopWarning();
+    }
+  });
+</script>
+
 </body>
 </html>
