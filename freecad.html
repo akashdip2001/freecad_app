@@ -259,8 +259,14 @@
   function displayDesktopWarning() {
     var warningContainer = document.createElement('div');
     warningContainer.id = 'desktop-warning';
-    warningContainer.innerHTML = '<p>This page is best viewed on a mobile device. Please switch to a mobile device for optimal experience. @akashdip</p>';
+    warningContainer.innerHTML = '<p>This page is best viewed on a mobile device. Please switch to a mobile device for optimal experience. @kashdip_mahapatra</p>';
+
+    // Append the warning container to the body
     document.body.insertBefore(warningContainer, document.body.firstChild);
+
+    // Display a popup
+    var popupMessage = 'This page is best viewed on a mobile device. Please switch to a mobile device for optimal experience. @kashdip_mahapatra';
+    alert(popupMessage);
   }
 
   // Check if the user is on a desktop and display the warning if true
@@ -270,6 +276,7 @@
     }
   });
 </script>
+
 
 </body>
 </html>
