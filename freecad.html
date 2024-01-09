@@ -12,6 +12,7 @@
             width: 100%;
             max-width: 800px; /* Adjust as needed */
             margin: 0 auto; /* Center the video container */
+            overflow: hidden;
         }
 
         /* Style the transparent layers */
@@ -48,9 +49,9 @@
         /* Apply styles for rotated mobile screens */
         @media screen and (max-width: 768px) and (orientation: landscape) {
             .video-container {
-                width: 100%;
+                width: 100vw;
+                height: 56.25vw; /* 16:9 aspect ratio */
                 max-width: none;
-                height: 100vh;
             }
         }
 
