@@ -106,8 +106,7 @@
                     'controls': 0, // Disable YouTube default controls
                     'disablekb': 1, // Disable keyboard controls
                     'showinfo': 0, // Hide video information
-                    'modestbranding': 1, // Hide YouTube logo
-                    'fs': 0 // Disable fullscreen button in controls
+                    'modestbranding': 1 // Hide YouTube logo
                 },
                 events: {
                     'onReady': onPlayerReady
@@ -136,10 +135,15 @@
         }
 
         function toggleFullScreen() {
-            if (player.isFullscreen()) {
-                player.exitFullscreen();
-            } else {
-                player.playVideo(); // Autoplay to trigger fullscreen
+            var elem = document.getElementById('player');
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) { /* Firefox */
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE/Edge */
+                elem.msRequestFullscreen();
             }
         }
     </script>
