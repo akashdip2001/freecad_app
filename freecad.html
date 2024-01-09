@@ -51,6 +51,7 @@
         <h2> Play list</h2>
 
         <div class="video-container">
+            <!-- Placeholder for the video -->
             <div id="player"></div>
             <div class="custom-controls">
                 <button onclick="playPause()">Play/Pause</button>
@@ -121,4 +122,18 @@
                 player.pauseVideo();
             } else {
                 player.playVideo();
-           
+            }
+        }
+
+        function muteUnmute() {
+            if (player.isMuted()) {
+                player.unMute();
+            } else {
+                player.mute();
+            }
+        }
+    </script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+</body>
+
+</html>
