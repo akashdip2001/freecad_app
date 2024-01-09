@@ -1,71 +1,96 @@
+Certainly! Here's the complete HTML file with embedded CSS and JavaScript:
+
+```html
 <!DOCTYPE html>
 <html>
 
 <head>
     <title>FreeCAD playlist</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <style>
-    /* Style the container to position the video and controls */
-    .video-container {
-        position: relative;
-        width: 100%;
-        max-width: 100vw;
-        margin: 0 auto; /* Center the video container */
-        overflow: hidden;
-    }
-
-    /* Style the transparent layers */
-    .top-layer,
-    .bottom-layer {
-        position: absolute;
-        left: 0;
-        right: 0;
-        height: 50px;
-        background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
-    }
-
-    .top-layer {
-        top: 0;
-    }
-
-    .bottom-layer {
-        bottom: 0;
-    }
-
-    /* Style the custom controls */
-    .custom-controls {
-        position: absolute;
-        bottom: 10px;
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: center;
-        background-color: rgba(0, 0, 0, 0.7);
-        padding: 10px;
-        color: white;
-    }
-
-    /* Style individual control buttons */
-    .custom-controls button {
-        background: none;
-        border: none;
-        margin: 0 10px;
-        color: white;
-        cursor: pointer;
-    }
-
-    /* Apply styles for rotated mobile screens */
-    @media screen and (max-width: 768px) and (orientation: landscape) {
-        .video-container {
-            width: 100vw;
-            height: 56.25vw; /* 16:9 aspect ratio */
-            max-width: none;
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
         }
-    }
-</style>
 
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        #sidebar {
+            float: left;
+            width: 20%;
+            background-color: #f1f1f1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #videos {
+            float: left;
+            width: 60%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        footer {
+            clear: both;
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 100vw;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .top-layer,
+        .bottom-layer {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+        }
+
+        .top-layer {
+            top: 0;
+        }
+
+        .bottom-layer {
+            bottom: 0;
+        }
+
+        .custom-controls {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            color: white;
+        }
+
+        .custom-controls button {
+            background: none;
+            border: none;
+            margin: 0 10px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -82,7 +107,6 @@
         <h2> Play list</h2>
 
         <div class="video-container">
-            <!-- Transparent layers -->
             <div class="top-layer"></div>
             <div id="player"></div>
             <div class="bottom-layer"></div>
@@ -90,12 +114,8 @@
             <div class="custom-controls">
                 <button onclick="playPause()">Play/Pause</button>
                 <button onclick="muteUnmute()">Mute/Unmute</button>
-                <!-- Add more buttons or controls as needed -->
             </div>
         </div>
-
-        <!-- Add more video cards as needed -->
-        <!-- ... -->
 
         <h2>Thanks for installing this app, if you are uncomfortable to play videos in this app - click the YouTube button, this app directly connects to those videos, which you can't see on YouTube</h2>
 
@@ -103,8 +123,6 @@
                 <span> help</span>
             </a>
         </p>
-
-        <!-- Styles for the image slider -->
 
         <div class="slider-container">
             <!-- ... -->
@@ -126,7 +144,6 @@
         </section>
     </footer>
 
-    <script src="script.js"></script>
     <script>
         var player;
 
@@ -136,10 +153,10 @@
                 width: '640',
                 videoId: 'Dn6qoR2WmFU', // Replace with your YouTube video ID
                 playerVars: {
-                    'controls': 0, // Disable YouTube default controls
-                    'disablekb': 1, // Disable keyboard controls
-                    'showinfo': 0, // Hide video information
-                    'modestbranding': 1 // Hide YouTube logo
+                    'controls': 0,
+                    'disablekb': 1,
+                    'showinfo': 0,
+                    'modestbranding': 1
                 },
                 events: {
                     'onReady': onPlayerReady
@@ -152,10 +169,22 @@
         }
 
         function playPause() {
+            var topLayer = document.querySelector('.top-layer');
+            var bottomLayer = document.querySelector('.bottom-layer');
+
             if (player.getPlayerState() == YT.PlayerState.PLAYING) {
                 player.pauseVideo();
+                topLayer.style.display = 'block';
+                bottomLayer.style.display = 'block';
             } else {
                 player.playVideo();
+                topLayer.style.display = 'none';
+                bottomLayer.style.display = 'none';
+
+                setTimeout(function () {
+                    topLayer.style.display = 'block';
+                    bottomLayer.style.display = 'block';
+                }, 2000);
             }
         }
 
@@ -171,3 +200,6 @@
 </body>
 
 </html>
+```
+
+This file includes the HTML structure, embedded CSS, and JavaScript. Please make sure to replace the videoId in the `onYouTubeIframeAPIReady` function with the actual ID of your YouTube video.
