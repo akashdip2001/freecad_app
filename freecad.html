@@ -13,12 +13,6 @@
             max-width: 800px; /* Adjust as needed */
         }
 
-        /* Style the video element without default controls */
-        iframe {
-            width: 100%;
-            height: auto;
-        }
-
         /* Style the custom controls */
         .custom-controls {
             position: absolute;
@@ -57,14 +51,12 @@
         <h2> Play list</h2>
 
         <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/Dn6qoR2WmFU" frameborder="0" allowfullscreen></iframe>
+            <div id="player"></div>
             <div class="custom-controls">
                 <button onclick="playPause()">Play/Pause</button>
                 <button onclick="muteUnmute()">Mute/Unmute</button>
                 <!-- Add more buttons or controls as needed -->
             </div>
-            <h3>How to use FreeCAD #learnfreecad, #freecad #tutorial</h3>
-            <a class="u-link" href="https://akashdip2001.github.io/freecad_app/" target="_blank">full screen</a>
         </div>
 
         <!-- Add more video cards as needed -->
@@ -100,57 +92,47 @@
     </footer>
 
     <script src="script.js"></script>
-
-    <!-- popup -->
     <script>
-        // Function to create a custom modal
-        function createCustomModal(message) {
-            var modalContainer = document.createElement('div');
-            modalContainer.id = 'custom-modal';
-            modalContainer.innerHTML = '<div class="modal-content"><p>' + message + '</p></div>';
+        var player;
 
-            // Append the modal container to the body
-            document.body.insertBefore(modalContainer, document.body.firstChild);
-
-            // Apply some styles to the modal for better visibility
-            var styles = document.createElement('style');
-            styles.innerHTML = `
-          #custom-modal {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            padding: 20px;
-            border: 2px solid #333;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            z-index: 9999;
-          }
-          .modal-content {
-            font-size: 20px; /* Adjust the text size as needed */
-          }
-        `;
-            document.head.appendChild(styles);
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '360',
+                width: '640',
+                videoId: 'Dn6qoR2WmFU', // Replace with your YouTube video ID
+                playerVars: {
+                    'controls': 0, // Disable YouTube default controls
+                    'disablekb': 1, // Disable keyboard controls
+                    'showinfo': 0, // Hide video information
+                    'modestbranding': 1 // Hide YouTube logo
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
         }
 
-        // Function to check if the user is on a desktop device
-        function isDesktop() {
-            return window.innerWidth > 768; // Adjust the width based on your design
+        function onPlayerReady(event) {
+            // Player is ready to receive commands.
         }
 
-        // Function to display the warning message
-        function displayDesktopWarning() {
-            var message = '❌ ⚠️ This page is best viewed on a mobile device. Please switch to a mobile device for optimal experience.⚠️ @kashdip_mahapatra ❌';
-            createCustomModal(message);
-        }
-
-        // Check if the user is on a desktop and display the warning if true
-        window.addEventListener('DOMContentLoaded', function () {
-            if (isDesktop()) {
-                displayDesktopWarning();
+        function playPause() {
+            if (player.getPlayerState() == YT.PlayerState.PLAYING) {
+                player.pauseVideo();
+            } else {
+                player.playVideo();
             }
-        });
+        }
+
+        function muteUnmute() {
+            if (player.isMuted()) {
+                player.unMute();
+            } else {
+                player.mute();
+            }
+        }
     </script>
+    <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 
 </html>
