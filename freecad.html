@@ -11,6 +11,7 @@
             position: relative;
             width: 100%;
             max-width: 800px; /* Adjust as needed */
+            margin: 0 auto; /* Center the video container */
         }
 
         /* Style the transparent layers */
@@ -44,10 +45,13 @@
             color: white;
         }
 
-        /* Apply styles for fullscreen mode */
-        .video-container:fullscreen .top-layer,
-        .video-container:fullscreen .bottom-layer {
-            height: 0; /* Hide the transparent layers in fullscreen */
+        /* Apply styles for rotated mobile screens */
+        @media screen and (max-width: 768px) and (orientation: landscape) {
+            .video-container {
+                width: 100%;
+                max-width: none;
+                height: 100vh;
+            }
         }
 
         /* Style individual control buttons */
@@ -83,7 +87,6 @@
             <div class="custom-controls">
                 <button onclick="playPause()">Play/Pause</button>
                 <button onclick="muteUnmute()">Mute/Unmute</button>
-                <button onclick="toggleFullScreen()">Fullscreen</button>
                 <!-- Add more buttons or controls as needed -->
             </div>
         </div>
@@ -158,19 +161,6 @@
                 player.unMute();
             } else {
                 player.mute();
-            }
-        }
-
-        function toggleFullScreen() {
-            var elem = document.getElementById('player');
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen();
-            } else if (elem.mozRequestFullScreen) { /* Firefox */
-                elem.mozRequestFullScreen();
-            } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-                elem.webkitRequestFullscreen();
-            } else if (elem.msRequestFullscreen) { /* IE/Edge */
-                elem.msRequestFullscreen();
             }
         }
     </script>
