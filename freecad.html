@@ -13,6 +13,24 @@
             max-width: 800px; /* Adjust as needed */
         }
 
+        /* Style the transparent layers */
+        .top-layer,
+        .bottom-layer {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+        }
+
+        .top-layer {
+            top: 0;
+        }
+
+        .bottom-layer {
+            bottom: 0;
+        }
+
         /* Style the custom controls */
         .custom-controls {
             position: absolute;
@@ -51,8 +69,11 @@
         <h2> Play list</h2>
 
         <div class="video-container">
-            <!-- Placeholder for the video -->
+            <!-- Transparent layers -->
+            <div class="top-layer"></div>
             <div id="player"></div>
+            <div class="bottom-layer"></div>
+
             <div class="custom-controls">
                 <button onclick="playPause()">Play/Pause</button>
                 <button onclick="muteUnmute()">Mute/Unmute</button>
