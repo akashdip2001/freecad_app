@@ -44,6 +44,12 @@
             color: white;
         }
 
+        /* Apply styles for fullscreen mode */
+        .video-container:fullscreen .top-layer,
+        .video-container:fullscreen .bottom-layer {
+            height: 0; /* Hide the transparent layers in fullscreen */
+        }
+
         /* Style individual control buttons */
         .custom-controls button {
             background: none;
