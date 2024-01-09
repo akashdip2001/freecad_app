@@ -10,18 +10,9 @@
         .video-container {
             position: relative;
             width: 100%;
-            max-width: 800px; /* Adjust as needed */
+            max-width: 100%; /* Adjust as needed */
             margin: 0 auto; /* Center the video container */
             overflow: hidden;
-            padding-top: 56.25%; /* 16:9 aspect ratio */
-        }
-
-        #player {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
         }
 
         /* Style the transparent layers */
@@ -30,7 +21,7 @@
             position: absolute;
             left: 0;
             right: 0;
-            height: 15px;
+            height: 50px;
             background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
         }
 
@@ -64,6 +55,13 @@
             }
         }
 
+        /* Apply styles for larger width in desktop mode */
+        @media screen and (min-width: 769px) {
+            .video-container {
+                max-width: 80%; /* Adjust as needed */
+            }
+        }
+
         /* Style individual control buttons */
         .custom-controls button {
             background: none;
@@ -76,7 +74,104 @@
 </head>
 
 <body>
-    <!-- ... (remaining HTML code remains the same) ... -->
+    <header>
+        <h1>FreeCAD</h1>
+    </header>
+
+    <aside id="sidebar">
+        <a class="button" href="https://drive.google.com/file/d/1zTxIXV9DimMr-ywz4Qquc07sFyoK5huS/view?usp=drivesdk" target="_blank">Dowload my app - Server 1</a>
+        <a class="button" href="https://www.mediafire.com/file/njc51t2ierhir85/akashdipmahapatraFreeCAD.apk/file" target="_blank">Server 2</a>
+    </aside>
+
+    <section id="videos">
+        <h2> Play list</h2>
+
+        <div class="video-container">
+            <!-- Transparent layers -->
+            <div class="top-layer"></div>
+            <div id="player"></div>
+            <div class="bottom-layer"></div>
+
+            <div class="custom-controls">
+                <button onclick="playPause()">Play/Pause</button>
+                <button onclick="muteUnmute()">Mute/Unmute</button>
+                <!-- Add more buttons or controls as needed -->
+            </div>
+        </div>
+
+        <!-- Add more video cards as needed -->
+        <!-- ... -->
+
+        <h2>Thanks for installing this app, if you are uncomfortable to play videos in this app - click the YouTube button, this app directly connects to those videos, which you can't see on YouTube</h2>
+
+        <p>To see the updates inside the app - please clear Data from settings & open the app <a class="u-link" href="https://akashdip2001.github.io/404/" target="_blank">
+                <span> help</span>
+            </a>
+        </p>
+
+        <!-- Styles for the image slider -->
+
+        <div class="slider-container">
+            <!-- ... -->
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 My YouTube Channel</p>
+        <section class="u-backlink u-clearfix u-grey-80">
+            <a class="u-link" href="https://www.youtube.com/channel/UCxvmp634YDc41xCWOdvWqoQ" target="_blank">
+                <span>YouTube</span>
+            </a>
+            <p class="u-text">
+                <span>@kashdip</span>
+            </p>
+            <a class="u-link" href="https://akashdip2001.github.io/linktree/" target="_blank">
+                <span>contact me </span>
+            </a>
+        </section>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        var player;
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '360',
+                width: '640',
+                videoId: 'Dn6qoR2WmFU', // Replace with your YouTube video ID
+                playerVars: {
+                    'controls': 0, // Disable YouTube default controls
+                    'disablekb': 1, // Disable keyboard controls
+                    'showinfo': 0, // Hide video information
+                    'modestbranding': 1 // Hide YouTube logo
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            // Player is ready to receive commands.
+        }
+
+        function playPause() {
+            if (player.getPlayerState() == YT.PlayerState.PLAYING) {
+                player.pauseVideo();
+            } else {
+                player.playVideo();
+            }
+        }
+
+        function muteUnmute() {
+            if (player.isMuted()) {
+                player.unMute();
+            } else {
+                player.mute();
+            }
+        }
+    </script>
     <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 
