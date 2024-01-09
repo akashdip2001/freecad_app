@@ -13,22 +13,14 @@
             max-width: 800px; /* Adjust as needed */
         }
 
-        /* Style the transparent layers for desktop view */
-        .top-layer,
-        .bottom-layer {
+        /* Style the transparent layer for desktop view */
+        .transparent-layer {
             position: absolute;
+            top: 15px;
             left: 0;
             right: 0;
-            height: 50px;
+            bottom: 15px;
             background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
-        }
-
-        .top-layer {
-            top: 0;
-        }
-
-        .bottom-layer {
-            bottom: 0;
         }
 
         /* Style the custom controls */
@@ -42,18 +34,6 @@
             background-color: rgba(0, 0, 0, 0.7);
             padding: 10px;
             color: white;
-        }
-
-        /* Apply styles for fullscreen mode in desktop view */
-        .video-container:-webkit-full-screen .top-layer,
-        .video-container:-webkit-full-screen .bottom-layer,
-        .video-container:-moz-full-screen .top-layer,
-        .video-container:-moz-full-screen .bottom-layer,
-        .video-container:-ms-fullscreen .top-layer,
-        .video-container:-ms-fullscreen .bottom-layer,
-        .video-container:fullscreen .top-layer,
-        .video-container:fullscreen .bottom-layer {
-            height: 0; /* Hide the transparent layers in fullscreen */
         }
 
         /* Style individual control buttons */
@@ -73,7 +53,7 @@
     </header>
 
     <aside id="sidebar">
-        <a class="button" href="https://drive.google.com/file/d/1zTxIXV9DimMr-ywz4Qquc07sFyoK5huS/view?usp=drivesdk" target="_blank">Dowload my app - Server 1</a>
+        <a class="button" href="https://drive.google.com/file/d/1zTxIXV9DimMr-ywz4Qquc07sFyoK5huS/view?usp=drivesdk" target="_blank">Download my app - Server 1</a>
         <a class="button" href="https://www.mediafire.com/file/njc51t2ierhir85/akashdipmahapatraFreeCAD.apk/file" target="_blank">Server 2</a>
     </aside>
 
@@ -81,10 +61,9 @@
         <h2> Play list</h2>
 
         <div class="video-container">
-            <!-- Transparent layers -->
-            <div class="top-layer"></div>
+            <!-- Transparent layer -->
+            <div class="transparent-layer"></div>
             <div id="player"></div>
-            <div class="bottom-layer"></div>
 
             <div class="custom-controls">
                 <button onclick="playPause()">Play/Pause</button>
