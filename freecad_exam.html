@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>FreeCAD playlist</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* Additional CSS for the specified part */
         body {
             background-color: #253f4b;
             color: #fff;
@@ -38,11 +38,9 @@
             padding: 1rem !important;
         }
 
-        .h-24 {
-            height: 6rem !important;
-        }
-
+        .h-24,
         .w-24 {
+            height: 6rem !important;
             width: 6rem !important;
         }
 
@@ -90,27 +88,24 @@
 
         .video-card {
             /* Add your styles for the video cards here */
-             background-color: #0c161b;
-    padding: 20px; /* Adjust the padding as needed */
-    margin: 10px; /* Adjust the margin as needed */
-    border-radius: 8px; /* Add rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
-
+            background-color: #0c161b;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* Custom styles for the note button */
         .note-button {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: rgba(255, 255, 255, 0.3); /* Transparent white */
+            background-color: rgba(255, 255, 255, 0.3);
             padding: 10px;
             border-radius: 5px;
             color: #fff;
             cursor: pointer;
         }
 
-        /* Custom styles for the popup */
         .popup {
             display: none;
             position: fixed;
@@ -124,17 +119,15 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <h1>FreeCAD</h1>
     </header>
 
-    <!-- Top bar with banner image -->
     <div class="bg-cover bg-center h-32" style="background-image: url('https://user-images.githubusercontent.com/81384987/236854925-8284fc07-b28b-41eb-a00d-3b9a1b75cf43.png');">
-        <!-- Insert additional elements here if needed -->
     </div>
 
-    <!-- Profile and actions section -->
     <div class="flex items-center justify-between p-4">
         <div class="flex items-center">
             <img class="h-24 w-24 rounded-full mr-4" src="https://thumbnails.odycdn.com/optimize/s:200:0/quality:95/plain/https://thumbs.odycdn.com/bf58cf4d7ec52c62f02c52e16f150a5b.webp" alt="Profile image">
@@ -144,23 +137,15 @@
                 <p>E=mc²</p>
             </div>
         </div>
-        <!-- Action buttons -->
         <div class="Action-button">
             <div>
-                <!-- Make the "Join" button clickable -->
                 <a href="https://www.youtube.com/channel/UCxvmp634YDc41xCWOdvWqoQ?sub_confirmation=1" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                     subscribe
                 </a>
-                <!-- <button class="ml-2 bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">
-                    Customize channel
-                </button> -->
             </div>
         </div>
     </div>
 
-    <!-- Rest of your content... -->
-
-    <!-- Styles for the image slider -->
     <div class="slider-container">
          <div class="slider">
             <div class="slide">
@@ -238,7 +223,7 @@
         </div>
     </div>
 
-    <section id="videos">
+        <section id="videos">
         <h2>Play list</h2>
          <div class="video-card">
             <iframe src="https://www.youtube.com/embed/AEapOLzwDlo" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts"></iframe>
@@ -279,12 +264,10 @@
         </div>
     </section>
 
-    <!-- Transparent note button -->
     <div class="note-button" onclick="togglePopup()">
-        <i class="fas fa-sticky-note"></i> <!-- Font Awesome note icon -->
+        <i class="fas fa-sticky-note"></i>
     </div>
 
-    <!-- Popup -->
     <div id="popup" class="popup">
         <h2 class="text-xl font-semibold mb-2">Desktop-inspect remov999</h2>
         <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" onclick="closePopupAndRedirect()">
@@ -293,6 +276,10 @@
         <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded ml-2" onclick="closePopup()">
             Close
         </button>
+        <aside id="sidebar">
+            <a class="button" href="https://drive.google.com/file/d/1zTxIXV9DimMr-ywz4Qquc07sFyoK5huS/view?usp=drivesdk" target="_blank">Download my app - Server 1</a>
+            <a class="button" href="https://www.mediafire.com/file/njc51t2ierhir85/akashdipmahapatraFreeCAD.apk/file" target="_blank">Server 2</a>
+        </aside>
     </div>
 
     <footer>
@@ -313,10 +300,6 @@
     <script src="https://kit.fontawesome.com/your-font-awesome-kit-code.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
     <script>
-        // Additional JavaScript for the specified part
-        // (Paste the JavaScript code provided earlier)
-
-        // Function to toggle the visibility of the popup
         function togglePopup() {
             var popup = document.getElementById("popup");
             if (popup.style.display === "block") {
@@ -326,20 +309,16 @@
             }
         }
 
-        // Function to close the popup and redirect
         function closePopupAndRedirect() {
-            // Perform any necessary actions before redirecting
-            // For example: window.location.href = "your-redirect-url";
             alert("Performing actions before redirecting...");
-            // Closing the popup
             closePopup();
         }
 
-        // Function to close the popup
         function closePopup() {
             var popup = document.getElementById("popup");
             popup.style.display = "none";
         }
     </script>
 </body>
+
 </html>
