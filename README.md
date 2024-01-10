@@ -97,4 +97,64 @@ public class MainActivity extends AppCompatActivity {
 ![webapp dev (1)](https://github.com/akashdip2001/freecad_app/assets/81384987/ce9f6d8e-965e-4aed-970e-28d0fa2babb7)
 ![webapp dev (4)](https://github.com/akashdip2001/freecad_app/assets/81384987/2054e341-77be-413b-aa33-58fa735e574e)
 ![webapp dev (5)](https://github.com/akashdip2001/freecad_app/assets/81384987/7dd4bb0e-4821-4e26-be0b-a5034561bdcb)
+
+# Blur complet page - Desktop mode - Except "Action Button"
+```
+    <script>
+        // Function to check if the user is on a desktop device
+        function isDesktop() {
+            return window.innerWidth > 768; // Adjust the width based on your design
+        }
+
+        // Check if the user is on a desktop and apply backdrop blur with increased intensity if true
+        window.addEventListener('DOMContentLoaded', function () {
+            if (isDesktop()) {
+                document.body.style.filter = "blur(10px)"; // Increase the blur intensity by adjusting the value (e.g., 10px)
+                document.body.style.pointerEvents = "none"; // Disable pointer events on the body
+
+                // Enable pointer events on the Subscribe button
+                var subscribeButton = document.querySelector('.Action-button a');
+                if (subscribeButton) {
+                    subscribeButton.style.pointerEvents = "auto";
+                }
+            }
+        });
+    </script>
+```
+
+# Disable Right Click
+```
+ <script>
+        // Function to disable right-click context menu
+        function disableRightClick(event) {
+            event.preventDefault();
+        }
+
+        // Attach the disableRightClick function to the contextmenu event
+        window.addEventListener('contextmenu', disableRightClick);
+    </script>
+```
+
+# Automatic redirect another site
+```
+<script>
+        // Function to check if the user is on a desktop device
+        function isDesktop() {
+            return window.innerWidth > 768; // Adjust the width based on your design
+        }
+
+        // Function to redirect to another page
+        function redirectToAnotherPage() {
+            window.location.href = 'https://akashdip2001.github.io/404/';
+        }
+
+        // Check if the user is on a desktop and redirect if true
+        window.addEventListener('DOMContentLoaded', function () {
+            if (isDesktop()) {
+                redirectToAnotherPage();
+            }
+        });
+    </script>
+```
+
 ![akashdip Mahapatra 4](https://github.com/akashdip2001/freecad_app/assets/81384987/9c663d1a-3a53-4d47-bdd8-a933bc26001d)
