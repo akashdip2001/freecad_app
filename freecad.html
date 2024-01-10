@@ -18,8 +18,8 @@
 
         /* Style the custom controls */
         .custom-controls {
-            position: absolute;
-            bottom: 10px;
+            position: fixed;
+            bottom: 0;
             left: 0;
             right: 0;
             display: flex;
@@ -27,6 +27,7 @@
             background-color: rgba(0, 0, 0, 0.7);
             padding: 10px;
             color: white;
+            z-index: 1; /* Ensure controls are above the video */
         }
 
         /* Style individual control buttons */
@@ -68,12 +69,6 @@
         <!-- Video Container for YouTube Videos -->
         <div class="video-container" id="video-container"></div>
 
-        <div class="custom-controls">
-            <button onclick="playPause()">Play/Pause</button>
-            <button onclick="muteUnmute()">Mute/Unmute</button>
-            <button onclick="toggleFullScreen()">Full Screen</button>
-        </div>
-
         <!-- Add more video cards as needed -->
         <!-- Example Video Cards -->
         <div class="video-card" data-video-id="Dn6qoR2WmFU"></div>
@@ -106,7 +101,7 @@
 
     <script src="script.js"></script>
     <script>
-        var player;
+        var players = [];
 
         function onYouTubeIframeAPIReady() {
             // Find all video cards and initialize YouTube players
@@ -114,31 +109,52 @@
             videoCards.forEach(function (card) {
                 var videoId = card.dataset.videoId;
                 var playerContainer = document.getElementById('video-container');
+                var videoWrapper = document.createElement('div');
+                videoWrapper.classList.add('video-wrapper');
+
                 var iframe = document.createElement('iframe');
                 iframe.src = 'https://www.youtube.com/embed/' + videoId + '?enablejsapi=1&autoplay=0';
                 iframe.width = '640';
                 iframe.height = '360';
                 iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
                 iframe.sandbox = 'allow-same-origin allow-scripts'; // Add sandbox attribute
-                playerContainer.appendChild(iframe);
+
+                videoWrapper.appendChild(iframe);
+                playerContainer.appendChild(videoWrapper);
+
+                var player = new YT.Player(iframe, {
+                    events: {
+                        'onReady': onPlayerReady
+                    }
+                });
+
+                players.push(player);
             });
         }
 
+        function onPlayerReady(event) {
+            // Player is ready to receive commands.
+        }
+
         function playPause() {
-            var playerState = player.getPlayerState();
-            if (playerState == YT.PlayerState.PLAYING) {
-                player.pauseVideo();
-            } else {
-                player.playVideo();
-            }
+            players.forEach(function (player) {
+                var playerState = player.getPlayerState();
+                if (playerState == YT.PlayerState.PLAYING) {
+                    player.pauseVideo();
+                } else {
+                    player.playVideo();
+                }
+            });
         }
 
         function muteUnmute() {
-            if (player.isMuted()) {
-                player.unMute();
-            } else {
-                player.mute();
-            }
+            players.forEach(function (player) {
+                if (player.isMuted()) {
+                    player.unMute();
+                } else {
+                    player.mute();
+                }
+            });
         }
 
         function toggleFullScreen() {
