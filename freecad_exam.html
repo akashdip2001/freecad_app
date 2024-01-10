@@ -334,37 +334,57 @@
             popup.style.display = "none";
         }
 
-         // Function to check if the user is on a desktop device
-        function isDesktop() {
-            return window.innerWidth > 768; // Adjust the width based on your design
-        }
+         <script>
+    // Function to check if the user is on a desktop device
+    function isDesktop() {
+        return window.innerWidth > 768; // Adjust the width based on your design
+    }
 
-        // Function to display the desktop warning message
-        function displayDesktopWarning() {
-            // Show the warning message only on desktop
-            if (isDesktop()) {
-                var desktopWarning = document.getElementById("desktop-warning");
-                desktopWarning.style.display = "block";
-
-                // Apply backdrop blur
-                document.body.style.filter = "blur(5px)";
-            }
-        }
-
-        // Function to close the desktop warning
-        function closeDesktopWarning() {
-            // Hide the warning message
+    // Function to display the desktop warning message
+    function displayDesktopWarning() {
+        // Show the warning message only on desktop
+        if (isDesktop()) {
             var desktopWarning = document.getElementById("desktop-warning");
-            desktopWarning.style.display = "none";
+            desktopWarning.style.display = "block";
 
-            // Remove backdrop blur
-            document.body.style.filter = "none";
+            // Apply backdrop blur
+            document.body.style.filter = "blur(5px)";
         }
+    }
 
-        // Check if the user is on a desktop and display the warning if true
-        window.addEventListener('DOMContentLoaded', function () {
-            displayDesktopWarning();
-        });
+    // Function to close the desktop warning
+    function closeDesktopWarning() {
+        // Hide the warning message
+        var desktopWarning = document.getElementById("desktop-warning");
+        desktopWarning.style.display = "none";
+
+        // Remove backdrop blur
+        document.body.style.filter = "none";
+    }
+
+    // Check if the user is on a desktop and display the warning if true
+    window.addEventListener('load', function () {
+        displayDesktopWarning();
+    });
+
+    function togglePopup() {
+        var popup = document.getElementById("popup");
+        if (popup.style.display === "block") {
+            popup.style.display = "none";
+        } else {
+            popup.style.display = "block";
+        }
+    }
+
+    function closePopupAndRedirect() {
+        alert("Performing actions before redirecting...");
+        closePopup();
+    }
+
+    function closePopup() {
+        var popup = document.getElementById("popup");
+        popup.style.display = "none";
+    }
     </script>
 </body>
 
