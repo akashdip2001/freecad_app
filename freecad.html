@@ -318,6 +318,36 @@
       displayDesktopWarning();
     }
   });
+
+
+     // Function to check if the user is on a desktop device
+        function isDesktop() {
+            return window.innerWidth > 768; // Adjust the width based on your design
+        }
+
+        // Check if the user is on a desktop and apply backdrop blur with increased intensity if true
+        window.addEventListener('DOMContentLoaded', function () {
+            if (isDesktop()) {
+                document.body.style.filter = "blur(25px)"; // Increase the blur intensity by adjusting the value (e.g., 10px)
+                document.body.style.pointerEvents = "none"; // Disable pointer events on the body
+
+                // Enable pointer events on the Subscribe button
+                var subscribeButton = document.querySelector('.Action-button a');
+                if (subscribeButton) {
+                    subscribeButton.style.pointerEvents = "auto";
+                }
+            }
+        });
+
+
+        // Function to disable right-click context menu
+        function disableRightClick(event) {
+            event.preventDefault();
+        }
+
+        // Attach the disableRightClick function to the contextmenu event
+        window.addEventListener('contextmenu', disableRightClick);
+   
 </script>
 
 
