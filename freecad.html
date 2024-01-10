@@ -65,17 +65,19 @@
     <section id="videos">
         <h2> Play list</h2>
 
-        <div class="video-container">
-            <div id="player"></div>
+        <!-- Video Container for YouTube Videos -->
+        <div class="video-container" id="video-container"></div>
 
-            <div class="custom-controls">
-                <button onclick="playPause()">Play/Pause</button>
-                <button onclick="muteUnmute()">Mute/Unmute</button>
-                <button onclick="toggleFullScreen()">Full Screen</button>
-            </div>
+        <div class="custom-controls">
+            <button onclick="playPause()">Play/Pause</button>
+            <button onclick="muteUnmute()">Mute/Unmute</button>
+            <button onclick="toggleFullScreen()">Full Screen</button>
         </div>
 
         <!-- Add more video cards as needed -->
+        <!-- Example Video Cards -->
+        <div class="video-card" data-video-id="Dn6qoR2WmFU"></div>
+        <div class="video-card" data-video-id="AnotherVideoID"></div>
         <!-- ... -->
 
         <h2>Thanks for installing this app, if you are uncomfortable to play videos in this app - click the YouTube
@@ -107,28 +109,24 @@
         var player;
 
         function onYouTubeIframeAPIReady() {
-            player = new YT.Player('player', {
-                height: '360',
-                width: '640',
-                videoId: 'Dn6qoR2WmFU', // Replace with your YouTube video ID
-                playerVars: {
-                    'controls': 0, // Disable YouTube default controls
-                    'disablekb': 1, // Disable keyboard controls
-                    'showinfo': 0, // Hide video information
-                    'modestbranding': 1 // Hide YouTube logo
-                },
-                events: {
-                    'onReady': onPlayerReady
-                }
+            // Find all video cards and initialize YouTube players
+            var videoCards = document.querySelectorAll('.video-card');
+            videoCards.forEach(function (card) {
+                var videoId = card.dataset.videoId;
+                var playerContainer = document.getElementById('video-container');
+                var iframe = document.createElement('iframe');
+                iframe.src = 'https://www.youtube.com/embed/' + videoId + '?enablejsapi=1&autoplay=0';
+                iframe.width = '640';
+                iframe.height = '360';
+                iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
+                iframe.sandbox = 'allow-same-origin allow-scripts'; // Add sandbox attribute
+                playerContainer.appendChild(iframe);
             });
         }
 
-        function onPlayerReady(event) {
-            // Player is ready to receive commands.
-        }
-
         function playPause() {
-            if (player.getPlayerState() == YT.PlayerState.PLAYING) {
+            var playerState = player.getPlayerState();
+            if (playerState == YT.PlayerState.PLAYING) {
                 player.pauseVideo();
             } else {
                 player.playVideo();
@@ -144,7 +142,7 @@
         }
 
         function toggleFullScreen() {
-            var elem = document.getElementById('player');
+            var elem = document.getElementById('video-container');
             if (elem.requestFullscreen) {
                 elem.requestFullscreen();
             } else if (elem.mozRequestFullScreen) {
