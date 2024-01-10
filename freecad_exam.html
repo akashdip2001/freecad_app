@@ -335,14 +335,17 @@
         window.addEventListener('DOMContentLoaded', function () {
             if (isDesktop()) {
                 document.body.style.filter = "blur(10px)"; // Increase the blur intensity by adjusting the value (e.g., 10px)
+                document.body.style.pointerEvents = "none"; // Disable pointer events on the body
 
-                // Apply specific styles to make the "Subscribe" button and its container visible
-                var actionButton = document.querySelector('.Action-button');
+                // Style the Subscribe button for better visibility
                 var subscribeButton = document.querySelector('.Action-button a');
-
-                if (actionButton && subscribeButton) {
-                    actionButton.style.filter = "blur(0)"; // Remove blur from the button container
-                    subscribeButton.style.pointerEvents = "auto"; // Enable pointer events on the "Subscribe" button
+                if (subscribeButton) {
+                    subscribeButton.style.pointerEvents = "auto";
+                    subscribeButton.style.background = "#e53e3e"; // Customize the background color
+                    subscribeButton.style.color = "#fff"; // Customize the text color
+                    subscribeButton.style.fontWeight = "bold"; // Optionally set font weight
+                    subscribeButton.style.padding = "10px"; // Optionally adjust padding
+                    // Add any additional styling as needed
                 }
             }
         });
