@@ -5,66 +5,47 @@
     <title>FreeCAD playlist</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <style>
-    /* Style the container to position the video and controls */
-    .video-container {
-        position: relative;
-        width: 100%;
-        max-width: 100vw;
-        margin: 0 auto; /* Center the video container */
-        overflow: hidden;
-    }
-
-    /* Style the transparent layers */
-    .top-layer,
-    .bottom-layer {
-        position: absolute;
-        left: 0;
-        right: 0;
-        height: 50px;
-        background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
-    }
-
-    .top-layer {
-        top: 0;
-    }
-
-    .bottom-layer {
-        bottom: 0;
-    }
-
-    /* Style the custom controls */
-    .custom-controls {
-        position: absolute;
-        bottom: 10px;
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: center;
-        background-color: rgba(0, 0, 0, 0.7);
-        padding: 10px;
-        color: white;
-    }
-
-    /* Style individual control buttons */
-    .custom-controls button {
-        background: none;
-        border: none;
-        margin: 0 10px;
-        color: white;
-        cursor: pointer;
-    }
-
-    /* Apply styles for rotated mobile screens */
-    @media screen and (max-width: 768px) and (orientation: landscape) {
+        /* Style the container to position the video and controls */
         .video-container {
-            width: 100vw;
-            height: 56.25vw; /* 16:9 aspect ratio */
-            max-width: none;
+            position: relative;
+            width: 100%;
+            max-width: 100vw;
+            margin: 0 auto; /* Center the video container */
+            overflow: hidden;
         }
-    }
-</style>
+
+        /* Style the custom controls */
+        .custom-controls {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            color: white;
+        }
+
+        /* Style individual control buttons */
+        .custom-controls button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Apply styles for rotated mobile screens */
+        @media screen and (max-width: 768px) and (orientation: landscape) {
+            .video-container {
+                width: 100vw;
+                height: 56.25vw; /* 16:9 aspect ratio */
+                max-width: none;
+            }
+        }
+    </style>
 
 </head>
 
@@ -74,35 +55,34 @@
     </header>
 
     <aside id="sidebar">
-        <a class="button" href="https://drive.google.com/file/d/1zTxIXV9DimMr-ywz4Qquc07sFyoK5huS/view?usp=drivesdk" target="_blank">Dowload my app - Server 1</a>
-        <a class="button" href="https://www.mediafire.com/file/njc51t2ierhir85/akashdipmahapatraFreeCAD.apk/file" target="_blank">Server 2</a>
+        <a class="button" href="https://drive.google.com/file/d/1zTxIXV9DimMr-ywz4Qquc07sFyoK5huS/view?usp=drivesdk"
+            target="_blank">Dowload my app - Server 1</a>
+        <a class="button"
+            href="https://www.mediafire.com/file/njc51t2ierhir85/akashdipmahapatraFreeCAD.apk/file" target="_blank">Server
+            2</a>
     </aside>
 
     <section id="videos">
         <h2> Play list</h2>
 
         <div class="video-container">
-            <!-- Transparent layers -->
-            <div class="top-layer"></div>
             <div id="player"></div>
-            <div class="bottom-layer"></div>
 
             <div class="custom-controls">
                 <button onclick="playPause()">Play/Pause</button>
                 <button onclick="muteUnmute()">Mute/Unmute</button>
-                <!-- Add more buttons or controls as needed -->
+                <button onclick="toggleFullScreen()">Full Screen</button>
             </div>
         </div>
 
         <!-- Add more video cards as needed -->
         <!-- ... -->
 
-        <h2>Thanks for installing this app, if you are uncomfortable to play videos in this app - click the YouTube button, this app directly connects to those videos, which you can't see on YouTube</h2>
+        <h2>Thanks for installing this app, if you are uncomfortable to play videos in this app - click the YouTube
+            button, this app directly connects to those videos, which you can't see on YouTube</h2>
 
-        <p>To see the updates inside the app - please clear Data from settings & open the app <a class="u-link" href="https://akashdip2001.github.io/404/" target="_blank">
-                <span> help</span>
-            </a>
-        </p>
+        <p>To see the updates inside the app - please clear Data from settings & open the app <a class="u-link"
+                href="https://akashdip2001.github.io/404/" target="_blank"> <span> help</span> </a> </p>
 
         <!-- Styles for the image slider -->
 
@@ -114,14 +94,10 @@
     <footer>
         <p>&copy; 2023 My YouTube Channel</p>
         <section class="u-backlink u-clearfix u-grey-80">
-            <a class="u-link" href="https://www.youtube.com/channel/UCxvmp634YDc41xCWOdvWqoQ" target="_blank">
-                <span>YouTube</span>
+            <a class="u-link" href="https://www.youtube.com/channel/UCxvmp634YDc41xCWOdvWqoQ" target="_blank"> <span>YouTube</span>
             </a>
-            <p class="u-text">
-                <span>@kashdip</span>
-            </p>
-            <a class="u-link" href="https://akashdip2001.github.io/linktree/" target="_blank">
-                <span>contact me </span>
+            <p class="u-text"> <span>@kashdip</span> </p>
+            <a class="u-link" href="https://akashdip2001.github.io/linktree/" target="_blank"> <span>contact me </span>
             </a>
         </section>
     </footer>
@@ -130,55 +106,55 @@
     <script>
         var player;
 
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-        height: '360',
-        width: '640',
-        videoId: 'Dn6qoR2WmFU', // Replace with your YouTube video ID
-        playerVars: {
-            'controls': 0, // Disable YouTube default controls
-            'disablekb': 1, // Disable keyboard controls
-            'showinfo': 0, // Hide video information
-            'modestbranding': 1 // Hide YouTube logo
-        },
-        events: {
-            'onReady': onPlayerReady
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '360',
+                width: '640',
+                videoId: 'Dn6qoR2WmFU', // Replace with your YouTube video ID
+                playerVars: {
+                    'controls': 0, // Disable YouTube default controls
+                    'disablekb': 1, // Disable keyboard controls
+                    'showinfo': 0, // Hide video information
+                    'modestbranding': 1 // Hide YouTube logo
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
         }
-    });
-}
 
-function onPlayerReady(event) {
-    // Player is ready to receive commands.
-}
+        function onPlayerReady(event) {
+            // Player is ready to receive commands.
+        }
 
-function playPause() {
-    var topLayer = document.querySelector('.top-layer');
-    var bottomLayer = document.querySelector('.bottom-layer');
+        function playPause() {
+            if (player.getPlayerState() == YT.PlayerState.PLAYING) {
+                player.pauseVideo();
+            } else {
+                player.playVideo();
+            }
+        }
 
-    if (player.getPlayerState() == YT.PlayerState.PLAYING) {
-        player.pauseVideo();
-        topLayer.style.display = 'block';
-        bottomLayer.style.display = 'block';
-    } else {
-        player.playVideo();
-        topLayer.style.display = 'none';
-        bottomLayer.style.display = 'none';
+        function muteUnmute() {
+            if (player.isMuted()) {
+                player.unMute();
+            } else {
+                player.mute();
+            }
+        }
 
-        // Set a delay of 2000 milliseconds (2 seconds) before showing the layers again
-        setTimeout(function () {
-            topLayer.style.display = 'block';
-            bottomLayer.style.display = 'block';
-        }, 2000);
-    }
-}
-
-function muteUnmute() {
-    if (player.isMuted()) {
-        player.unMute();
-    } else {
-        player.mute();
-    }
-}
+        function toggleFullScreen() {
+            var elem = document.getElementById('player');
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) {
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) {
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+                elem.msRequestFullscreen();
+            }
+        }
     </script>
     <script src="https://www.youtube.com/iframe_api"></script>
 </body>
