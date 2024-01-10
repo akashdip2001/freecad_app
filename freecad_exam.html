@@ -334,15 +334,15 @@
             popup.style.display = "none";
         }
 
-       // Function to detect if the user is on a mobile device
-        function isMobileDevice() {
-            return window.innerWidth <= 768; // You may adjust the width threshold based on your design
+       // Function to check if the user is on a desktop device
+        function isDesktop() {
+            return window.innerWidth > 768; // Adjust the width based on your design
         }
 
         // Function to display the desktop warning message
         function displayDesktopWarning() {
             // Show the warning message only on desktop
-            if (!isMobileDevice()) {
+            if (isDesktop()) {
                 var desktopWarning = document.getElementById("desktop-warning");
                 desktopWarning.style.display = "block";
 
@@ -361,10 +361,10 @@
             document.body.style.filter = "none";
         }
 
-        // Call the displayDesktopWarning function when the page loads
-        window.onload = function () {
+        // Check if the user is on a desktop and display the warning if true
+        window.addEventListener('DOMContentLoaded', function () {
             displayDesktopWarning();
-        };
+        });
     </script>
 </body>
 
