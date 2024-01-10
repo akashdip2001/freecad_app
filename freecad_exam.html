@@ -302,6 +302,19 @@
         </section>
     </footer>
 
+
+    <!-- Custom warning popup and background blur -->
+    <div id="custom-popup" class="custom-popup hidden">
+        <p class="text-lg font-semibold mb-4">This is a custom warning message.</p>
+        <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded shadow" onclick="closeCustomPopupAndRedirect()">
+            Continue
+        </button>
+        <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded ml-2 shadow" onclick="closeCustomPopup()">
+            Cancel
+        </button>
+    </div>
+    
+
     <script src="https://kit.fontawesome.com/your-font-awesome-kit-code.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
     <script>
@@ -322,6 +335,37 @@
         function closePopup() {
             var popup = document.getElementById("popup");
             popup.style.display = "none";
+        }
+
+        // Function to toggle the visibility of the custom popup
+        function toggleCustomPopup() {
+            var customPopup = document.getElementById("custom-popup");
+            if (customPopup.style.display === "block") {
+                customPopup.style.display = "none";
+                // Remove backdrop blur when closing popup
+                document.body.style.filter = "none";
+            } else {
+                customPopup.style.display = "block";
+                // Apply backdrop blur when opening popup
+                document.body.style.filter = "blur(5px)";
+            }
+        }
+
+        // Function to close the custom popup and redirect
+        function closeCustomPopupAndRedirect() {
+            // Perform any necessary actions before redirecting
+            // For example: window.location.href = "your-redirect-url";
+            alert("Performing actions before redirecting...");
+            // Closing the custom popup
+            toggleCustomPopup();
+        }
+
+        // Function to close the custom popup
+        function closeCustomPopup() {
+            var customPopup = document.getElementById("custom-popup");
+            customPopup.style.display = "none";
+            // Remove backdrop blur when closing popup
+            document.body.style.filter = "none";
         }
     </script>
 </body>
