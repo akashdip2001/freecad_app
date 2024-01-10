@@ -303,9 +303,8 @@
     </footer>
 
 
-    <!-- Custom warning popup and background blur -->
-     <div id="desktop-warning" class="desktop-warning hidden">
-        <p class="text-lg font-semibold mb-4">⚠️ This page is best viewed on a mobile device. Please switch to a mobile device for optimal experience. ⚠️</p>
+    <div id="desktop-warning" class="desktop-warning hidden">
+        <p class="text-lg font-semibold mb-4">❌ ⚠️ This page is best viewed on a mobile device. Please switch to a mobile device for optimal experience. ⚠️ @kashdip_mahapatra ❌</p>
         <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded shadow" onclick="closeDesktopWarning()">
             Continue
         </button>
@@ -334,7 +333,7 @@
             popup.style.display = "none";
         }
 
-       // Function to check if the user is on a desktop device
+     // Function to check if the user is on a desktop device
         function isDesktop() {
             return window.innerWidth > 768; // Adjust the width based on your design
         }
@@ -363,7 +362,9 @@
 
         // Check if the user is on a desktop and display the warning if true
         window.addEventListener('DOMContentLoaded', function () {
-            displayDesktopWarning();
+            if (isDesktop()) {
+                displayDesktopWarning();
+            }
         });
     </script>
 </body>
