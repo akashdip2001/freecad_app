@@ -1,7 +1,7 @@
 # freecad_app 
 
 
-|🍭 [Downlod-app 🍭](https://www.mediafire.com/file/njc51t2ierhir85/akashdipmahapatraFreeCAD.apk/file) |🐥 [in app interface 🐥](https://akashdip2001.github.io/freecad_app/) |❌ [videos](https://engineering-aot.github.io/custom-video-player/freecad_exam.html) ❌|
+|🍭 [Downlod-app](https://www.mediafire.com/file/njc51t2ierhir85/akashdipmahapatraFreeCAD.apk/file) 🍭|🐥 [in app interface](https://akashdip2001.github.io/freecad_app/) 🐥|❌ [videos](https://engineering-aot.github.io/custom-video-player/freecad_exam.html) ❌|
 |-------------------- |-------------------- |-------------------- |
 
 ![webapp dev (2)](https://github.com/akashdip2001/freecad_app/assets/81384987/beec1827-4afe-4394-9394-941db53c43db)
