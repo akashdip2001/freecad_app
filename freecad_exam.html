@@ -303,15 +303,6 @@
     </footer>
 
 
-    <!-- Desktop Warning -->
-    <div id="desktop-warning" class="desktop-warning hidden">
-        <p class="text-lg font-semibold mb-4">❌ ⚠️ This page is best viewed on a mobile device. Please switch to a mobile device for optimal experience. ⚠️ @kashdip_mahapatra ❌</p>
-        <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded shadow" onclick="closeDesktopWarning()">
-            Continue
-        </button>
-    </div>
-
-
     <script src="https://kit.fontawesome.com/your-font-awesome-kit-code.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
     <script>
@@ -335,58 +326,17 @@
         }
 
         
-    // Function to check if the user is on a desktop device
-    function isDesktop() {
-        return window.innerWidth > 768; // Adjust the width based on your design
-    }
-
-    // Function to display the desktop warning message
-    function displayDesktopWarning() {
-        // Show the warning message only on desktop
-        if (isDesktop()) {
-            var desktopWarning = document.getElementById("desktop-warning");
-            desktopWarning.style.display = "block";
-
-            // Apply backdrop blur
-            document.body.style.filter = "blur(5px)";
+        // Function to check if the user is on a desktop device
+        function isDesktop() {
+            return window.innerWidth > 768; // Adjust the width based on your design
         }
-    }
 
-    // Function to close the desktop warning
-   function displayDesktopWarning() {
-    // Show the warning message only on desktop
-    if (isDesktop()) {
-        var desktopWarning = document.getElementById("desktop-warning");
-        desktopWarning.style.display = "block";
-
-        // Apply backdrop blur
-        document.body.style.backdropFilter = "blur(15px)"; // Use backdropFilter for better browser compatibility
-    }
-}
-
-    // Check if the user is on a desktop and display the warning if true
-    window.addEventListener('load', function () {
-        displayDesktopWarning();
-    });
-
-    function togglePopup() {
-        var popup = document.getElementById("popup");
-        if (popup.style.display === "block") {
-            popup.style.display = "none";
-        } else {
-            popup.style.display = "block";
-        }
-    }
-
-    function closePopupAndRedirect() {
-        alert("Performing actions before redirecting...");
-        closePopup();
-    }
-
-    function closePopup() {
-        var popup = document.getElementById("popup");
-        popup.style.display = "none";
-    }
+        // Check if the user is on a desktop and apply backdrop blur if true
+        window.addEventListener('DOMContentLoaded', function () {
+            if (isDesktop()) {
+                document.body.style.filter = "blur(5px)";
+            }
+        });
     </script>
 </body>
 
