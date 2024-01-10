@@ -185,4 +185,13 @@ footer {
     margin-right: 10px;
 }
 
+ /* Add these styles to remove underlines from specific links */
+        .footer a.u-link{
+            text-decoration: none;
+        }
+
+        /* Add any additional styling as needed */
+        .footer a.u-link:hover{
+            /* Add hover styles if desired */
+        }
 
