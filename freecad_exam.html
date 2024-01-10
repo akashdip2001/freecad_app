@@ -334,14 +334,21 @@
             popup.style.display = "none";
         }
 
+       // Function to detect if the user is on a mobile device
+        function isMobileDevice() {
+            return window.innerWidth <= 768; // You may adjust the width threshold based on your design
+        }
+
         // Function to display the desktop warning message
         function displayDesktopWarning() {
-            // Show the warning message
-            var desktopWarning = document.getElementById("desktop-warning");
-            desktopWarning.style.display = "block";
+            // Show the warning message only on desktop
+            if (!isMobileDevice()) {
+                var desktopWarning = document.getElementById("desktop-warning");
+                desktopWarning.style.display = "block";
 
-            // Apply backdrop blur
-            document.body.style.filter = "blur(5px)";
+                // Apply backdrop blur
+                document.body.style.filter = "blur(5px)";
+            }
         }
 
         // Function to close the desktop warning
