@@ -82,6 +82,10 @@
             border-radius: 0.25rem !important;
         }
 
+        .shadow {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
         .slider-container {
             /* Add your styles for the image slider container here */
         }
@@ -104,6 +108,7 @@
             border-radius: 5px;
             color: #fff;
             cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .popup {
@@ -130,8 +135,8 @@
 
     <div class="flex items-center justify-between p-4">
         <div class="flex items-center">
-            <img class="h-24 w-24 rounded-full mr-4" src="https://thumbnails.odycdn.com/optimize/s:200:0/quality:95/plain/https://thumbs.odycdn.com/bf58cf4d7ec52c62f02c52e16f150a5b.webp" alt="Profile image">
-            <div>
+            <img class="h-24 w-24 rounded-full mr-4 shadow" src="https://thumbnails.odycdn.com/optimize/s:200:0/quality:95/plain/https://thumbs.odycdn.com/bf58cf4d7ec52c62f02c52e16f150a5b.webp" alt="Profile image">
+            <div class="shadow">
                 <h1 class="text-2xl font-bold">AKASHDIP MAHAPATRA</h1>
                 <p>"everything is physics bro"</p>
                 <p>E=mc²</p>
@@ -139,7 +144,7 @@
         </div>
         <div class="Action-button">
             <div>
-                <a href="https://www.youtube.com/channel/UCxvmp634YDc41xCWOdvWqoQ?sub_confirmation=1" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                <a href="https://www.youtube.com/channel/UCxvmp634YDc41xCWOdvWqoQ?sub_confirmation=1" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded shadow">
                     subscribe
                 </a>
             </div>
@@ -270,10 +275,10 @@
 
     <div id="popup" class="popup">
         <h2 class="text-xl font-semibold mb-2">Desktop-inspect remov999</h2>
-        <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" onclick="closePopupAndRedirect()">
+        <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded shadow" onclick="closePopupAndRedirect()">
             Warning msg
         </button>
-        <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded ml-2" onclick="closePopup()">
+        <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded ml-2 shadow" onclick="closePopup()">
             Close
         </button>
         <aside id="sidebar">
