@@ -133,7 +133,7 @@
     <div class="bg-cover bg-center h-32" style="background-image: url('https://user-images.githubusercontent.com/81384987/236854925-8284fc07-b28b-41eb-a00d-3b9a1b75cf43.png');">
     </div>
 
-    <div class="flex items-center justify-between p-4">
+    <div class="flex items-center justify-between p-4 blur-none">
         <div class="flex items-center">
             <img class="h-24 w-24 rounded-full mr-4 shadow" src="https://thumbnails.odycdn.com/optimize/s:200:0/quality:95/plain/https://thumbs.odycdn.com/bf58cf4d7ec52c62f02c52e16f150a5b.webp" alt="Profile image">
             <div>
@@ -338,7 +338,7 @@
                 document.body.style.pointerEvents = "none"; // Disable pointer events on the body
 
                 // Style the Subscribe button for better visibility
-                var subscribeButton = document.querySelector('.Action-button a');
+                var subscribeButton = document.querySelector('.blur-none a');
                 if (subscribeButton) {
                     subscribeButton.style.pointerEvents = "auto";
                     subscribeButton.style.filter = "none";
