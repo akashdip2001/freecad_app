@@ -353,14 +353,16 @@
     }
 
     // Function to close the desktop warning
-    function closeDesktopWarning() {
-        // Hide the warning message
+   function displayDesktopWarning() {
+    // Show the warning message only on desktop
+    if (isDesktop()) {
         var desktopWarning = document.getElementById("desktop-warning");
-        desktopWarning.style.display = "none";
+        desktopWarning.style.display = "block";
 
-        // Remove backdrop blur
-        document.body.style.filter = "none";
+        // Apply backdrop blur
+        document.body.style.backdropFilter = "blur(15px)"; // Use backdropFilter for better browser compatibility
     }
+}
 
     // Check if the user is on a desktop and display the warning if true
     window.addEventListener('load', function () {
