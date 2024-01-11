@@ -190,18 +190,6 @@
     <i class="fas fa-sticky-note"></i> <!-- Font Awesome note icon -->
   </div>
   
-  <!-- Popup -->
-<div id="popup" class="popup">
-  <h2 class="text-xl font-semibold mb-2">Desktop-inspect remov999</h2>
-  <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" onclick="closePopupAndRedirect()">
-    Warning msg
-  </button>
-  <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded" onclick="yourRedButtonClickFunction()">
-    Red Button
-  </button>
-</div>
-
-
   
    <footer>
         <p>&copy; 2023 My YouTube Channel</p>
@@ -221,20 +209,6 @@
  <script src="script.js"></script>
   
 <script>
-  // JavaScript to toggle the popup visibility
-  function togglePopup() {
-    var popup = document.getElementById('popup');
-    popup.style.display = (popup.style.display === 'none' || popup.style.display === '') ? 'block' : 'none';
-  }
-
-  // JavaScript to close the popup and redirect
-  function closePopupAndRedirect() {
-    var popup = document.getElementById('popup');
-    popup.style.display = 'none';
-    // Replace 'https://example.com' with the actual URL you want to redirect to
-    window.location.href = 'https://akashdip2001.github.io/freecad_app/note.html';
-  }
-
   // Function for your red button click action
   function yourRedButtonClickFunction() {
     // Add your red button click functionality here
