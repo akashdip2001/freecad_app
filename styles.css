@@ -190,8 +190,8 @@ footer {
         .Action-button a,
         .video-card a.u-link,
         .footer a.u-link,
-        .u-grey-80,
-        u-link{
+        .video-card a.u-link,
+        footer a.u-link {
             text-decoration: none;
         }
 
@@ -199,7 +199,7 @@ footer {
         .Action-button a:hover,
         .video-card a.u-link:hover,
         .footer a.u-link:hover,
-        .u-grey-80:hover,
-        u-link:hover{
+        .video-card a.u-link:hover,
+        footer a.u-link:hover{
             /* Add hover styles if desired */
         }
