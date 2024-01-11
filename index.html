@@ -239,49 +239,6 @@
 }
   
   </style>
-
-
-  <!-- Main content area -->
-<main id="main-content" class="p-4">
-  <!-- Content will be dynamically loaded here -->
-</main>
-
-  <script>
-  // Function for your red button click action
-  function yourRedButtonClickFunction() {
-    // Add your red button click functionality here
-    // For example, you can alert a message
-    alert('Open the repository and check the .rd file for FreeCAD videos');
-    window.location.href = 'https://github.com/akashdip2001/freecad_app/blob/main/index.html';
-  }
-
-  // Function to load content into the main area
-  function loadContent(page) {
-    var mainContent = document.getElementById('main-content');
-    var xhttp = new XMLHttpRequest();
-
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        mainContent.innerHTML = this.responseText;
-      }
-    };
-
-    if (page === 'videos') {
-      xhttp.open('GET', 'second-page.html', true);
-    } else if (page === 'continue') {
-      xhttp.open('GET', 'third-page.html', true);
-    }
-
-    xhttp.send();
-  }
-
-  // Function to toggle popup for the third page
-  function togglePopup() {
-    // Add your popup logic here
-    alert('Popup toggled!');
-  }
-</script>
-
   
 </body>
 </html>
