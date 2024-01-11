@@ -189,13 +189,17 @@ footer {
  /* Add these styles to remove underlines from specific links */
         .Action-button a,
         .video-card a.u-link,
-        .footer a.u-link{
+        .footer a.u-link,
+        .u-grey-80,
+        u-link{
             text-decoration: none;
         }
 
         /* Add any additional styling as needed */
         .Action-button a:hover,
         .video-card a.u-link:hover,
-        .footer a.u-link:hover{
+        .footer a.u-link:hover,
+        .u-grey-80:hover,
+        u-link:hover{
             /* Add hover styles if desired */
         }
