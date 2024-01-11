@@ -203,3 +203,20 @@ footer {
         footer a.u-link:hover{
             /* Add hover styles if desired */
         }
+
+/* freecad.html */
+/* Add this style for the navy blue button */
+.navy-button {
+    background-color: #001f3f !important; /* Navy blue color */
+    color: #fff !important; /* White text color */
+    padding: 10px 20px !important; /* Adjust padding as needed */
+    text-decoration: none !important;
+    border-radius: 5px !important;
+    display: inline-block !important;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.navy-button:hover {
+    background-color: #003366 !important; /* Darker shade on hover */
+}
+
