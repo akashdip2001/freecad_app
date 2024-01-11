@@ -308,26 +308,6 @@
     <script src="https://kit.fontawesome.com/your-font-awesome-kit-code.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
     <script>
-        function togglePopup() {
-            var popup = document.getElementById("popup");
-            if (popup.style.display === "block") {
-                popup.style.display = "none";
-            } else {
-                popup.style.display = "block";
-            }
-        }
-
-        function closePopupAndRedirect() {
-            alert("Performing actions before redirecting...");
-            closePopup();
-        }
-
-        function closePopup() {
-            var popup = document.getElementById("popup");
-            popup.style.display = "none";
-        }
-
-        
        // Function to check if the user is on a desktop device
         function isDesktop() {
             return window.innerWidth > 768; // Adjust the width based on your design
