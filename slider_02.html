@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FreeCAD playlist</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+     <style>
+        body {
+            background-color: #253f4b;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .bg-cover {
+            background-size: cover !important;
+            background-position: center !important;
+        }
+
+        .flex {
+            display: flex !important;
+        }
+
+        .items-center {
+            align-items: center !important;
+        }
+
+        .justify-between {
+            justify-content: space-between !important;
+        }
+
+        .p-4 {
+            padding: 1rem !important;
+        }
+
+        .h-24,
+        .w-24 {
+            height: 6rem !important;
+            width: 6rem !important;
+        }
+
+        .rounded-full {
+            border-radius: 9999px !important;
+        }
+
+        .text-2xl {
+            font-size: 1.5rem !important;
+        }
+
+        .font-bold {
+            font-weight: bold !important;
+        }
+
+        .bg-red-600 {
+            background-color: #e53e3e !important;
+        }
+
+        .hover\:bg-red-700:hover {
+            background-color: #c53030 !important;
+        }
+
+        .text-white {
+            color: #fff !important;
+        }
+
+        .py-2 {
+            padding-top: 0.5rem !important;
+            padding-bottom: 0.5rem !important;
+        }
+
+        .px-4 {
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+        }
+
+        .rounded {
+            border-radius: 0.25rem !important;
+        }
+
+        .shadow {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .slider-container {
+            /* Add your styles for the image slider container here */
+        }
+
+        .video-card {
+            /* Add your styles for the video cards here */
+            background-color: #0c161b;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .note-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+    </style>
+
+    
+<body>
+    <header>
+        <h1>FreeCAD</h1>
+    </header>
+
+    <div class="bg-cover bg-center h-32" style="background-image: url('https://user-images.githubusercontent.com/81384987/236854925-8284fc07-b28b-41eb-a00d-3b9a1b75cf43.png');">
+    </div>
+
+    <div class="flex items-center justify-between p-4 blur-none">
+        <div class="flex items-center">
+            <img class="h-24 w-24 rounded-full mr-4 shadow" src="https://thumbnails.odycdn.com/optimize/s:200:0/quality:95/plain/https://thumbs.odycdn.com/bf58cf4d7ec52c62f02c52e16f150a5b.webp" alt="Profile image">
+            <div>
+                <h1 class="text-2xl font-bold">AKASHDIP MAHAPATRA</h1>
+                <p>"everything is physics bro"</p>
+                <p>E=mc²</p>
+            </div>
+        </div>
+        <div class="Action-button">
+            <div>
+                <a href="https://www.youtube.com/channel/UCxvmp634YDc41xCWOdvWqoQ?sub_confirmation=1" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded shadow">
+                    subscribe
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+    <header>
+        <h1>videos</h1>
+    </header>
+
+    <section id="videos">
+        <h2> Play list</h2>
+      
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/7MgZQWiBukE" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts"></iframe>
+            <h3>ENGINEERING GRAPHICS & DESIGN 01</h3>
+            
+        </div>
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/5apCH0O5i-w" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts"></iframe>
+            <h3>ENGINEERING GRAPHICS & DESIGN 02</h3>
+             
+        </div>
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/akvheW5_kNs" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts"></iframe>
+            <h3>ENGINEERING GRAPHICS & DESIGN 03</h3>
+             
+        </div>
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/8Ex6MIOcwfA" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts"></iframe>
+            <h3>PROJECTION OF SOLID | cylinder & circular pyramid</h3>
+             
+        </div>
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/UUEABBjiYfA" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts"></iframe>
+            <h3>PROJECTION OF SOLID | Pentagonal Pyramid & hexagonal prism</h3>
+             
+        </div>
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/HYzZ77J3luU" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts"></iframe>
+            <h3>Rivet joint</h3>
+
+         </div>
+
+      
+        
+        <!-- Add more video cards as needed -->
+        
+         <h2> Please Dont shear this link </h2>
+        <p>Because, you know the cause <a class="navy-button u-link" href="freecad.html" target="_blank">
+    <span>&nbsp;Back to Home</span>
+</a>  <a class="navy-button u-link" href="freecad_exam.html" target="_blank">
+    <span>&nbsp;Back to Home</span>
+</a>
+        </p>
+
+
+        
+        <!-- Styles for the image slider -->
+        
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide">
+                    <a href="https://youtu.be/py_eK8z48g8">
+                        <img src="img/2-01.jpeg" alt="Create Your Own Server with ngrok and vscode">
+                    </a>
+                    <div class="caption">Create Your Own Server</div>
+                    
+                </div>
+                <div class="slide">
+                    <a href="https://youtu.be/uk5VGfzw8IU">
+                        <img src="img/1-01.jpeg" alt="wifi hacking in kali linux">
+                    </a>
+                    <div class="caption">Wifi Hacking in Kali Linux</div>
+                </div>
+                <div class="slide">
+                    <a href="https://www.youtube.com/playlist?list=PL_RecMEcs_p-5UwLqFBFtat90L8IOc1bZ">
+                        <img src="img/3-01.jpeg" alt="wifi rc car">
+                    </a>
+                    <div class="caption">DIY Wifi RC Car</div>
+                </div>
+                <div class="slide">
+                    <a href="https://www.youtube.com/playlist?list=PL_RecMEcs_p__J3GSHkKfLjC08q0NmWtR">
+                        <img src="img/4-01.jpeg" alt="IC Engine in SolidWorks">
+                    </a>
+                    <div class="caption">IC Engine in SolidWorks</div>
+                </div>
+                <div class="slide">
+                    <a href="https://www.youtube.com/playlist?list=PL_RecMEcs_p-rR-kDstljCglAQ4li-RGZ">
+                        <img src="img/5-01.jpeg" alt="SolidWorks PlayList">
+                    </a>
+                    <div class="caption">SolidWorks PlayList</div>
+                </div>
+                <div class="slide">
+                    <a href="https://www.youtube.com/playlist?list=PL_RecMEcs_p90o-aY6pJXUS7FnzC2sVrk">
+                        <img src="img/6-01.jpeg" alt="Stairs in SolidWorks">
+                    </a>
+                    <div class="caption">Stairs in SolidWorks</div>
+                </div>
+                <div class="slide">
+                    <a href="https://www.youtube.com/playlist?list=PL_RecMEcs_p9D9Mw3hr-uLOXioiFdPDGd">
+                        <img src="img/7-01.jpeg" alt="autocad 2d playlist">
+                    </a>
+                    <div class="caption">AutoCAD 2D</div>
+                </div>
+                <div class="slide">
+                    <a href="https://www.youtube.com/playlist?list=PL_RecMEcs_p9NEuljRr7hNsFiPASnJYQt">
+                        <img src="img/8-01.jpeg" alt="autocad 3d playlist">
+                    </a>
+                    <div class="caption">AutoCAD 3D</div>
+                </div>
+                <div class="slide">
+                    <a href="slider_01.html">
+                        <img src="img/9-01.jpeg" alt="Manufacturing lab">
+                    </a>
+                    <div class="caption">Manufacturing lab</div>
+                </div>
+                <div class="slide">
+                    <a href="slider_02.html">
+                        <img src="img/10-01.jpeg" alt="Machine Drawing And Design">
+                    </a>
+                    <div class="caption">Machine Drawing And Design</div>
+                </div>
+                <div class="slide">
+                    <a href="slider_03.html">
+                        <img src="img/11-01.jpeg" alt="Meteorology & Manufacturing process lab">
+                    </a>
+                    <div class="caption">Meteorology & Manufacturing process lab</div>
+                </div>
+                 <div class="slide">
+                    <a href="freecad_exam.html">
+                        <img src="img/12.jpeg" alt="Meteorology & Manufacturing process lab">
+                    </a>
+                    <div class="caption">Exam</div>
+                </div>
+            </div>
+            <div class="indicators"></div>
+            <div class="controls">
+                <button class="prev">Previous</button>
+                <button class="next">Next</button>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <footer>
+        <p>&copy; 2023 My YouTube Channel</p>
+    
+    <section class="u-backlink u-clearfix u-grey-80">
+    <a class="u-link" href="https://www.youtube.com/channel/UCxvmp634YDc41xCWOdvWqoQ" target="_blank">
+      <span>YouTube</span>
+    </a>
+    <p class="u-text">
+      <span>@kashdip</span>
+    </p>
+    <a class="u-link" href="https://akashdip2001.github.io/linktree/" target="_blank">
+      <span>contact me </span>
+    </a>
+    </section>
+    </footer>
+
+    
+    <script src="script.js"></script>
+    <script>
+    // Extra Security 🦕🦕🦕🦕🦕🦕🦕🦕🦕🦕🦕
+     // Function to check if the user is on a desktop device
+        function isDesktop() {
+            return window.innerWidth > 768; // Adjust the width based on your design
+        }
+
+        // Check if the user is on a desktop and apply backdrop blur with increased intensity if true
+        window.addEventListener('DOMContentLoaded', function () {
+            if (isDesktop()) {
+                document.body.style.filter = "blur(25px)"; // Increase the blur intensity by adjusting the value (e.g., 10px)
+                document.body.style.pointerEvents = "none"; // Disable pointer events on the body
+
+                // Enable pointer events on the Subscribe button
+                var subscribeButton = document.querySelector('.Action-button a');
+                if (subscribeButton) {
+                    subscribeButton.style.pointerEvents = "auto";
+                }
+            }
+        });   
+</script>
+
+
+</body>
+</html>
