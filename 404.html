@@ -1,134 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 Error - Page Not Found</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="noodp">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="Your website description here.">
+    <meta property="og:title" content="404 -- error">
+    <meta property="og:description" content="Your website description here.">
+    <meta property="og:image" content="URL_TO_SHAREABLE_IMAGE">
+    <meta property="og:url" content="URL_TO_CURRENT_PAGE">
+
+    <title>404 -- error</title>
+
+    <link rel="shortcut icon" href="assets/img/akashdip2001.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro:400,700&amp;subset=latin-ext" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css"> <!-- Combine CSS files if needed -->
+
     <style>
+        /* Add mobile styles here */
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f0f0;
-            text-align: center;
-            margin: 0;
-            padding: 0;
+            font-size: 16px; /* Adjust as needed for mobile readability */
         }
 
-        .container {
+        .hero {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            flex-direction: column-reverse; /* Reverse order on mobile for better flow */
         }
 
-        h1 {
-            color: #333;
-            font-size: 6em;
-            margin-bottom: 10px;
+        .front-content {
+            padding: 20px; /* Adjust padding for better spacing on mobile */
         }
 
-        p {
-            color: #666;
-            font-size: 1.2em;
-            margin-bottom: 30px;
+        .container-mid {
+            text-align: center; /* Center text on mobile */
         }
 
-        .back-btn {
-            padding: 10px 20px;
-            font-size: 1em;
-            background-color: #3498db;
-            color: #fff;
+        .footer {
+            text-align: center; /* Center footer text on mobile */
+        }
+
+        a {
             text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
         }
-
-        .back-btn:hover {
-            background-color: #2980b9;
-        }
-
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            z-index: 2;
-        }
-
-        .popup h2 {
-            color: #333;
-        }
-
-        .popup p {
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-      .popup-btn {
-    display: inline-block;
-    padding: 15px 30px;
-    font-size: 1em;
-    margin-right: 10px;
-    background-color: #3498db;
-    color: #fff;
-    text-decoration: none;
-    border: 2px solid #000;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow */
-    transition: background-color 0.3s, box-shadow 0.3s; /* Include box-shadow in transition */
-}
-
-.popup-btn:hover {
-    background-color: #2980b9;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Change shadow on hover if desired */
-    border-color: #000;
-}
     </style>
+
 </head>
+
 <body>
 
-<div class="container">
-    <h1>404</h1>
-    <p>Page Not Found<br>@kashdip</p>
-    <a href="#" class="back-btn">Back</a>
-    <a href="https://engineering-aot.github.io/custom-video-player/freecad#.html" class="back-btn hidden-btn" style="display: none;">error</a>    
-</div>
+    <div class="hero">
+        <div class="background-content">
+            <div class="background-overlay"></div>
+            <div class="background-img"></div>
+        </div>
+        <div class="front-content">
+            <div class="container-mid">
+                <h1>404<br>That’s an error</h1>
+                <p class="subline">The requested URL was not found on this server. @@@ 2001</p>
+                <a href="https://www.youtube.com/channel/UCxvmp634YDc41xCWOdvWqoQ">Back Home</a>
+            </div>
+            <div class="footer">
+                <p>AKASHDIP MAHAPATRA @ 27 sep/2022 | main <a href="https://akashdip2001.github.io/linktree/">Website</a></p>
+            </div>
+        </div>
+    </div>
 
-<div class="popup">
-    <h2>❤️Sorry❤️</h2>
-    <p>Sorry, তোমাদের জন্যে অনেক গাল খেতে হয়েছে 🥲 আর পারছি না 🙃<br>    video সব‌ই আছে, যদি, দম থাকে খুজে দেখা 😎</p>
-    <a href="https://www.youtube.com/channel/UCxvmp634YDc41xCWOdvWqoQ" class="popup-btn">back💨</a>
-    <a href="https://akashdip2001.github.io/linktree/" class="popup-btn">contact</a>
-</div>
+    <script type="text/javascript" src="assets/js/scripts.js"></script> <!-- Combine JS files if needed -->
+<script type="text/javascript" src="assets/js/scripts.js"></script> <!-- Combine JS files if needed -->
+    <script>
+        // Function to disable right-click context menu
+        function disableRightClick(event) {
+            event.preventDefault();
+        }
 
-<script>
-    // Check if the screen width is greater than a certain threshold (e.g., 600px for mobile)
-    if (window.innerWidth > 600) {
-        // Display an error message
-        document.body.innerHTML = '<div style="font-family: \'Arial\', sans-serif; text-align: center; margin: 0; padding: 50px; background-color: #f0f0f0;">' +
-            '<h2 style="color: #333;">Error</h2>' +
-            '<p style="color: #666; font-size: 1.2em;">Please use a mobile device to access this content.</p>' +
-            '</div>';
-    }
-
-    document.querySelector('.back-btn').addEventListener('click', function () {
-        document.querySelector('.popup').style.display = 'block';
-    });
-
-    document.querySelector('.back-btn').addEventListener('click', function () {
-        document.querySelector('.popup').style.display = 'block';
-
-        // Add a delay of 10 seconds before showing the hidden button
-        setTimeout(function () {
-            document.querySelector('.hidden-btn').style.display = 'inline-block';
-        }, 10000); // 10000 milliseconds = 10 seconds
-    });
-</script>
-
+        // Attach the disableRightClick function to the contextmenu event
+        window.addEventListener('contextmenu', disableRightClick);
+    </script>
 </body>
-</html>    
+
+</html>
