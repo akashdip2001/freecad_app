@@ -6,26 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-    <script>
-        // Function to check if the user is on a desktop device
-        function isDesktop() {
-            return window.innerWidth > 768; // Adjust the width based on your design
-        }
-
-        // Function to redirect to another page
-        function redirectToAnotherPage() {
-            window.location.href = '404.html';
-        }
-
-        // Check if the user is on a desktop and redirect if true
-        window.addEventListener('DOMContentLoaded', function () {
-            if (isDesktop()) {
-                redirectToAnotherPage();
-            }
-        });
-    </script>
-
-
      <style>
         body {
             background-color: #253f4b;
@@ -501,17 +481,7 @@
                     subscribeButton.style.pointerEvents = "auto";
                 }
             }
-        });
-
-
-        // Function to disable right-click context menu
-        function disableRightClick(event) {
-            event.preventDefault();
-        }
-
-        // Attach the disableRightClick function to the contextmenu event
-        window.addEventListener('contextmenu', disableRightClick);
-   
+        });   
 </script>
 
 
