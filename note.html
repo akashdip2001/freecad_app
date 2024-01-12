@@ -46,48 +46,42 @@
   <a href="freecad_exam.html" id="continueButton">Continue</a>
   
    <script src="script.js"></script>
-   <script>
-  function isMobile() {
-    return window.innerWidth <= 768;
-  }
-
-  window.addEventListener('DOMContentLoaded', function() {
-    if (isMobile()) {
-      // Blur the page
-      document.body.style.filter = "blur(25px)";
-      document.body.style.pointerEvents = "none";
-
-      // Ask for password
-      var password = prompt("Please enter the password:");
-
-      // Check password
-      if (password !== "akashdip100") {
-        // Redirect to 404.html on wrong password
-        window.location.href = "404.html";
-      } else {
-        // Remove blur and pointer events on correct password
-        document.body.style.filter = "";
-        document.body.style.pointerEvents = "";
-      }
+     <script>
+    function isMobile() {
+      return window.innerWidth <= 768;
     }
-  });
 
+    window.addEventListener('DOMContentLoaded', function() {
+      if (isMobile()) {
+        // Blur the page
+        document.body.style.filter = "blur(25px)";
+        document.body.style.pointerEvents = "none";
 
-     function isDesktop() {
+        // Ask for password
+        var password = prompt("Please enter the password:");
 
-return window.innerWidth >
+        // Check password
+        if (password !== "akashdip100") {
+          // Redirect to 404.html on wrong password
+          window.location.href = "404.html";
+        } else {
+          // Remove blur and pointer events on correct password
+          document.body.style.filter = "";
+          document.body.style.pointerEvents = "";
+        }
+      }
+    });
 
-768; }
+    function isDesktop() {
+      return window.innerWidth > 768;
+    }
 
-window.addEventListener('DOMCon
-
-tentloaded', function() {
-
-if (isDesktop()) {
-
-document.body.style.filter = "blur(25px)";
-
-document.body.style.pointerEvents = "none"; } });
-   </script>
+    window.addEventListener('DOMContentLoaded', function() {
+      if (isDesktop()) {
+        document.body.style.filter = "blur(25px)";
+        document.body.style.pointerEvents = "none";
+      }
+    });
+     </script>
 </body>
 </html>
