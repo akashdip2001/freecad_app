@@ -63,37 +63,6 @@
 
   let isBlurred = false;
 
-  window.addEventListener('DOMContentLoaded', function() {
-    if (isMobile()) {
-      applyBlur();
-      isBlurred = true;
-      showPasswordInput();
-    } else {
-      isBlurred = false;
-    }
-  });
-
-  window.addEventListener('resize', function() {
-    if (isMobile()) {
-      if (!isBlurred) {
-        applyBlur();
-        isBlurred = true;
-        showPasswordInput();
-      }
-    } else {
-      if (isBlurred) {
-        removeBlur();
-        isBlurred = false;
-      }
-    }
-  });
-
-  window.addEventListener('scroll', function() {
-    if (isMobile()) {
-      window.scrollTo(0, 0);
-    }
-  });
-
   function showPasswordInput() {
     var passwordForm = document.createElement("form");
     var passwordInput = document.createElement("input");
@@ -117,8 +86,41 @@
       window.location.href = "404.html";
     } else {
       removeBlur();
+      isBlurred = false;
     }
   }
+
+  window.addEventListener('DOMContentLoaded', function() {
+    if (isMobile()) {
+      applyBlur();
+      isBlurred = true;
+      showPasswordInput();
+    } else {
+      isBlurred = false;
+      applyBlur(); // Apply blur for desktop initially
+    }
+  });
+
+  window.addEventListener('resize', function() {
+    if (isMobile()) {
+      if (!isBlurred) {
+        applyBlur();
+        isBlurred = true;
+        showPasswordInput();
+      }
+    } else {
+      if (isBlurred) {
+        removeBlur();
+        isBlurred = false;
+      }
+    }
+  });
+
+  window.addEventListener('scroll', function() {
+    if (isMobile()) {
+      window.scrollTo(0, 0);
+    }
+  });
    </script>
 </body>
 </html>
