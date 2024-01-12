@@ -47,7 +47,7 @@
   
    <script src="script.js"></script>
    <script>
-    function applyBlur() {
+  function applyBlur() {
     document.body.style.filter = "blur(25px)";
     document.body.style.pointerEvents = "none";
   }
@@ -68,6 +68,8 @@
       applyBlur();
       isBlurred = true;
       showPasswordInput();
+    } else {
+      isBlurred = false;
     }
   });
 
@@ -111,25 +113,12 @@
   }
 
   function checkPassword(password) {
-    if (password !== "your_password") {
+    if (password !== "akashdip100") {
       window.location.href = "404.html";
     } else {
       removeBlur();
-      isBlurred = false;
     }
-     };
-     
-
-    function isDesktop() {
-        return window.innerWidth > 768;
-    }
-
-    window.addEventListener('DOMContentLoaded', function() {
-        if (isDesktop()) {
-            document.body.style.filter = "blur(25px)";
-            document.body.style.pointerEvents = "none";
-        }
-    });
+  }
    </script>
 </body>
 </html>
