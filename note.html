@@ -55,14 +55,15 @@
             window.location.href = 'next_page.html';
         } else if (enteredPassword === null) {
             // User clicked Cancel
-            alert('Password entry canceled. You will be redirected after 24 hours.');
+            alert('Password entry canceled. For the current password, contact Akashdip.');
             setTimeout(function() {
-                window.location.href = 'freecad_exam.html';
+                window.location.href = 'https://akashdip2001.github.io/linktree/';
             }, 24 * 60 * 60 * 1000); // 24 hours in milliseconds
         } else {
-            alert('Incorrect password. You have to wait for 24 hours.');
+            // Incorrect password
+            alert('Incorrect password. For the current password, contact Akashdip.');
             setTimeout(function() {
-                window.location.href = 'freecad_exam.html';
+                window.location.href = 'https://akashdip2001.github.io/linktree/';
             }, 24 * 60 * 60 * 1000); // 24 hours in milliseconds
         }
     });
