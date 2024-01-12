@@ -47,8 +47,7 @@
   
    <script src="script.js"></script>
    <script>
-    
-  function applyBlur() {
+    function applyBlur() {
     document.body.style.filter = "blur(25px)";
     document.body.style.pointerEvents = "none";
   }
@@ -68,6 +67,7 @@
     if (isMobile()) {
       applyBlur();
       isBlurred = true;
+      showPasswordInput();
     }
   });
 
@@ -76,6 +76,7 @@
       if (!isBlurred) {
         applyBlur();
         isBlurred = true;
+        showPasswordInput();
       }
     } else {
       if (isBlurred) {
@@ -87,19 +88,36 @@
 
   window.addEventListener('scroll', function() {
     if (isMobile()) {
-      window.scrollTo(0, 0); // Ensure the page stays at the top when scrolling
+      window.scrollTo(0, 0);
     }
   });
 
-  function checkPassword() {
-    var password = prompt("Please enter the password:");
-    if (password !== "akashdip100") {
+  function showPasswordInput() {
+    var passwordForm = document.createElement("form");
+    var passwordInput = document.createElement("input");
+    var submitButton = document.createElement("input");
+
+    passwordInput.type = "password";
+    submitButton.type = "button";
+    submitButton.value = "Submit";
+    submitButton.onclick = function() {
+      checkPassword(passwordInput.value);
+    };
+
+    passwordForm.appendChild(passwordInput);
+    passwordForm.appendChild(submitButton);
+
+    document.body.appendChild(passwordForm);
+  }
+
+  function checkPassword(password) {
+    if (password !== "your_password") {
       window.location.href = "404.html";
     } else {
       removeBlur();
       isBlurred = false;
     }
-  }
+     };
      
 
     function isDesktop() {
