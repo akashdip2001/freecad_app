@@ -47,77 +47,47 @@
   
    <script src="script.js"></script>
    <script>
-  function applyBlur() {
-    document.body.style.filter = "blur(25px)";
-    document.body.style.pointerEvents = "none";
-  }
-
-  function removeBlur() {
-    document.body.style.filter = "";
-    document.body.style.pointerEvents = "";
-  }
-
   function isMobile() {
     return window.innerWidth <= 768;
   }
 
-  let isBlurred = false;
-
-  function showPasswordInput() {
-    var passwordForm = document.createElement("form");
-    var passwordInput = document.createElement("input");
-    var submitButton = document.createElement("input");
-
-    passwordInput.type = "password";
-    submitButton.type = "button";
-    submitButton.value = "Submit";
-    submitButton.onclick = function() {
-      checkPassword(passwordInput.value);
-    };
-
-    passwordForm.appendChild(passwordInput);
-    passwordForm.appendChild(submitButton);
-
-    document.body.appendChild(passwordForm);
-  }
-
-  function checkPassword(password) {
-    if (password !== "akashdip100") {
-      window.location.href = "404.html";
-    } else {
-      removeBlur();
-      isBlurred = false;
-    }
-  }
-
   window.addEventListener('DOMContentLoaded', function() {
     if (isMobile()) {
-      applyBlur();
-      isBlurred = true;
-      showPasswordInput();
-    }
-  });
+      // Blur the page
+      document.body.style.filter = "blur(25px)";
+      document.body.style.pointerEvents = "none";
 
-  window.addEventListener('resize', function() {
-    if (isMobile()) {
-      if (!isBlurred) {
-        applyBlur();
-        isBlurred = true;
-        showPasswordInput();
-      }
-    } else {
-      if (isBlurred) {
-        removeBlur();
-        isBlurred = false;
+      // Ask for password
+      var password = prompt("Please enter the password:");
+
+      // Check password
+      if (password !== "akashdip100") {
+        // Redirect to 404.html on wrong password
+        window.location.href = "404.html";
+      } else {
+        // Remove blur and pointer events on correct password
+        document.body.style.filter = "";
+        document.body.style.pointerEvents = "";
       }
     }
   });
 
-  window.addEventListener('scroll', function() {
-    if (isMobile()) {
-      window.scrollTo(0, 0);
-    }
-  });
+
+     function isDesktop() {
+
+return window.innerWidth >
+
+768; }
+
+window.addEventListener('DOMCon
+
+tentloaded', function() {
+
+if (isDesktop()) {
+
+document.body.style.filter = "blur(25px)";
+
+document.body.style.pointerEvents = "none"; } });
    </script>
 </body>
 </html>
