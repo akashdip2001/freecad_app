@@ -49,7 +49,7 @@
    <script src="script.js"></script>
    <script>
 
-     // code "when the button click - give the pass or 24 hours 
+     // The JavaScript code we added earlier will override the default link behavior in the a-tag and perform the desired actions. code "when the button click - give the pass or 24 hours 
      document.getElementById('continueButton').addEventListener('click', function() {
     var enteredPassword = prompt('Enter the password:'); // Prompt the user for the password
 
@@ -60,8 +60,8 @@
         // Password is incorrect, show a message and set a timeout for redirection after 24 hours
         alert('Incorrect password. You have to wait for 24 hours.');
         setTimeout(function() {
-            window.location.href = 'next_page.html';
-        }, 24 * 60 * 60 * 1000); // 24 hours in milliseconds
+            window.location.href = 'freecad_exam.html';
+        }, 24 * 60 * 60 * 1000); // 24 in millisec.
     }
 });
 
