@@ -48,36 +48,36 @@
   
    <script src="script.js"></script>
    <script>
+    document.getElementById('continueButton').addEventListener('click', function() {
+        var enteredPassword = prompt('Enter the password:');
 
-     // The JavaScript code we added earlier will override the default link behavior in the a-tag and perform the desired actions. code "when the button click - give the pass or 24 hours 
-     document.getElementById('continueButton').addEventListener('click', function() {
-    var enteredPassword = prompt('Enter the password:'); // Prompt the user for the password
-
-    if (enteredPassword === 'akashdip100') {
-        // Password is correct, redirect to the next page
-        window.location.href = 'next_page.html';
-    } else {
-        // Password is incorrect, show a message and set a timeout for redirection after 24 hours
-        alert('Incorrect password. You have to wait for 24 hours.');
-        setTimeout(function() {
-            window.location.href = 'freecad_exam.html';
-        }, 24 * 60 * 60 * 1000); // 24 in millisec.
-    }
-});
-
-
-     // Function to check if the user is on a desktop device
-        function isDesktop() {
-            return window.innerWidth > 768; // Adjust the width based on your design
+        if (enteredPassword === 'akashdip100') {
+            window.location.href = 'next_page.html';
+        } else if (enteredPassword === null) {
+            // User clicked Cancel
+            alert('Password entry canceled. You will be redirected after 24 hours.');
+            setTimeout(function() {
+                window.location.href = 'freecad_exam.html';
+            }, 24 * 60 * 60 * 1000); // 24 hours in milliseconds
+        } else {
+            alert('Incorrect password. You have to wait for 24 hours.');
+            setTimeout(function() {
+                window.location.href = 'freecad_exam.html';
+            }, 24 * 60 * 60 * 1000); // 24 hours in milliseconds
         }
+    });
 
-        // Check if the user is on a desktop and apply backdrop blur with increased intensity if true
-        window.addEventListener('DOMContentLoaded', function () {
-            if (isDesktop()) {
-                document.body.style.filter = "blur(25px)"; // Increase the blur intensity by adjusting the value (e.g., 10px)
-                document.body.style.pointerEvents = "none"; // Disable pointer events on the body
+    function isDesktop() {
+        return window.innerWidth > 768;
+    }
 
-    </script>
+    window.addEventListener('DOMContentLoaded', function() {
+        if (isDesktop()) {
+            document.body.style.filter = "blur(25px)";
+            document.body.style.pointerEvents = "none";
+        }
+    });
+   </script>
 
 </body>
 </html>
