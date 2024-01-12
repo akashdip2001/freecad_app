@@ -53,9 +53,9 @@
 
         if (enteredPassword === 'akashdip100') {
             window.location.href = 'freecad_exam.html';
-        } else if (enteredPassword === null) {
-            // User clicked Cancel
-            alert('Password entry canceled. For the current password, contact Akashdip.');
+        } else if (enteredPassword === null || enteredPassword === '') {
+            // User clicked Cancel or entered an empty password
+            alert('Password entry canceled or empty. For the current password, contact Akashdip.');
             window.location.href = 'https://akashdip2001.github.io/linktree/';
         } else {
             // Incorrect password
@@ -75,6 +75,5 @@
         }
     });
    </script>
-
 </body>
 </html>
