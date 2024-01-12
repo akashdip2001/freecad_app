@@ -35,7 +35,37 @@
       background-color: #45a049;
   </style>
 </head>
-<body>
+<body> 
+
+  <div id="passwordPopup">
+    <label for="passwordInput">Enter Password:</label>
+    <input type="password" id="passwordInput">
+    <button onclick="checkPassword()">Submit</button>
+</div>
+
+<a href="#" id="continueButton" onclick="showPasswordPopup()">Continue</a>
+
+<script>
+    function showPasswordPopup() {
+        if (isDesktop()) {
+            document.body.style.filter = "blur(25px)";
+            document.body.style.pointerEvents = "none";
+            document.getElementById("passwordPopup").style.display = "block";
+        }
+    }
+
+    function checkPassword() {
+        var password = document.getElementById("passwordInput").value;
+        if (password === "your_password_here") { // replace with your actual password
+            window.location.href = "https://akashdip2001.github.io/linktree/";
+        } else {
+            alert("Contact Akashdip");
+            document.body.style.filter = "none";
+            document.body.style.pointerEvents = "auto";
+            document.getElementById("passwordPopup").style.display = "none";
+        }
+    }
+</script>
 
   <h1>⚠️WARNING⚠️</h1>
   
