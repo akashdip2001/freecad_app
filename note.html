@@ -33,64 +33,9 @@
 
     #continueButton:hover {
       background-color: #45a049;
-
-    /* security */
-    #overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.7);
-            display: none;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #passwordPopup {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-    }
   </style>
 </head>
 <body>
-
-  <div id="overlay">
-    <div id="passwordPopup">
-        <label for="password">Enter Password:</label>
-        <input type="password" id="password">
-        <button onclick="checkPassword()">Submit</button>
-    </div>
-</div>
-
-<script>
-    function isMobileDevice() {
-        return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-    }
-
-    function checkPassword() {
-        var password = document.getElementById("password").value;
-
-        // Replace 'yourPassword' with the actual password
-        if (password === "akashdip100") {
-            document.getElementById("overlay").style.display = "none";
-            alert("Contact to Akashdip");
-            window.location.href = "https://akashdip2001.github.io/linktree/";
-        } else {
-            alert("Incorrect password. Please try again.");
-        }
-    }
-
-    // Show password popup only on mobile devices
-    document.addEventListener("DOMContentLoaded", function () {
-        if (isMobileDevice()) {
-            document.getElementById("overlay").style.display = "flex";
-        }
-    });
-</script>
 
   <h1>⚠️WARNING⚠️</h1>
   
