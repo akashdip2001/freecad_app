@@ -48,10 +48,22 @@
   
    <script src="script.js"></script>
    <script>
+
+     // code "when the button click - give the pass or 24 hours 
      document.getElementById('continueButton').addEventListener('click', function() {
-      // Add your JavaScript logic for what happens when the button is clicked.
-      alert('Button Clicked!'); // Example: Show an alert
-    });
+    var enteredPassword = prompt('Enter the password:'); // Prompt the user for the password
+
+    if (enteredPassword === 'akashdip100') {
+        // Password is correct, redirect to the next page
+        window.location.href = 'next_page.html';
+    } else {
+        // Password is incorrect, show a message and set a timeout for redirection after 24 hours
+        alert('Incorrect password. You have to wait for 24 hours.');
+        setTimeout(function() {
+            window.location.href = 'next_page.html';
+        }, 24 * 60 * 60 * 1000); // 24 hours in milliseconds
+    }
+});
 
 
      // Function to check if the user is on a desktop device
