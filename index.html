@@ -58,19 +58,22 @@
     padding: 3px;
      }
 
-     /* Glowing effect */
+     
+/* Glowing effect */
 .Action-button a.glow,
 nav a.glow {
-  animation: glowAnimation 2s infinite;
-  box-shadow: 0 0 10px #FFD700;
+  position: relative;
+  display: inline-block;
+  text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 20px #FFD700;
+  z-index: 1;
 }
 
 @keyframes glowAnimation {
   0%, 100% {
-    box-shadow: 0 0 10px #FFD700;
+    text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 20px #FFD700;
   }
   50% {
-    box-shadow: 0 0 20px #FFD700;
+    text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #FFD700;
   }
 }
   </style>
