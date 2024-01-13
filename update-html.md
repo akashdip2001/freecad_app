@@ -86,3 +86,100 @@ The alert function doesn't provide much customization, including text size adjus
 </script>
 ```
 ![Screenshot (30)](https://github.com/akashdip2001/freecad_app/assets/81384987/a58a3bbb-7cdd-4675-a20d-d8ce77beb026)
+
+---
+<h1> for Desktop </h1>
+# Blur complet page - Desktop mode - Except "Action Button"
+
+```
+    <script>
+        // Function to check if the user is on a desktop device
+        function isDesktop() {
+            return window.innerWidth > 768; // Adjust the width based on your design
+        }
+
+        // Check if the user is on a desktop and apply backdrop blur with increased intensity if true
+        window.addEventListener('DOMContentLoaded', function () {
+            if (isDesktop()) {
+                document.body.style.filter = "blur(10px)"; // Increase the blur intensity by adjusting the value (e.g., 10px)
+                document.body.style.pointerEvents = "none"; // Disable pointer events on the body
+
+                // Enable pointer events on the Subscribe button
+                var subscribeButton = document.querySelector('.Action-button a');
+                if (subscribeButton) {
+                    subscribeButton.style.pointerEvents = "auto";
+                }
+            }
+        });
+    </script>
+```
+
+---
+# Disable Right Click
+```
+ <script>
+        // Function to disable right-click context menu
+        function disableRightClick(event) {
+            event.preventDefault();
+        }
+
+        // Attach the disableRightClick function to the contextmenu event
+        window.addEventListener('contextmenu', disableRightClick);
+    </script>
+```
+
+---
+# Automatic redirect another site
+```
+<script>
+        // Function to check if the user is on a desktop device
+        function isDesktop() {
+            return window.innerWidth > 768; // Adjust the width based on your design
+        }
+
+        // Function to redirect to another page
+        function redirectToAnotherPage() {
+            window.location.href = 'https://akashdip2001.github.io/404/';
+        }
+
+        // Check if the user is on a desktop and redirect if true
+        window.addEventListener('DOMContentLoaded', function () {
+            if (isDesktop()) {
+                redirectToAnotherPage();
+            }
+        });
+    </script>
+```
+
+---
+<h1> for mobile </h1>
+# in mobile - when opening or refresh the page - ask for a password "...100"
+
+```
+<script>
+    function isMobile() {
+      return window.innerWidth <= 768;
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+      if (isMobile()) {
+        // Blur the page
+        document.body.style.filter = "blur(25px)";
+        document.body.style.pointerEvents = "none";
+
+        // Ask for password
+        var password = prompt("Please enter the password:");
+
+        // Check password
+        if (password !== "akashdip100") {
+          // Redirect to 404.html on wrong password
+          window.location.href = "404.html";
+        } else {
+          // Remove blur and pointer events on correct password
+          document.body.style.filter = "";
+          document.body.style.pointerEvents = "";
+        }
+      }
+    });
+</script>
+```
