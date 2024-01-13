@@ -91,6 +91,7 @@ The alert function doesn't provide much customization, including text size adjus
 
 ---
 <h1> for Desktop </h1>
+
 # Blur complet page - Desktop mode - Except "Action Button"
 
 ```
