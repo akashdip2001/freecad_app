@@ -106,6 +106,15 @@ window.addEventListener('DOMContentLoaded', function() {
                 redirectToAnotherPage();
             }
         });
+
+
+         window.onload = function() {
+            if (window.innerWidth <= 768) { // Adjust the width as needed
+                setTimeout(function() {
+                    alert('Welcome to our mobile website!');
+                }, 5000); // 5000 milliseconds = 5 seconds
+            }
+        };
      </script>
 </body>
 </html>
