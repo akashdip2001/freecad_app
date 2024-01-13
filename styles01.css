@@ -94,24 +94,6 @@
 
 
 /* Glowing 🌟 effect for Subscribe button */
-  /* Action buttons */
-  .Action-button {
-    margin-top: 5%;
-  }
-
-  @media (max-width: 768px) {
-    .Action-button {
-      margin-top: 27%;
-    }
-  }
-
-  .video-card1 {
-    background: #5A5A5A;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    padding: 3px;
-  }
-
   /* Glowing effect */
   .glow {
     animation: glowAnimation 2s infinite;
