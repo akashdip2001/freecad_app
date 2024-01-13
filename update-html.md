@@ -31,10 +31,12 @@ This modification adds an alert function to display a popup with the same messag
 </script>
 ```
 
-<br><br>
+---
 The alert function doesn't provide much customization, including text size adjustments. For a more flexible and user-friendly solution, you can create a custom modal dialog. Here's an updated version of the script that displays a custom modal with increased text size:
 
-```<!-- Add this script at the end of your HTML body -->
+```
+<!-- Add this script at the end of your HTML body -->
+
 <script>
   // Function to create a custom modal
   function createCustomModal(message) {
