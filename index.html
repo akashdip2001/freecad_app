@@ -59,9 +59,11 @@
      }
 
      /* Glowing effect */
-  .glow {
-    animation: glowAnimation 2s infinite;
-  }
+  .Action-button a.glow,
+#videos h2.glow {
+  animation: glowAnimation 2s infinite;
+  box-shadow: 0 0 10px #FFD700;
+}
 
   @keyframes glowAnimation {
     0%, 100% {
