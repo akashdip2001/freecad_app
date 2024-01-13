@@ -27,6 +27,7 @@
 
 </LinearLayout>
 ```
+---   
 # MainActivity.java
 ```
 package com.example.cadpro;
@@ -53,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
+
+---
 # AndroidManifes.xml
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -86,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
 
 </manifest>
 ```
+
+---
 # Strings.xml
 ```
 <resources>
@@ -98,8 +103,10 @@ public class MainActivity extends AppCompatActivity {
 ![webapp dev (4)](https://github.com/akashdip2001/freecad_app/assets/81384987/2054e341-77be-413b-aa33-58fa735e574e)
 ![webapp dev (5)](https://github.com/akashdip2001/freecad_app/assets/81384987/7dd4bb0e-4821-4e26-be0b-a5034561bdcb)
 
+---
 <h1> for Desktop </h1>
 # Blur complet page - Desktop mode - Except "Action Button"
+
 ```
     <script>
         // Function to check if the user is on a desktop device
@@ -123,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
     </script>
 ```
 
+---
 # Disable Right Click
 ```
  <script>
@@ -136,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
     </script>
 ```
 
+---
 # Automatic redirect another site
 ```
 <script>
@@ -158,6 +167,7 @@ public class MainActivity extends AppCompatActivity {
     </script>
 ```
 
+---
 <h1> for mobile </h1>
 # in mobile - when opening or refresh the page - ask for a password "...100"
 
