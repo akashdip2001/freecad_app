@@ -78,3 +78,21 @@ document.addEventListener("DOMContentLoaded", function() {
         // Attach the disableRightClick function to the contextmenu event
         window.addEventListener('contextmenu', disableRightClick);
 });
+
+
+
+
+// Glowing 🌟 effect for Subscribe button
+  // Function to add glowing effect to the subscribe button
+  function glowSubscribeButton() {
+    const subscribeButton = document.querySelector('.bg-red-600');
+
+    // Add glowing effect by toggling the 'glow' class
+    subscribeButton.classList.add('glow');
+    setTimeout(() => {
+      subscribeButton.classList.remove('glow');
+    }, 2000);
+  }
+
+  // Trigger the glowing effect every 10 seconds
+  setInterval(glowSubscribeButton, 6000);
