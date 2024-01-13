@@ -253,13 +253,14 @@ nav a.glow {
  <script src="script.js"></script>
   
 <script>
-  // Function for your red button click action
-  function yourRedButtonClickFunction() {
-    // Add your red button click functionality here
-    // For example, you can alert a message
-    alert('oprn the repository - and check the .rd file - for FreeCAD videos');
-    window.location.href = 'https://github.com/akashdip2001/freecad_app/blob/main/index.html';
-  }
+  // popup message for - when open
+    window.onload = function() {
+            if (window.innerWidth <= 768) { // Adjust the width as needed
+                setTimeout(function() {
+                    alert('Hi\ni am Akashdip Mahapatra\ni love Physics\nfrom Mechanical Engineering\n3rd year © 2024');
+                }, 5000); // 5000 milliseconds = 5 seconds
+            }
+        };
 </script>
   
   
