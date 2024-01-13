@@ -87,6 +87,25 @@ window.addEventListener('DOMContentLoaded', function() {
         document.body.style.pointerEvents = "none";
       }
     });
+
+
+
+       // Function to check if the user is on a desktop device
+        function isDesktop() {
+            return window.innerWidth > 768; // Adjust the width based on your design
+        }
+
+        // Function to redirect to another page
+        function redirectToAnotherPage() {
+            window.location.href = 'https://akashdip2001.github.io/404/';
+        }
+
+        // Check if the user is on a desktop and redirect if true
+        window.addEventListener('DOMContentLoaded', function () {
+            if (isDesktop()) {
+                redirectToAnotherPage();
+            }
+        });
      </script>
 </body>
 </html>
