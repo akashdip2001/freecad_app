@@ -239,6 +239,56 @@
 }
   
   </style>
+
+
+  <style>
+  /* Action buttons */
+  .Action-button {
+    margin-top: 5%;
+  }
+
+  @media (max-width: 768px) {
+    .Action-button {
+      margin-top: 27%;
+    }
+  }
+
+  .video-card1 {
+    background: #5A5A5A;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 3px;
+  }
+
+  /* Glowing effect */
+  .glow {
+    animation: glowAnimation 2s infinite;
+  }
+
+  @keyframes glowAnimation {
+    0%, 100% {
+      box-shadow: 0 0 10px #FFD700;
+    }
+    50% {
+      box-shadow: 0 0 20px #FFD700;
+    }
+  }
+  </style>
+  <script>
+  // Function to add glowing effect to the subscribe button
+  function glowSubscribeButton() {
+    const subscribeButton = document.querySelector('.bg-red-600');
+
+    // Add glowing effect by toggling the 'glow' class
+    subscribeButton.classList.add('glow');
+    setTimeout(() => {
+      subscribeButton.classList.remove('glow');
+    }, 2000);
+  }
+
+  // Trigger the glowing effect every 10 seconds
+  setInterval(glowSubscribeButton, 10000);
+  </script>
   
 </body>
 </html>
