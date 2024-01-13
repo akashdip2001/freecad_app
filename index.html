@@ -59,7 +59,8 @@
      }
 
      
-/* Glowing effect */
+   /* Glowing effect */
+  
 .Action-button a.glow,
 nav a.glow {
   position: relative;
@@ -68,14 +69,20 @@ nav a.glow {
   z-index: 1;
 }
 
+.Action-button a.glow {
+  animation: glowAnimation 2s infinite;
+  box-shadow: 0 0 10px #FFD700;
+}
+
 @keyframes glowAnimation {
   0%, 100% {
-    text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 20px #FFD700;
+    box-shadow: 0 0 10px #FFD700;
   }
   50% {
-    text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #FFD700;
+    box-shadow: 0 0 20px #FFD700;
   }
 }
+
   </style>
 
 <!-- Navigation menu -->
