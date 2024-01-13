@@ -57,6 +57,20 @@
     margin-bottom: 20px;
     padding: 3px;
      }
+
+     /* Glowing effect */
+  .glow {
+    animation: glowAnimation 2s infinite;
+  }
+
+  @keyframes glowAnimation {
+    0%, 100% {
+      box-shadow: 0 0 10px #FFD700;
+    }
+    50% {
+      box-shadow: 0 0 20px #FFD700;
+    }
+  }
   </style>
 
 <!-- Navigation menu -->
