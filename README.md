@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
 ![webapp dev (4)](https://github.com/akashdip2001/freecad_app/assets/81384987/2054e341-77be-413b-aa33-58fa735e574e)
 ![webapp dev (5)](https://github.com/akashdip2001/freecad_app/assets/81384987/7dd4bb0e-4821-4e26-be0b-a5034561bdcb)
 
+<h1> for Desktop </h1>
 # Blur complet page - Desktop mode - Except "Action Button"
 ```
     <script>
@@ -155,6 +156,38 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     </script>
+```
+
+<h1> for mobile </h1>
+# in mobile - when opening or refresh the page - ask for a password "...100"
+
+```
+<script>
+    function isMobile() {
+      return window.innerWidth <= 768;
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+      if (isMobile()) {
+        // Blur the page
+        document.body.style.filter = "blur(25px)";
+        document.body.style.pointerEvents = "none";
+
+        // Ask for password
+        var password = prompt("Please enter the password:");
+
+        // Check password
+        if (password !== "akashdip100") {
+          // Redirect to 404.html on wrong password
+          window.location.href = "404.html";
+        } else {
+          // Remove blur and pointer events on correct password
+          document.body.style.filter = "";
+          document.body.style.pointerEvents = "";
+        }
+      }
+    });
+</script>
 ```
 
 ![akashdip Mahapatra 4](https://github.com/akashdip2001/freecad_app/assets/81384987/9c663d1a-3a53-4d47-bdd8-a933bc26001d)
