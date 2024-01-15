@@ -20,18 +20,8 @@
             overflow: hidden;
         }
 
-        .slide-in {
-            animation: slideIn 1s ease-out forwards;
-        }
-
         .fade-in {
-            animation: fadeIn 1s ease-out forwards;
-        }
-
-        @keyframes slideIn {
-            to {
-                opacity: 1;
-            }
+            animation: fadeIn 2s ease-out forwards;
         }
 
         @keyframes fadeIn {
@@ -45,9 +35,9 @@
     </style>
 </head>
 <body>
-    <div class="welcome-container" id="welcomeMessage">
-        <h1 class="slide-in">Welcome</h1>
-        <div id="secondLine" class="fade-in"></div>
+    <div class="welcome-container fade-in" id="welcomeMessage">
+        <h1>Welcome</h1>
+        <div id="secondLine"></div>
     </div>
 
     <script>
@@ -58,11 +48,6 @@
             // Code is running in a browser
             document.getElementById('secondLine').innerHTML = '<h2>to my website</h2>';
         }
-
-        // Trigger the second line animation after a delay
-        setTimeout(() => {
-            document.getElementById('secondLine').classList.add('fade-in');
-        }, 1000);
     </script>
 </body>
 </html>
