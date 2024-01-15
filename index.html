@@ -20,6 +20,15 @@
             overflow: hidden;
         }
 
+        .update-container {
+            display: none; /* initially hide the container */
+            text-align: center;
+            position: absolute;
+            top: 60%; /* adjust the top position as needed */
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
         .fade-in {
             animation: fadeIn 2s ease-out forwards;
         }
@@ -67,11 +76,7 @@
         <h1>Welcome</h1>
         <div id="secondLine"></div>
     </div>
-    <div>
-        <p id="message" class="fade-in">Update the app</p>
-        <button id="continueButton" class="fade-in" style="background-color: blue; color: white;" onclick="continueClicked()">Continue</button>
-    </div>
-
+    
     <script>
         if (window.self !== window.top) {
             // Code is running in an app
@@ -92,5 +97,19 @@
             window.location.href = 'next_page.html';
         }
     </script>
+
+    <script>
+        // existing script...
+
+        setTimeout(() => {
+            // Show the update container after 2 seconds
+            document.querySelector('.update-container').style.display = 'block';
+        }, 2000);
+    </script>
+
+    <div class="update-container fade-in">
+        <p id="message">Update the app</p>
+        <button id="continueButton" style="background-color: blue; color: white;" onclick="continueClicked()">Continue</button>
+    </div>
 </body>
 </html>
