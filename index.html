@@ -12,8 +12,10 @@
         .welcome-container {
             position: absolute;
             top: 50%;
-            left: -100%;
+            left: 50%;
             transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
             white-space: nowrap;
             overflow: hidden;
         }
@@ -23,21 +25,31 @@
         }
 
         @keyframes slideIn {
-            to {
-                left: 50%;
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 1;
             }
         }
     </style>
 </head>
 <body>
     <div class="welcome-container" id="welcomeMessage">
-        <h1>Welcome to my website</h1>
+        <h1>Welcome</h1>
+        <div id="secondLine"></div>
     </div>
 
     <script>
         if (window.self !== window.top) {
             // Code is running in an app
-            document.getElementById('welcomeMessage').innerHTML = '<h1>Welcome to my web app</h1>';
+            document.getElementById('secondLine').innerHTML = '<h2>to my web app</h2>';
+        } else {
+            // Code is running in a browser
+            document.getElementById('secondLine').innerHTML = '<h2>to my website</h2>';
         }
 
         document.getElementById('welcomeMessage').classList.add('slide-in');
