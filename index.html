@@ -47,6 +47,19 @@
         .welcome-container.slide-in-left {
             animation: slideInLeft 2s ease-out forwards;
         }
+
+        @keyframes fadeOut {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    .welcome-container.fade-out {
+        animation: fadeOut 1s ease-out forwards;
+    }
     </style>
 </head>
 <body>
@@ -67,27 +80,21 @@
 
 
        
-    if (window.self !== window.top) {
-        // Code is running in an app
-        document.getElementById('secondLine').innerHTML = '<h2>to my web app</h2>';
+    setTimeout(function() {
+    // Wait for 2 seconds after animation
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+        // Redirect to next.html if the user is on a mobile device
+        window.location.href = 'https://tiny-hamster-b2a057.netlify.app';
     } else {
-        // Code is running in a browser
-        document.getElementById('secondLine').innerHTML = '<h2>to my website</h2>';
-        document.getElementById('welcomeMessage').classList.add('slide-in-left');
-
+        // Redirect to 404.html for other devices
+        document.getElementById('welcomeMessage').classList.add('fade-out');
         setTimeout(function() {
-            // Wait for 2 seconds after animation
-            var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            
-            if (isMobile) {
-                // Redirect to next.html if the user is on a mobile device
-                window.location.href = 'https://tiny-hamster-b2a057.netlify.app';
-            } else {
-                // Redirect to 404.html for other devices
-                window.location.href = '404.html';
-            }
-        }, 2000);
-        }
+            window.location.href = '404.html';
+        }, 1000); // Adjust the duration of the fade-out animation (1s in this example)
+    }
+}, 2000);
     </script>
 </body>
 </html>
