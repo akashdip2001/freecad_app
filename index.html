@@ -12,10 +12,7 @@
         .welcome-container {
             position: absolute;
             top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            opacity: 0;
+            left: -100%;
             white-space: nowrap;
             overflow: hidden;
         }
@@ -25,14 +22,8 @@
         }
 
         @keyframes slideIn {
-            0% {
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 1;
+            to {
+                left: 50%;
             }
         }
     </style>
