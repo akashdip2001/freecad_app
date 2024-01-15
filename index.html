@@ -49,17 +49,17 @@
         }
 
         @keyframes fadeOut {
-        0% {
-            opacity: 1;
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
         }
-        100% {
-            opacity: 0;
-        }
-    }
 
-    .welcome-container.fade-out {
-        animation: fadeOut 1s ease-out forwards;
-    }
+        .welcome-container.fade-out {
+            animation: fadeOut 1s ease-out forwards;
+        }
     </style>
 </head>
 <body>
@@ -67,8 +67,8 @@
         <h1>Welcome</h1>
         <div id="secondLine"></div>
 
-        <p id="message" class="fade-in">update the app</p>
-<button id="continueButton" class="fade-in" style="background-color: blue; color: white;" onclick="continueClicked()">Continue</button>
+        <p id="message" class="fade-in">Update the app</p>
+        <button id="continueButton" class="fade-in" style="background-color: blue; color: white;" onclick="continueClicked()">Continue</button>
     </div>
 
     <script>
@@ -81,15 +81,14 @@
             document.getElementById('welcomeMessage').classList.add('slide-in-left');
         }
 
-
-       setTimeout(() => {
-    document.getElementById('message').innerHTML = 'Your updated text message';
-    document.getElementById('continueButton').style.display = 'block';
-}, 2000);
+        setTimeout(() => {
+            document.getElementById('message').innerHTML = 'Your updated text message';
+            document.getElementById('continueButton').style.display = 'block';
+        }, 2000);
 
         function continueClicked() {
-    // Redirect to the next HTML page
-    window.location.href = 'next_page.html';
+            // Redirect to the next HTML page
+            window.location.href = 'next_page.html';
         }
     </script>
 </body>
