@@ -3,18 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loading ... </title>
+    <title>Welcome Screen</title>
     <style>
-        /* Styles from the first HTML */
         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f5f5f5;
+            overflow: hidden;
         }
+
+        .welcome-container {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .update-container {
+            display: none; /* initially hide the container */
+            text-align: center;
+            position: absolute;
+            top: 80%; /* adjust the top position as needed */
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+         .update-container button {
+            margin-top: 15px; /* Adjust the top margin as needed */
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+             position: absolute;
+             left: 25%;
+         }
+        
+
+        .fade-in {
+            animation: fadeIn 2s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(-50%);
+            }
+        }
+
+        .welcome-container.slide-in-left {
+            animation: slideInLeft 2s ease-out forwards;
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .welcome-container.fade-out {
+            animation: fadeOut 1s ease-out forwards;
+        }
+
 
         #loading-container {
             width: 80%;
@@ -35,62 +103,37 @@
                 width: 90%;
             }
         }
-
-        /* Styles from the second HTML */
-        body {
-            overflow: hidden;
-        }
-
-        .welcome-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            opacity: 0;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-
-        /* ... (other styles from the second HTML) */
-
     </style>
 </head>
 <body>
-    <div id="loading-container">
-        <div id="loading-bar"></div>
-    </div>
-
-    <script>
-        let progress = 0;
-
-        function updateLoading() {
-            const loadingBar = document.getElementById('loading-bar');
-            loadingBar.style.width = `${progress}%`;
-
-            if (progress < 100) {
-                progress++;
-                setTimeout(updateLoading, 30);
-            } else {
-                // Redirect based on device type
-                const isDesktop = window.innerWidth > 600; // Adjust the breakpoint as needed
-                const redirectPage = isDesktop ? '404.html' : 'index1.html';
-
-                setTimeout(() => {
-                    window.location.href = redirectPage;
-                }, 3000); // Redirect after 3 seconds
-            }
-        }
-
-        updateLoading();
-    </script>
-
     <div class="welcome-container fade-in" id="welcomeMessage">
         <h1>Welcome</h1>
         <div id="secondLine"></div>
     </div>
 
+    <div id="loading-container">
+        <div id="loading-bar"></div>
+    </div>
+    
     <script>
+        // loding part
+        let progress = 0;
+
+function updateLoading() {
+    const loadingBar = document.getElementById('loading-bar');
+    loadingBar.style.width = `${progress}%`;
+
+    if (progress < 100) {
+        progress++;
+        setTimeout(updateLoading, 30);
+    } else {
+        // You can add any additional actions or code here if needed
+    }
+}
+
+updateLoading();
+
+       // html 1
         if (window.self !== window.top) {
             // Code is running in an app
             document.getElementById('secondLine').innerHTML = '<h2>to my web app</h2>';
@@ -101,7 +144,7 @@
         }
 
         setTimeout(() => {
-            document.getElementById('message').innerHTML = 'update is coming soon';
+            document.getElementById('message').innerHTML = 'update is comming soon';
             document.getElementById('continueButton').style.display = 'block';
         }, 2000);
 
