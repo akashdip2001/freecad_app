@@ -66,6 +66,9 @@
     <div class="welcome-container fade-in" id="welcomeMessage">
         <h1>Welcome</h1>
         <div id="secondLine"></div>
+
+        <p id="message" class="fade-in">update the app</p>
+<button id="continueButton" class="fade-in" style="background-color: blue; color: white;" onclick="continueClicked()">Continue</button>
     </div>
 
     <script>
@@ -79,8 +82,15 @@
         }
 
 
-       
-    
+       setTimeout(() => {
+    document.getElementById('message').innerHTML = 'Your updated text message';
+    document.getElementById('continueButton').style.display = 'block';
+}, 2000);
+
+        function continueClicked() {
+    // Redirect to the next HTML page
+    window.location.href = 'next_page.html';
+        }
     </script>
 </body>
 </html>
