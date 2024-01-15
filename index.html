@@ -7,6 +7,7 @@
     <style>
         body {
             overflow: hidden;
+            margin: 0; /* Remove default margin */
         }
 
         .welcome-container {
@@ -40,7 +41,7 @@
             }
             100% {
                 opacity: 1;
-                transform: translateX(-50%);
+                transform: translateX(0); /* Adjusted to start from the left */
             }
         }
 
@@ -63,15 +64,22 @@
     </style>
 </head>
 <body>
-    <div class="welcome-container fade-in" id="welcomeMessage">
+    <div class="welcome-container fade-in slide-in-left" id="welcomeMessage">
         <h1>Welcome</h1>
         <div id="secondLine">
-            <h2>to my app</h2>
+            <h2>to my website</h2>
         </div>
     </div>
 
     <script>
-        // Remove the existing script logic
+    document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(function () {
+            document.getElementById('welcomeMessage').classList.add('fade-out');
+            setTimeout(function () {
+                // You can add additional logic here if needed
+            }, 1000); // Adjust the duration of the fade-out animation (1s in this example)
+        }, 2000); // Wait for 2 seconds after animation
+    });
     </script>
 </body>
 </html>
