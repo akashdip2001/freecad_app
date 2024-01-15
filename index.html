@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loading ... </title>
     <style>
+        /* Styles from the first HTML */
         body {
             font-family: Arial, sans-serif;
             display: flex;
@@ -34,6 +35,25 @@
                 width: 90%;
             }
         }
+
+        /* Styles from the second HTML */
+        body {
+            overflow: hidden;
+        }
+
+        .welcome-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        /* ... (other styles from the second HTML) */
+
     </style>
 </head>
 <body>
@@ -42,27 +62,67 @@
     </div>
 
     <script>
-    let progress = 0;
+        let progress = 0;
 
-    function updateLoading() {
-        const loadingBar = document.getElementById('loading-bar');
-        loadingBar.style.width = `${progress}%`;
+        function updateLoading() {
+            const loadingBar = document.getElementById('loading-bar');
+            loadingBar.style.width = `${progress}%`;
 
-        if (progress < 100) {
-            progress++;
-            setTimeout(updateLoading, 30);
-        } else {
-            // Redirect based on device type
-            const isDesktop = window.innerWidth > 600; // Adjust the breakpoint as needed
-            const redirectPage = isDesktop ? '404.html' : 'index1.html';
+            if (progress < 100) {
+                progress++;
+                setTimeout(updateLoading, 30);
+            } else {
+                // Redirect based on device type
+                const isDesktop = window.innerWidth > 600; // Adjust the breakpoint as needed
+                const redirectPage = isDesktop ? '404.html' : 'index1.html';
 
-            setTimeout(() => {
-                window.location.href = redirectPage;
-            }, 3000); // Redirect after 3 seconds
+                setTimeout(() => {
+                    window.location.href = redirectPage;
+                }, 3000); // Redirect after 3 seconds
+            }
         }
-    }
 
-    updateLoading();
+        updateLoading();
     </script>
+
+    <div class="welcome-container fade-in" id="welcomeMessage">
+        <h1>Welcome</h1>
+        <div id="secondLine"></div>
+    </div>
+
+    <script>
+        if (window.self !== window.top) {
+            // Code is running in an app
+            document.getElementById('secondLine').innerHTML = '<h2>to my web app</h2>';
+        } else {
+            // Code is running in a browser
+            document.getElementById('secondLine').innerHTML = '<h2>to my app</h2>';
+            document.getElementById('welcomeMessage').classList.add('slide-in-left');
+        }
+
+        setTimeout(() => {
+            document.getElementById('message').innerHTML = 'update is coming soon';
+            document.getElementById('continueButton').style.display = 'block';
+        }, 2000);
+
+        function continueClicked() {
+            // Redirect to the next HTML page
+            window.location.href = 'next_page.html';
+        }
+    </script>
+
+    <script>
+        // existing script...
+
+        setTimeout(() => {
+            // Show the update container after 2 seconds
+            document.querySelector('.update-container').style.display = 'block';
+        }, 2000);
+    </script>
+
+    <div class="update-container fade-in">
+        <p id="message">Update the app</p>
+        <button id="continueButton" style="background-color: blue; color: white;" onclick="continueClicked()">Continue</button>
+    </div>
 </body>
 </html>
