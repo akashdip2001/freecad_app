@@ -32,10 +32,25 @@
                 opacity: 1;
             }
         }
+
+        @keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.welcome-container.slide-in-left {
+    animation: slideInLeft 2s ease-out forwards;
+}
     </style>
 </head>
 <body>
-    <div class="welcome-container fade-in" id="welcomeMessage">
+    <div class="welcome-container fade-in slideInLeft" id="welcomeMessage">
         <h1>Welcome</h1>
         <div id="secondLine"></div>
     </div>
