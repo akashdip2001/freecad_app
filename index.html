@@ -12,7 +12,10 @@
         .welcome-container {
             position: absolute;
             top: 50%;
-            left: -100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
             white-space: nowrap;
             overflow: hidden;
         }
@@ -21,17 +24,30 @@
             animation: slideIn 1s ease-out forwards;
         }
 
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
         @keyframes slideIn {
             to {
-                left: 50%;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
             }
         }
     </style>
 </head>
 <body>
     <div class="welcome-container" id="welcomeMessage">
-        <h1>Welcome</h1>
-        <div id="secondLine"></div>
+        <h1 class="slide-in">Welcome</h1>
+        <div id="secondLine" class="fade-in"></div>
     </div>
 
     <script>
@@ -43,7 +59,10 @@
             document.getElementById('secondLine').innerHTML = '<h2>to my website</h2>';
         }
 
-        document.getElementById('welcomeMessage').classList.add('slide-in');
+        // Trigger the second line animation after a delay
+        setTimeout(() => {
+            document.getElementById('secondLine').classList.add('fade-in');
+        }, 1000);
     </script>
 </body>
 </html>
