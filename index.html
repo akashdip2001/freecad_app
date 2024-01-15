@@ -4,16 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome Screen</title>
+    <style>
+        body {
+            overflow: hidden;
+        }
+
+        .welcome-container {
+            position: absolute;
+            top: 50%;
+            left: -100%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .slide-in {
+            animation: slideIn 1s ease-out forwards;
+        }
+
+        @keyframes slideIn {
+            to {
+                left: 50%;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="welcome-container" id="welcomeMessage">
+        <h1>Welcome to my website</h1>
+    </div>
+
     <script>
         if (window.self !== window.top) {
             // Code is running in an app
-            document.body.innerHTML = '<h1>Welcome to my web app</h1>';
-        } else {
-            // Code is running in a browser
-            document.body.innerHTML = '<h1>Welcome to my website</h1>';
+            document.getElementById('welcomeMessage').innerHTML = '<h1>Welcome to my web app</h1>';
         }
+
+        document.getElementById('welcomeMessage').classList.add('slide-in');
     </script>
 </body>
 </html>
