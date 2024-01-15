@@ -1,296 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Freecad app</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.3/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Screen</title>
+    <style>
+        body {
+            overflow: hidden;
+        }
+
+        .welcome-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .fade-in {
+            animation: fadeIn 2s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(-50%);
+            }
+        }
+
+        .welcome-container.slide-in-left {
+            animation: slideInLeft 2s ease-out forwards;
+        }
+
+        @keyframes fadeOut {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    .welcome-container.fade-out {
+        animation: fadeOut 1s ease-out forwards;
+    }
+    </style>
 </head>
-<body class="bg-gray-800 text-white">
-
-<!-- Top bar with banner image -->
-<div class="bg-cover bg-center h-32" style="background-image: url('https://user-images.githubusercontent.com/81384987/236854925-8284fc07-b28b-41eb-a00d-3b9a1b75cf43.png');">
-  <!-- Insert additional elements here if needed -->
-</div>
-
-<!-- Profile and actions section -->
-<div class="flex items-center justify-between p-4">
-  <div class="flex items-center">
-    <img class="h-24 w-24 rounded-full mr-4" src="https://thumbnails.odycdn.com/optimize/s:200:0/quality:95/plain/https://thumbs.odycdn.com/bf58cf4d7ec52c62f02c52e16f150a5b.webp" alt="Profile image">
-    <div>
-      <h1 class="text-2xl font-bold">AKASHDIP MAHAPATRA</h1>
-      <p>"everything is physics bro"</p>
-      <p>E=mc²</p>
+<body>
+    <div class="welcome-container fade-in" id="welcomeMessage">
+        <h1>use brave</h1>
+        <div id="secondLine"></div>
     </div>
-  </div>
-  <!-- Action buttons -->
- <div class="Action-button" >
-  <div>
-    <!-- Make the "Join" button clickable -->
-    <a href="https://www.youtube.com/channel/UCxvmp634YDc41xCWOdvWqoQ?sub_confirmation=1" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-      subscribe
-    </a>
-    <!-- <button class="ml-2 bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">
-      Customize channel
-    </button> -->
-  </div>
- </div>
-</div>
 
-<!-- Navigation menu -->
-<nav class="flex justify-around bg-gray-900 p-2">
-  <a href="#" class="text-white">Home</a>
-  <a href="https://akashdip2001.github.io/freecad_app/login_page.html" class="text-white">Videos</a>
-  <a href="https://akashdip2001.github.io/linktree/" class="text-white">Contact</a>
-  <!-- More nav items -->
-</nav>
-
-<!-- Main content area -->
-<main class="p-4">
-  <!-- Sections like 'For You', 'Projects', etc. -->
-  <!-- Example section with YouTube video link and autoplay -->
-  <section class="mb-4">
-    <h2 class="text-xl font-semibold mb-2">Nothing can be Hidden, you give your best</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <!-- Example thumbnail card with YouTube video link and autoplay -->
-      <div class="bg-gray-700 p-4 rounded-lg">
-        <!-- Replace 'VIDEO_ID' with your actual YouTube video ID -->
-        <iframe width="150%" height="150%" src="https://www.youtube.com/embed/IkcPfEoTvcs?autoplay=1" frameborder="0" allowfullscreen></iframe>
-        <h3 class="text-lg font-semibold">12/12/12</h3>
-        <p>National Award on Drawing</p>
-      </div>
-      <!-- Repeat for more cards -->
-    </div>
-  </section>
-
-  <!-- Repeat sections for each category with relevant headings and cards -->
-</main>
+    <script>
+        if (window.self !== window.top) {
+            // Code is running in an app
+            document.getElementById('secondLine').innerHTML = '<h2>otherwise you get 404</h2>';
+        } else {
+            // Code is running in a browser
+            document.getElementById('secondLine').innerHTML = '<h2>to my website</h2>';
+            document.getElementById('welcomeMessage').classList.add('slide-in-left');
+        }
 
 
-   <section id="videos">
-        <h2> Play list</h2>
-        
-      
-        <div class="video-card1">
-            <iframe src="https://www.youtube.com/embed/6d8VCqbf-pc" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="video-card1">
-            <iframe src="https://www.youtube.com/embed/UGZmDw5sY2w" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="video-card1">
-            <iframe src="https://www.youtube.com/embed/28ddgcVzOTw" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="video-card1">
-            <iframe src="https://www.youtube.com/embed/py_eK8z48g8" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="video-card1">
-            <iframe src="https://www.youtube.com/embed/G0vi2nZp75o" frameborder="0" allowfullscreen></iframe>
-             <a class="u-link" href="https://youtube.com/playlist?list=PL_RecMEcs_p_CmMnwnokj_6s4UeK8YtPo&si=KY52975CgI5s8Mde" target="_blank">All Videos</a>
-        </div>
-        <div class="video-card1">
-            <iframe src="https://www.youtube.com/embed/https://youtu.be/JHugCa7PBYM?si=DN_XezLTPxf_pgnT" frameborder="0" allowfullscreen></iframe>
-        </div>
-
-  
-   <!-- Styles for the image slider -->
-        
-        <div class="slider-container">
-            <div class="slider">
-                <div class="slide">
-                    <a href="https://youtu.be/py_eK8z48g8">
-                        <img src="img/2-01.jpeg" alt="Create Your Own Server with ngrok and vscode">
-                    </a>
-                    <div class="caption">Create Your Own Server</div>
-                    
-                </div>
-                <div class="slide">
-                    <a href="https://youtu.be/uk5VGfzw8IU">
-                        <img src="img/1-01.jpeg" alt="wifi hacking in kali linux">
-                    </a>
-                    <div class="caption">Wifi Hacking in Kali Linux</div>
-                </div>
-                <div class="slide">
-                    <a href="https://www.youtube.com/playlist?list=PL_RecMEcs_p-5UwLqFBFtat90L8IOc1bZ">
-                        <img src="img/3-01.jpeg" alt="wifi rc car">
-                    </a>
-                    <div class="caption">DIY Wifi RC Car</div>
-                </div>
-                <div class="slide">
-                    <a href="https://www.youtube.com/playlist?list=PL_RecMEcs_p__J3GSHkKfLjC08q0NmWtR">
-                        <img src="img/4-01.jpeg" alt="IC Engine in SolidWorks">
-                    </a>
-                    <div class="caption">IC Engine in SolidWorks</div>
-                </div>
-                <div class="slide">
-                    <a href="https://www.youtube.com/playlist?list=PL_RecMEcs_p-rR-kDstljCglAQ4li-RGZ">
-                        <img src="img/5-01.jpeg" alt="SolidWorks PlayList">
-                    </a>
-                    <div class="caption">SolidWorks PlayList</div>
-                </div>
-                <div class="slide">
-                    <a href="https://www.youtube.com/playlist?list=PL_RecMEcs_p90o-aY6pJXUS7FnzC2sVrk">
-                        <img src="img/6-01.jpeg" alt="Stairs in SolidWorks">
-                    </a>
-                    <div class="caption">Stairs in SolidWorks</div>
-                </div>
-                <div class="slide">
-                    <a href="https://www.youtube.com/playlist?list=PL_RecMEcs_p9D9Mw3hr-uLOXioiFdPDGd">
-                        <img src="img/7-01.jpeg" alt="autocad 2d playlist">
-                    </a>
-                    <div class="caption">AutoCAD 2D</div>
-                </div>
-                <div class="slide">
-                    <a href="https://www.youtube.com/playlist?list=PL_RecMEcs_p9NEuljRr7hNsFiPASnJYQt">
-                        <img src="img/8-01.jpeg" alt="autocad 3d playlist">
-                    </a>
-                    <div class="caption">AutoCAD 3D</div>
-                </div>
-                <div class="slide">
-                  <a href="https://akashdip2001.github.io/404/">
-                   <!-- <a href="https://www.youtube.com/playlist?list=PL_RecMEcs_p89vs0ebvBF4J_SIdtJUzA4">-->
-                        <img src="img/9-01.jpeg" alt="Manufacturing lab">
-                    </a>
-                    <div class="caption">Manufacturing lab</div>
-                </div>
-                <div class="slide">
-                  <a href="https://akashdip2001.github.io/404/">
-                    <!--<a href="https://www.youtube.com/playlist?list=PL_RecMEcs_p9xLRg67-zZTFQg9-t0aMiv">-->
-                        <img src="img/10-01.jpeg" alt="Machine Drawing And Design">
-                    </a>
-                    <div class="caption">Machine Drawing And Design</div>
-                </div>
-                <div class="slide">
-                  <a href="https://akashdip2001.github.io/404/">
-                    <!--<a href="https://www.youtube.com/playlist?list=PL_RecMEcs_p-EuVk0-JudqSREmGBtP2TF">-->
-                        <img src="img/11-01.jpeg" alt="Meteorology & Manuf... process lab">
-                    </a>
-                    <div class="caption">Meteorology & Manufacturing process lab</div>
-                </div>
-                 <div class="slide">
-                    <!-- <a href="freecad_exam.html"> -->
-                    <a href="https://akashdip2001.github.io/404/">
-                        <img src="img/12.jpeg" alt="Meteorology & Manufacturing process lab">
-                    </a>
-                    <div class="caption">Exam</div>
-                </div>
-            </div>
-            <div class="indicators"></div>
-            <div class="controls">
-                <button class="prev">Previous</button>
-                <button class="next">Next</button>
-            </div>
-        </div>  
-    </section>
-  
-
-<!-- Transparent note button -->
-<div class="note-button" onclick="togglePopup()">
-    <i class="fas fa-sticky-note"></i> <!-- Font Awesome note icon -->
-  </div>
-  
-  <!-- Popup -->
-<div id="popup" class="popup">
-  <h2 class="text-xl font-semibold mb-2">Desktop-inspect remov999</h2>
-  <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" onclick="closePopupAndRedirect()">
-    Warning msg
-  </button>
-  <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded" onclick="yourRedButtonClickFunction()">
-    Red Button
-  </button>
-</div>
-
-
-  
-   <footer>
-        <p>&copy; 2023 My YouTube Channel</p>
+       
+    setTimeout(function() {
+    // Wait for 2 seconds after animation
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     
-    <section class="u-backlink u-clearfix u-grey-80">
-    <a class="u-link" href="https://www.youtube.com/channel/UCxvmp634YDc41xCWOdvWqoQ" target="_blank">
-      <span>YouTube</span>
-    </a>
-    <p class="u-text">
-      <span>@kashdip</span>
-    </p>
-    <a class="u-link" href="https://akashdip2001.github.io/linktree/" target="_blank">
-      <span>contact me </span>
-    </a>
-    </section>
-    </footer>
- <script src="script.js"></script>
-  
-<script>
-  // JavaScript to toggle the popup visibility
-  function togglePopup() {
-    var popup = document.getElementById('popup');
-    popup.style.display = (popup.style.display === 'none' || popup.style.display === '') ? 'block' : 'none';
-  }
-
-  // JavaScript to close the popup and redirect
-  function closePopupAndRedirect() {
-    var popup = document.getElementById('popup');
-    popup.style.display = 'none';
-    // Replace 'https://example.com' with the actual URL you want to redirect to
-    window.location.href = 'https://akashdip2001.github.io/freecad_app/note.html';
-  }
-
-  // Function for your red button click action
-  function yourRedButtonClickFunction() {
-    // Add your red button click functionality here
-    // For example, you can alert a message
-    alert('oprn the repository - and check the .rd file - for FreeCAD videos');
-    window.location.href = 'https://github.com/akashdip2001/freecad_app/blob/main/index.html';
-  }
-</script>
-
-<style>
-
-   /* Action buttons */
-  
-  .Action-button {
-  margin-top: 5%;
-}
-
-@media (max-width: 768px) {
-  .Action-button {
-    margin-top: 27%;
-  }
-}
-
-
-  .video-card1 {
-    background: #5A5A5A;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    padding: 3px;
-}
-  
-    /* Custom styles for the note button */
-    .note-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: rgba(255, 255, 255, 0.3); /* Transparent white */
-      padding: 10px;
-      border-radius: 5px;
-      color: #fff;
-      cursor: pointer;
+    if (isMobile) {
+        // Redirect to next.html if the user is on a mobile device
+        window.location.href = 'https://tiny-hamster-b2a057.netlify.app';
+    } else {
+        // Redirect to 404.html for other devices
+        document.getElementById('welcomeMessage').classList.add('fade-out');
+        setTimeout(function() {
+            window.location.href = '404.html';
+        }, 1000); // Adjust the duration of the fade-out animation (1s in this example)
     }
-
-    /* Custom styles for the popup */
-    .popup {
-      display: none;
-      position: fixed;
-      bottom: 70px;
-      right: 20px;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      padding: 20px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    }
-  </style>
-  
+}, 2000);
+    </script>
 </body>
 </html>
