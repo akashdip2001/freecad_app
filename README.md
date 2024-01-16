@@ -10,7 +10,7 @@
 # Android studio code
 
 # activity_main.xml
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -28,7 +28,7 @@
 </LinearLayout>
 ```
 # MainActivity.java
-```
+```java
 package com.example.cadpro;
 
 import android.os.Bundle;
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 # AndroidManifes.xml
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 </manifest>
 ```
 # Strings.xml
-```
+```xml
 <resources>
     <string name="app_name">CAD pro</string>
     <string name="webview_url">https://akashdip2001.github.io/freecad_app/</string>
