@@ -117,7 +117,7 @@ If you're working in an Android Studio project with Kotlin support enabled by de
 
 Now, you should have a `MainActivity.java` file in your project. Remember to update the package name and other parts of the code as needed.
 
-```
+```java
 package com.akashdipmahapatra.freecad;
 
 import android.content.Intent;
@@ -205,7 +205,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(color));
     }
 }
-
 ```
 
 If the `MainActivity.java` file has been created in the `com.akashdipmahapatra.freecad` package, but you still can't find the `activity_main.xml` layout file and the `AndroidManifest.xml` file, it's possible that they haven't been automatically generated.
