@@ -477,3 +477,233 @@ To change the app logo in your Android app, you typically need to replace the ex
 Remember to clean and rebuild your project in Android Studio to ensure that the changes are reflected correctly. Additionally, it might take a moment for the new logo to appear on the device or emulator.
 
 Keep in mind that different Android devices may have different launcher sizes, so providing multiple density-specific versions of your logo helps ensure a consistent appearance across various devices.
+
+# final 
+
+![1](https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/347ca51b-8adb-4d62-9f5f-bc1a89102ea5)
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.akashdipmahapatra.freecad">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="freecad"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Freecad"
+        tools:targetApi="31">
+
+        <activity android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>
+
+```
+![Screenshot (39)](https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/20628d85-719a-4589-8911-f0e432d89b5c)
+![Screenshot (38)](https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/a1ec15ac-fe9e-407c-92c4-47156dc4c426)
+```java
+package com.akashdipmahapatra.freecad;
+
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable; // Import the ColorDrawable class
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    private WebView webView;
+    private Button refreshButton;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Disable screen rotation
+        setRequestedOrientation(android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        // Initialize WebView and refresh button
+        webView = findViewById(R.id.webView);
+        refreshButton = findViewById(R.id.refreshButton);
+
+        // Set up WebView
+        setupWebView();
+
+        // Set up refresh button click listener
+        refreshButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                webView.reload();
+            }
+        });
+    }
+
+    private void setupWebView() {
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                String url = request.getUrl().toString();
+
+                // Check if the link is the YouTube channel link
+                if (url.equals("https://www.youtube.com/channel/UCxvmp634YDc41xCWOdvWqoQ?sub_confirmation=1")) {
+                    // Open YouTube link in external browser
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+                    return true;
+                }
+
+                // Load other links inside the WebView
+                view.loadUrl(url);
+                return true;
+            }
+        });
+
+        webView.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public void onReceivedTitle(WebView view, String title) {
+                super.onReceivedTitle(view, title);
+                // You can use the title to dynamically change the app color
+                int color = Color.parseColor("#FF5733"); // Example color
+                updateAppColor(color);
+            }
+        });
+
+        // Load an initial URL
+        webView.loadUrl("https://tiny-hamster-b2a057.netlify.app");
+    }
+
+    private void updateAppColor(int color) {
+        // Update the app color dynamically
+        getWindow().setStatusBarColor(color);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(color));
+    }
+
+    public void onRefreshButtonClick(View view) {
+        webView.reload();
+    }
+}
+
+```
+![Screenshot (40)](https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/f197c11f-53b9-4f98-9faf-93106d1f8bce)
+```xml
+<!-- res/layout/activity_main.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/refreshButton" />
+
+
+    <Button
+        android:id="@+id/refreshButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:background="@drawable/round_button"
+        android:drawableTop="@drawable/ic_refresh"
+        android:onClick="onRefreshButtonClick"
+        android:contentDescription="Refresh Button"
+        android:text=""
+        android:textColor="@android:color/transparent" />
+
+</RelativeLayout>
+
+```
+![Screenshot (41)](https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/70276f6d-de9d-4a2e-b097-4e096329a5a1)
+```xml
+<!-- res/drawable/round_button.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="#80000000" /> <!-- Transparent gray color -->
+</shape>
+
+```
+![Screenshot (42)](https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/51762b4f-ff23-41b5-97bc-05a568a0cb47)
+```xml
+<!-- res/drawable/ic_refresh.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24.0"
+    android:viewportHeight="24.0">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M8,4V1L4,5L8,9V6C12.41,6 16,9.59 16,14C16,18.41 12.41,22 8,22C3.59,22 0,18.41 0,14C0,9.59 3.59,6 8,6H9V9L12,6L9,3V6H8C5.79,6 4,7.79 4,10C4,12.21 5.79,14 8,14C10.21,14 12,12.21 12,10V4H8Z" />
+</vector>
+
+```
+![Screenshot (43)](https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/2c4693c8-99e4-4fe7-8877-e570234f2299)
+```kts
+plugins {
+    id("com.android.application")
+}
+
+android {
+    namespace = "com.akashdipmahapatra.freecad"
+    compileSdk = 34
+
+    defaultConfig {
+        applicationId = "com.akashdipmahapatra.freecad"
+        minSdk = 29
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.10.0")
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+}
+```
