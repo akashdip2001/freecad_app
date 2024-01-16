@@ -407,3 +407,73 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 If you've done these steps correctly, the errors should be resolved. If you still encounter issues, please double-check the file names, XML formats, and method names. Additionally, the warning about the `WebView` being partially hidden can be addressed by adjusting the layout constraints or sizes in your `activity_main.xml` file.
+
+# error - now i see there i error and one warning left in activity_main.xml , error - refreshButton <Button>: No speakable text present, and the warning - webView <WebView> is partially hidden in layout. 
+
+The error "No speakable text present" is related to the accessibility properties of the `Button` (refreshButton). Accessibility is an important aspect of app development to ensure that your app is usable by everyone, including those with disabilities. To resolve this issue, you can add a description for the button using the `android:contentDescription` attribute. This description provides information about the purpose or action associated with the button.
+
+Update your `Button` element in `activity_main.xml` to include a `contentDescription`:
+
+```xml
+<Button
+    android:id="@+id/refreshButton"
+    android:layout_width="48dp"
+    android:layout_height="48dp"
+    android:layout_alignParentEnd="true"
+    android:layout_margin="16dp"
+    android:background="@drawable/round_button"
+    android:drawableTop="@drawable/ic_refresh"
+    android:onClick="onRefreshButtonClick"
+    android:contentDescription="Refresh Button"  <!-- Add contentDescription -->
+    android:text=""
+    android:textColor="@android:color/transparent" />
+```
+
+As for the warning about the `WebView` being partially hidden in the layout, it typically means that the `WebView` might not have enough space to display its content properly. You can adjust the layout parameters to ensure the `WebView` has sufficient space.
+
+Here's an example of how you might adjust the `WebView` in `activity_main.xml`:
+
+```xml
+<WebView
+    android:id="@+id/webView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@+id/refreshButton" />
+```
+# app logo
+
+![freecad_img](https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/e938ce6d-b808-4d66-a5f2-f64b8d25a59d)
+
+
+To change the app logo in your Android app, you typically need to replace the existing launcher icon with a new image. Here are the general steps:
+
+1. **Prepare the New Logo:**
+   - Create a new image file for your app logo. The image should be a square PNG file with a recommended size of 512x512 pixels for better quality.
+
+2. **Replace the Launcher Icon:**
+   - Place your new logo image in the `res/mipmap` directory of your Android project. The `mipmap` directory is where you store your app launcher icons.
+
+3. **Update the `ic_launcher` Files:**
+   - There are usually multiple `ic_launcher` files in different density-specific directories (e.g., `mipmap-hdpi`, `mipmap-mdpi`, `mipmap-xhdpi`, etc.). You need to replace these files with your new logo. The standard launcher icon sizes are 48x48, 72x72, 96x96, 144x144, 192x192, and 512x512 pixels for various screen densities.
+
+   For example, if you have a `res/mipmap/ic_launcher.png`, replace it with your new logo. Repeat this for all the other density-specific directories.
+
+4. **Update the `AndroidManifest.xml`:**
+   - Open your `AndroidManifest.xml` file and make sure the `android:icon` attribute in the `<application>` tag refers to the correct drawable resource for your launcher icon. It usually looks like this:
+
+   ```xml
+   <application
+       ...
+       android:icon="@mipmap/ic_launcher"
+       ...
+   >
+   ```
+
+   Ensure that `@mipmap/ic_launcher` points to the correct launcher icon.
+
+5. **Rebuild and Run:**
+   - After making these changes, rebuild your project and run your app. You should see the new logo on your app launcher.
+
+Remember to clean and rebuild your project in Android Studio to ensure that the changes are reflected correctly. Additionally, it might take a moment for the new logo to appear on the device or emulator.
+
+Keep in mind that different Android devices may have different launcher sizes, so providing multiple density-specific versions of your logo helps ensure a consistent appearance across various devices.
