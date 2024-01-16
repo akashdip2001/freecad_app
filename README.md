@@ -348,3 +348,62 @@ public void onRefreshButtonClick(View view) {
 ```
 
 With these changes, you'll have a round refresh button in the top-right corner of the screen, with a transparent-gray background and a refresh icon. The `onRefreshButtonClick` method is triggered when the button is clicked, and it reloads the content in the `WebView`. Adjust the sizes and colors as needed for your design.
+
+# Then fix some errors
+
+It seems like there might be a misunderstanding in the way the code is set up. Let's go through the steps to resolve the issues.
+
+First, let's make sure you have the correct setup.
+
+1. **Create `ic_refresh.xml` in `res/drawable`:**
+   - The `ic_refresh.xml` file in the `res/drawable` folder should be an XML drawable file that defines the appearance of the refresh icon. Ensure it's using the correct XML format for a drawable.
+
+```xml
+<!-- res/drawable/ic_refresh.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24.0"
+    android:viewportHeight="24.0">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M8,4V1L4,5L8,9V6C12.41,6 16,9.59 16,14C16,18.41 12.41,22 8,22C3.59,22 0,18.41 0,14C0,9.59 3.59,6 8,6H9V9L12,6L9,3V6H8C5.79,6 4,7.79 4,10C4,12.21 5.79,14 8,14C10.21,14 12,12.21 12,10V4H8Z" />
+</vector>
+```
+
+Make sure the content of `ic_refresh.xml` is a valid drawable XML file. You can customize this drawable as needed.
+
+2. **In `activity_main.xml`:**
+   - Ensure that the `android:onClick` attribute in the `<Button>` element refers to the correct method. It should be `"onRefreshButtonClick"` as defined in your `MainActivity.java`.
+
+Here's how it should look in your `activity_main.xml`:
+
+```xml
+<!-- res/layout/activity_main.xml -->
+<Button
+    android:id="@+id/refreshButton"
+    android:layout_width="48dp"
+    android:layout_height="48dp"
+    android:layout_alignParentEnd="true"
+    android:layout_margin="16dp"
+    android:background="@drawable/round_button"
+    android:drawableTop="@drawable/ic_refresh"
+    android:onClick="onRefreshButtonClick"
+    android:text=""
+    android:textColor="@android:color/transparent" />
+```
+
+Now, ensure that you have the `onRefreshButtonClick` method in your `MainActivity.java`:
+
+```java
+public class MainActivity extends AppCompatActivity {
+
+    // ... (existing code)
+
+    public void onRefreshButtonClick(View view) {
+        webView.reload();
+    }
+}
+```
+
+If you've done these steps correctly, the errors should be resolved. If you still encounter issues, please double-check the file names, XML formats, and method names. Additionally, the warning about the `WebView` being partially hidden can be addressed by adjusting the layout constraints or sizes in your `activity_main.xml` file.
