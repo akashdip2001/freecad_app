@@ -175,11 +175,19 @@ updateLoading();
     // Create an oscillator
     const oscillator = audioContext.createOscillator();
 
-    // Set the oscillator type (sine wave)
+    // Choose the oscillator type (sine, square, sawtooth, triangle)
     oscillator.type = 'sine';
 
-    // Connect the oscillator to the audio context's destination (speakers)
-    oscillator.connect(audioContext.destination);
+    // Set frequency in Hertz (adjust for desired pitch)
+    oscillator.frequency.setValueAtTime(440, audioContext.currentTime); // 440 Hz is the default for A4
+
+    // Set volume (gain)
+    const gainNode = audioContext.createGain();
+    gainNode.gain.setValueAtTime(0.5, audioContext.currentTime); // Adjust between 0.0 and 1.0
+
+    // Connect the oscillator to the gain node and the gain node to the audio context's destination (speakers)
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
 
     // Start the oscillator to play the sound
     oscillator.start();
