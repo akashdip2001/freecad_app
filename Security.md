@@ -8,7 +8,7 @@
 ![old](https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/e70bc65e-fc85-48d0-a26b-e52adfcfb799)
 
 
-This modification adds an alert function to display a popup with the same message
+# This modification adds an alert function to display a popup with the same message
 
 ```
     <!-- Add this script at the end of your HTML body -->
