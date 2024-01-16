@@ -160,13 +160,33 @@ updateLoading();
     </script>
 
     <script>
-        // existing script...
+        // message after 2 seconds 
 
         setTimeout(() => {
             // Show the update container after 2 seconds
             document.querySelector('.update-container').style.display = 'block';
         }, 2000);
     </script>
+
+     <script>
+    // Create an AudioContext
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+    // Create an oscillator
+    const oscillator = audioContext.createOscillator();
+
+    // Set the oscillator type (sine wave)
+    oscillator.type = 'sine';
+
+    // Connect the oscillator to the audio context's destination (speakers)
+    oscillator.connect(audioContext.destination);
+
+    // Start the oscillator to play the sound
+    oscillator.start();
+
+    // Stop the oscillator after 2 seconds (adjust as needed)
+    oscillator.stop(audioContext.currentTime + 2);
+     </script>
 
     <div class="update-container fade-in">
         <p id="message">Update the app</p>
