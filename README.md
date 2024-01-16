@@ -290,3 +290,61 @@ app
 ```
 
 Remember to sync your project after adding these files. You can do this by clicking on "File" -> "Sync Project with Gradle Files" in Android Studio.
+
+# Button 
+
+Certainly! To create a refresh button that appears in the top-right corner of the screen in a round shape and has a transparent-gray background, you can modify your `activity_main.xml` layout file. Here's an example:
+
+```xml
+<!-- res/layout/activity_main.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/refreshButton"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/refreshButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:background="@drawable/round_button"
+        android:drawableTop="@drawable/ic_refresh"
+        android:onClick="onRefreshButtonClick"
+        android:text=""
+        android:textColor="@android:color/transparent" />
+
+</RelativeLayout>
+```
+
+Now, create two XML drawable resources for the round button and the refresh icon. Place these XML files in the `res/drawable` directory.
+
+1. **round_button.xml:**
+```xml
+<!-- res/drawable/round_button.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="#80000000" /> <!-- Transparent gray color -->
+</shape>
+```
+
+2. **ic_refresh.xml:**
+You can use the default refresh icon provided by Android. Make sure to download it and place it in the `res/drawable` directory.
+
+Now, in your `MainActivity.java`, add the `onRefreshButtonClick` method to handle the refresh button click:
+
+```java
+public void onRefreshButtonClick(View view) {
+    webView.reload();
+}
+```
+
+With these changes, you'll have a round refresh button in the top-right corner of the screen, with a transparent-gray background and a refresh icon. The `onRefreshButtonClick` method is triggered when the button is clicked, and it reloads the content in the `WebView`. Adjust the sizes and colors as needed for your design.
