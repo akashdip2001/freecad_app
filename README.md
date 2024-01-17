@@ -869,76 +869,31 @@ When click the YouTube button - reditacted from the app to YouTube app
 [Download FreeCAD App](https://github.com/Engineering-college-btech/custom-video-player/releases/tag/update_subscribe_button)
 
 ```java
-package com.akashdipmahapatra.freecad;
-
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.webkit.WebChromeClient;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-public class MainActivity extends AppCompatActivity {
-
-    private WebView webView;
-
+private class MyWebViewClient extends WebViewClient {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        webView = findViewById(R.id.webView);
-        setupWebView();
-
-        String url = "https://tiny-hamster-b2a057.netlify.app";
-        webView.loadUrl(url);
-    }
-
-    private void setupWebView() {
-        WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        webView.setWebViewClient(new MyWebViewClient());
-
-        // Allow video full screen
-        webView.setWebChromeClient(new WebChromeClient());
-    }
-
-    private class MyWebViewClient extends WebViewClient {
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-            Uri url = request.getUrl();
-            if (isYouTubeChannelUrl(url.toString())) {
-                // Open YouTube channel link in the browser or YouTube app
-                openExternalLink(url.toString());
-                return true; // Indicates that the WebView should not handle the URL
-            } else {
-                // Continue loading other URLs in the WebView
-                return false;
-            }
-        }
-
-        private boolean isYouTubeChannelUrl(String url) {
-            return url.startsWith("https://www.youtube.com/channel/");
-        }
-
-        private void openExternalLink(String url) {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-            startActivity(intent);
-        }
-    }
-
-    // Handle back button press
-    @Override
-    public void onBackPressed() {
-        if (webView.canGoBack()) {
-            webView.goBack();
+    public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+        Uri url = request.getUrl();
+        if (isSocialMediaUrl(url.toString())) {
+            // Open social media links in the browser or respective apps
+            openExternalLink(url.toString());
+            return true; // Indicates that the WebView should not handle the URL
         } else {
-            super.onBackPressed();
+            // Continue loading other URLs in the WebView
+            return false;
         }
+    }
+
+    private boolean isSocialMediaUrl(String url) {
+        return url.startsWith("https://www.youtube.com/channel/") ||
+               url.startsWith("https://www.facebook.com/") ||
+               url.startsWith("https://www.instagram.com/") ||
+               url.startsWith("https://www.linkedin.com/");
+    }
+
+    private void openExternalLink(String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        startActivity(intent);
     }
 }
 ```
+
