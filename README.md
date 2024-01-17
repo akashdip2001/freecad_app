@@ -94,10 +94,17 @@ public class MainActivity extends AppCompatActivity {
 </resources>
 ```
 
-![webapp dev (1)](https://github.com/akashdip2001/freecad_app/assets/81384987/ce9f6d8e-965e-4aed-970e-28d0fa2babb7)
-![webapp dev (4)](https://github.com/akashdip2001/freecad_app/assets/81384987/2054e341-77be-413b-aa33-58fa735e574e)
-![webapp dev (5)](https://github.com/akashdip2001/freecad_app/assets/81384987/7dd4bb0e-4821-4e26-be0b-a5034561bdcb)
-![akashdip Mahapatra 4](https://github.com/akashdip2001/freecad_app/assets/81384987/9c663d1a-3a53-4d47-bdd8-a933bc26001d)
+<div style="display: flex; justify-content: space-between;">
+    <img src="https://github.com/akashdip2001/freecad_app/assets/81384987/ce9f6d8e-965e-4aed-970e-28d0fa2babb7" width="30%">
+     <img src="https://github.com/akashdip2001/freecad_app/assets/81384987/2054e341-77be-413b-aa33-58fa735e574e" width="30%">
+     <img src="https://github.com/akashdip2001/freecad_app/assets/81384987/7dd4bb0e-4821-4e26-be0b-a5034561bdcb" width="30%">
+   
+</div>
+
+<div style="display: flex; justify-content: space-between;">
+    <img src="https://github.com/akashdip2001/freecad_app/assets/81384987/9c663d1a-3a53-4d47-bdd8-a933bc26001d" alt="akashdipmahapatra" style="border-radius: 50%;" width="48%">
+    <img src="https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/e938ce6d-b808-4d66-a5f2-f64b8d25a59d" style="border-radius: 50%;" width="48%">
+</div>
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 ❌❌❌ ⬇️⬇️⬇️
