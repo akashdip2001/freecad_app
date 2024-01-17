@@ -896,4 +896,192 @@ private class MyWebViewClient extends WebViewClient {
     }
 }
 ```
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+
+# Update - all error fix ( still - White Screen Problam )
+When exit from full screen after watching video [ when exit ( press mobile back button ) from Fullscreen after watching video, the screen rotates to back normal with white screen, i see the popups but cant see the html page ]
+
+```java
+package com.akashdipmahapatra.freecad;
+
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
+import android.widget.ProgressBar;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    private WebView webView;
+    private FrameLayout frameLayout;
+    private ProgressBar progressBar; // Add this line for ProgressBar
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        webView = findViewById(R.id.webView);
+        frameLayout = findViewById(R.id.frameLayout); // Initialize frameLayout
+        progressBar = findViewById(R.id.progressBar); // Initialize progressBar
+
+        setupWebView();
+
+        String url = "https://tiny-hamster-b2a057.netlify.app";
+        webView.loadUrl(url);
+    }
+
+    private void setupWebView() {
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webView.setWebViewClient(new MyWebViewClient());
+        webView.setWebChromeClient(new MyWebChromeClient());
+
+        // Block screen rotation except during video fullscreen
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
+
+    private class MyWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+            Uri url = request.getUrl();
+            if (isSocialMediaUrl(url.toString())) {
+                // Open social media links in the browser or respective apps
+                openExternalLink(url.toString());
+                return true; // Indicates that the WebView should not handle the URL
+            } else {
+                // Continue loading other URLs in the WebView
+                return false;
+            }
+        }
+
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            super.onPageStarted(view, url, favicon);
+            // Show ProgressBar when page starts loading
+            progressBar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            super.onPageFinished(view, url);
+            // Hide ProgressBar when page finishes loading
+            progressBar.setVisibility(View.GONE);
+        }
+
+        private boolean isSocialMediaUrl(String url) {
+            return url.startsWith("https://www.youtube.com/channel/") ||
+                    url.startsWith("https://www.facebook.com/") ||
+                    url.startsWith("https://www.instagram.com/") ||
+                    url.startsWith("https://www.linkedin.com/");
+        }
+
+        private void openExternalLink(String url) {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            startActivity(intent);
+        }
+    }
+
+    private class MyWebChromeClient extends WebChromeClient {
+
+        private View mCustomView;
+        private CustomViewCallback mCustomViewCallback;
+
+        // Override to handle entering fullscreen
+        @Override
+        public void onShowCustomView(View view, CustomViewCallback callback) {
+            if (mCustomView != null) {
+                callback.onCustomViewHidden();
+                return;
+            }
+
+            mCustomView = view;
+            mCustomViewCallback = callback;
+
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            webView.setVisibility(View.GONE);
+            frameLayout.addView(view);
+            frameLayout.setVisibility(View.VISIBLE);
+
+            // Hide ActionBar when entering fullscreen
+            getSupportActionBar().hide();
+        }
+
+        // Override to handle exiting fullscreen
+        @Override
+        public void onHideCustomView() {
+            if (mCustomView == null) {
+                return;
+            }
+
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+            webView.setVisibility(View.VISIBLE);
+            frameLayout.removeView(mCustomView);
+            frameLayout.setVisibility(View.GONE);
+
+            // Show ActionBar when exiting fullscreen
+            getSupportActionBar().show();
+
+            mCustomView = null;
+            mCustomViewCallback.onCustomViewHidden();
+        }
+    }
+
+    // Handle back button press
+    @Override
+    public void onBackPressed() {
+        if (webView.canGoBack()) {
+            webView.goBack();
+        } else {
+            // If no page to go back, handle as needed
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        // Handle configuration changes if necessary
+    }
+}
+```
+activity_main,xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Add a ProgressBar to show loading progress -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+</RelativeLayout>
+```
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
