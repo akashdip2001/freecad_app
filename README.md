@@ -1,12 +1,9 @@
 # freecad_app 
 
-[Download FreeCAD App](https://github.com/Engineering-college-btech/custom-video-player/releases/tag/freecad)
+| [Download FreeCAD old-App](https://github.com/Engineering-college-btech/custom-video-player/releases/tag/freecad) |
+|---
 
-<div style="border: 1px solid #3498db; background-color: #3498db; color: #fff; border-radius: 5px; padding: 10px; text-align: center;">
-    <a href="https://github.com/Engineering-college-btech/custom-video-player/releases/tag/freecad" style="text-decoration: none; color: inherit; font-weight: bold;">Download FreeCAD App</a>
-</div>
-
-|🍭 [Downlod-app 🍭](https://www.mediafire.com/file/njc51t2ierhir85/akashdipmahapatraFreeCAD.apk/file) |🐥 [in app interface 🐥](https://akashdip2001.github.io/freecad_app/) |❌ [FreeCAD - videos ❌](https://akashdip2001.github.io/404/) |
+|🍭 [Downlod-app](https://www.mediafire.com/file/njc51t2ierhir85/akashdipmahapatraFreeCAD.apk/file) 🍭|🐥 [in app interface](https://akashdip2001.github.io/freecad_app/) 🐥|❌ [FreeCAD - videos](https://akashdip2001.github.io/404/) ❌|
 |-------------------- |-------------------- |-------------------- |
 
 ![webapp dev (2)](https://github.com/akashdip2001/freecad_app/assets/81384987/beec1827-4afe-4394-9394-941db53c43db)
@@ -118,7 +115,8 @@ public class MainActivity extends AppCompatActivity {
 # This app finnaly not work 
 # The <scripts> run in the app - But the Web-page not appears - Complete Black
 
-[Download FreeCAD App](https://github.com/Engineering-college-btech/custom-video-player/releases/tag/freecad_app)
+| [Download FreeCAD App](https://github.com/Engineering-college-btech/custom-video-player/releases/tag/freecad_app) |
+|---
 
 i select language "java" and minimum sdk "API 29 android 10"
 
