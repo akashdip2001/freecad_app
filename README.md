@@ -2,6 +2,10 @@
 
 [Download FreeCAD App](https://github.com/Engineering-college-btech/custom-video-player/releases/tag/freecad)
 
+<div style="border: 1px solid #3498db; background-color: #3498db; color: #fff; border-radius: 5px; padding: 10px; text-align: center;">
+    <a href="https://github.com/Engineering-college-btech/custom-video-player/releases/tag/freecad" style="text-decoration: none; color: inherit; font-weight: bold;">Download FreeCAD App</a>
+</div>
+
 |🍭 [Downlod-app 🍭](https://www.mediafire.com/file/njc51t2ierhir85/akashdipmahapatraFreeCAD.apk/file) |🐥 [in app interface 🐥](https://akashdip2001.github.io/freecad_app/) |❌ [FreeCAD - videos ❌](https://akashdip2001.github.io/404/) |
 |-------------------- |-------------------- |-------------------- |
 
