@@ -901,6 +901,8 @@ private class MyWebViewClient extends WebViewClient {
 # Update - all error fix ( still - White Screen Problam )
 When exit from full screen after watching video [ when exit ( press mobile back button ) from Fullscreen after watching video, the screen rotates to back normal with white screen, i see the popups but cant see the html page ]
 
+[Download FreeCAD App](https://github.com/Engineering-college-btech/custom-video-player/releases/tag/White_Screen_Problem)
+
 ```java
 package com.akashdipmahapatra.freecad;
 
