@@ -99,7 +99,9 @@ public class MainActivity extends AppCompatActivity {
 ![webapp dev (5)](https://github.com/akashdip2001/freecad_app/assets/81384987/7dd4bb0e-4821-4e26-be0b-a5034561bdcb)
 ![akashdip Mahapatra 4](https://github.com/akashdip2001/freecad_app/assets/81384987/9c663d1a-3a53-4d47-bdd8-a933bc26001d)
 
-# Update - New app
+# Update - New app (16/01/24)
+# This app finnaly not work 
+# The <scripts> run in the app - But the Web-page not appears - Complete Black
 
 i select language "java" and minimum sdk "API 29 android 10"
 
@@ -706,4 +708,136 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
+```
+
+---
+
+# Now Creat from begning (17/01/24)
+
+# MainActivity.java
+![Screenshot (44)](https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/f4844582-5ff8-415f-83f7-0a99ba56e3f7)
+
+```java
+package com.akashdipmahapatra.freecad;
+
+import android.os.Bundle;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    private WebView webView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        webView = findViewById(R.id.webView);
+        setupWebView();
+
+        String url = "https://tiny-hamster-b2a057.netlify.app";
+        webView.loadUrl(url);
+    }
+
+    private void setupWebView() {
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webView.setWebViewClient(new WebViewClient());
+
+        // Allow video full screen
+        webView.setWebChromeClient(new WebChromeClient());
+    }
+
+    // Handle back button press
+    @Override
+    public void onBackPressed() {
+        if (webView.canGoBack()) {
+            webView.goBack();
+        } else {
+            super.onBackPressed();
+        }
+    }
+}
+```
+# activity_main.xml
+![Screenshot (45)](https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/b5726f3c-328a-46c9-98d4-22c5aa6d9793)
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>
+```
+# AndroidManifest.xml
+![Screenshot (46)](https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/e7e417a1-52ae-4aed-9b3b-582bd86415a9)
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.akashdipmahapatra.freecad">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="freecad"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>
+```
+# res/values/styles.xml
+![Screenshot (47)](https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/bb9d2262-9867-4826-a429-b7e17235b56d)
+![Screenshot (48)](https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/d2b14779-0bb8-4efc-bbb9-e15ca52c0f23)
+
+```xml
+<resources>
+
+    <!-- Base application theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!-- Add other customizations if needed -->
+    </style>
+
+</resources>
+```
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+</resources>
 ```
