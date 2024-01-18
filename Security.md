@@ -196,6 +196,9 @@ The alert function doesn't provide much customization, including text size adjus
 </script>
 ```
 
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+
+
 Protecting web page screenshots or screen recordings is challenging since it depends on the capabilities and security of the device and browser used to access the content. While it's impossible to make screenshots or screen recordings completely foolproof, you can take some measures to make it more difficult for users to capture your content.
 
 Here are a few strategies you can consider:
