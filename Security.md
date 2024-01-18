@@ -9,7 +9,7 @@
 
 # This modification adds an alert function to display a popup with the same message
 
-```
+```html
     <!-- Add this script at the end of your HTML body -->
 <script>
   // Function to check if the user is on a desktop device
@@ -43,7 +43,7 @@
 ---
 The alert function doesn't provide much customization, including text size adjustments. For a more flexible and user-friendly solution, you can create a custom modal dialog. Here's an updated version of the script that displays a custom modal with increased text size:
 
-```
+```html
 <!-- Add this script at the end of your HTML body -->
 
 <script>
@@ -103,7 +103,7 @@ The alert function doesn't provide much customization, including text size adjus
 
 # Blur complet page - Desktop mode - Except "Action Button"
 
-```
+```html
     <script>
         // Function to check if the user is on a desktop device
         function isDesktop() {
@@ -128,7 +128,7 @@ The alert function doesn't provide much customization, including text size adjus
 
 ---
 # Disable Right Click
-```
+```html
  <script>
         // Function to disable right-click context menu
         function disableRightClick(event) {
@@ -142,7 +142,7 @@ The alert function doesn't provide much customization, including text size adjus
 
 ---
 # Automatic redirect another site
-```
+```html
 <script>
         // Function to check if the user is on a desktop device
         function isDesktop() {
@@ -167,7 +167,7 @@ The alert function doesn't provide much customization, including text size adjus
 <h1> for mobile </h1>
 # in mobile - when opening or refresh the page - ask for a password "...100"
 
-```
+```html
 <script>
     function isMobile() {
       return window.innerWidth <= 768;
@@ -195,3 +195,72 @@ The alert function doesn't provide much customization, including text size adjus
     });
 </script>
 ```
+
+Protecting web page screenshots or screen recordings is challenging since it depends on the capabilities and security of the device and browser used to access the content. While it's impossible to make screenshots or screen recordings completely foolproof, you can take some measures to make it more difficult for users to capture your content.
+
+Here are a few strategies you can consider:
+
+### Disable Right-Click:
+You can use JavaScript to disable the right-click context menu, which often includes an option to save or capture the page.
+
+```html
+<script>
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+    });
+</script>
+```
+
+### Overlay Transparent Div:
+You can overlay a transparent div on top of your content to prevent interactions like clicking or selecting. This won't stop all screen capture methods, but it adds an extra layer.
+
+```html
+<style>
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        pointer-events: none; /* Allows click-through */
+    }
+</style>
+
+<div class="overlay"></div>
+```
+
+### Watermark:
+You can watermark your content, making it less appealing for unauthorized use. However, this won't prevent capturing.
+
+```html
+<style>
+    .watermark {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.5);
+    }
+</style>
+
+<div class="watermark">Your Watermark Here</div>
+```
+
+### Disable Print Styles:
+You can use print styles to hide or obfuscate content when someone tries to print the page. Keep in mind that this won't prevent screenshots.
+
+```html
+<style>
+    @media print {
+        body {
+            display: none;
+        }
+    }
+</style>
+```
+
+### DRM (Digital Rights Management):
+For more robust protection, consider using Digital Rights Management solutions. These are typically third-party services that provide more advanced protection mechanisms.
+
+Remember that no method is foolproof, and determined users can still find ways to capture content. The goal is to make it inconvenient and to deter casual users. If content protection is critical, consulting with a security professional or considering server-side rendering with restricted access might be more appropriate.
