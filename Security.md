@@ -424,3 +424,4 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
+[Downlod the apk](https://github.com/Engineering-college-btech/custom-video-player/releases/tag/screenshots_block)
