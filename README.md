@@ -1,3 +1,7 @@
+[2nd repo](https://github.com/Engineering-college-btech/custom-video-player/blob/main/2nd%20repository.md)
+[Security](https://github.com/Engineering-college-btech/custom-video-player/blob/main/Security.md)
+[Style](https://github.com/Engineering-college-btech/custom-video-player/blob/main/Style.md)
+
 # freecad_app 
 
 | [Download FreeCAD old-App](https://github.com/Engineering-college-btech/custom-video-player/releases/tag/freecad) |
