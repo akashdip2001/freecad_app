@@ -198,6 +198,7 @@ The alert function doesn't provide much customization, including text size adjus
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
+# Screen-short Block ( html ) ❌❌❌
 
 Protecting web page screenshots or screen recordings is challenging since it depends on the capabilities and security of the device and browser used to access the content. While it's impossible to make screenshots or screen recordings completely foolproof, you can take some measures to make it more difficult for users to capture your content.
 
@@ -267,3 +268,159 @@ You can use print styles to hide or obfuscate content when someone tries to prin
 For more robust protection, consider using Digital Rights Management solutions. These are typically third-party services that provide more advanced protection mechanisms.
 
 Remember that no method is foolproof, and determined users can still find ways to capture content. The goal is to make it inconvenient and to deter casual users. If content protection is critical, consulting with a security professional or considering server-side rendering with restricted access might be more appropriate.
+
+# Screen-short Block ( app ) ✅✅✅
+
+```java
+package com.akashdipmahapatra.freecad;
+
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.view.WindowManager;
+import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
+import android.widget.ProgressBar;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    private WebView webView;
+    private FrameLayout frameLayout;
+    private ProgressBar progressBar;
+    private View mCustomView;
+    private WebChromeClient.CustomViewCallback mCustomViewCallback;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // Block screenshots and screen recording
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
+        setContentView(R.layout.activity_main);
+
+        webView = findViewById(R.id.webView);
+        frameLayout = findViewById(R.id.frameLayout);
+        progressBar = findViewById(R.id.progressBar);
+
+        setupWebView();
+
+        String url = "https://tiny-hamster-b2a057.netlify.app";
+        webView.loadUrl(url);
+    }
+
+    private void setupWebView() {
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webView.setWebViewClient(new MyWebViewClient());
+        webView.setWebChromeClient(new MyWebChromeClient());
+        // Block screen rotation except during video fullscreen
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
+
+    private class MyWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+            Uri url = request.getUrl();
+            if (isSocialMediaUrl(url.toString())) {
+                openExternalLink(url.toString());
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            super.onPageStarted(view, url, favicon);
+            progressBar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            super.onPageFinished(view, url);
+            progressBar.setVisibility(View.GONE);
+        }
+
+        private boolean isSocialMediaUrl(String url) {
+            return url.startsWith("https://www.youtube.com/channel/") ||
+                    url.startsWith("https://www.facebook.com/") ||
+                    url.startsWith("https://www.instagram.com/") ||
+                    url.startsWith("https://www.linkedin.com/");
+        }
+
+        private void openExternalLink(String url) {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            startActivity(intent);
+        }
+    }
+
+    private class MyWebChromeClient extends WebChromeClient {
+
+        @Override
+        public void onShowCustomView(View view, CustomViewCallback callback) {
+            if (mCustomView != null) {
+                callback.onCustomViewHidden();
+                return;
+            }
+
+            mCustomView = view;
+            mCustomViewCallback = callback;
+
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            webView.setVisibility(View.GONE);
+            frameLayout.addView(view);
+            frameLayout.setVisibility(View.VISIBLE);
+
+            getSupportActionBar().hide();
+        }
+
+        @Override
+        public void onHideCustomView() {
+            if (mCustomView == null) {
+                return;
+            }
+
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+            webView.setVisibility(View.VISIBLE);
+            frameLayout.removeView(mCustomView);
+            frameLayout.setVisibility(View.GONE);
+
+            getSupportActionBar().show();
+
+            if (webView != null) {
+                webView.reload();
+            }
+
+            mCustomView = null;
+
+            if (mCustomViewCallback != null) {
+                mCustomViewCallback.onCustomViewHidden();
+            }
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (webView.canGoBack()) {
+            webView.goBack();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        // Handle configuration changes if necessary
+    }
+}
+```
