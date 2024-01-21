@@ -7,6 +7,9 @@
   <img src="https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/e70bc65e-fc85-48d0-a26b-e52adfcfb799" width="30%" height="30%">
 </p>
 
+| [From !st page](https://tiny-hamster-b2a057.netlify.app) | [Aftre passward](https://engineering-college-btech.github.io/custom-player-9-16/) |
+|---|---|
+
 # This modification adds an alert function to display a popup with the same message
 
 ```html
