@@ -197,9 +197,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             transition: background-color 0.3s, color 0.3s; /* Smooth transition effect */
         }
 
-        .signup-button:hover {
-            background-color: #3498db; /* Change background on hover */
-            color: #fff; /* Change text color on hover */
+        //.signup-button:hover {
+           // background-color: #3498db; /* Change background on hover */
+            //color: #fff; /* Change text color on hover */
         }
     </style>
 </head>
@@ -211,7 +211,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="submit" value="Login">
     </form>
     <div class="error"><?php echo $login_error; ?></div>
-    <a href="signup.php" class="signup-button">If you don't have an account, please sign up first</a>
+    <a href="signup.php" class="signup-button">sign up</a>
 </body>
 </html>
 ```
@@ -249,14 +249,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         input[type="text"],
         input[type="email"],
-        input[type="password"] {
-            width: 100%;
+        input[type="password"],
+        input[type="date"],
+        input[type="tel"] {
+            width: calc(100% - 22px); /* Adjusted width for better alignment */
             padding: 10px;
             margin-bottom: 10px;
             box-sizing: border-box;
+            display: inline-block; /* Ensure inline display */
         }
 
         input[type="submit"] {
+            width: 100%; /* Full width submit button */
             background-color: transparent;
             color: #3498db;
             padding: 10px 15px;
@@ -267,6 +271,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         .error {
             color: red;
+            font-size: 12px;
+            position: relative;
+            top: -20px;
         }
 
         .login-button {
@@ -278,23 +285,102 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             cursor: pointer;
             text-decoration: none;
             display: block;
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: auto;
+            margin-top: 20px; /* Added margin to separate from form */
+        }
+
+        /* Make paragraphs slightly transparent and hidden by default */
+        form p {
+            opacity: 0.8;
+            margin-top: 0; /* Remove top margin */
+            display: none; /* Hide paragraphs by default */
         }
     </style>
 </head>
 <body>
     <h1>Sign Up</h1>
     <form action="register.php" method="post">
-        <input type="text" name="username" placeholder="Username"><br>
-        <input type="email" name="email" placeholder="Email"><br>
-        <input type="password" name="password" placeholder="Password"><br>
+        <input type="text" name="username" placeholder="Username" onfocus="showParagraph('usernameParagraph')"><br>
+        <!-- <p id="usernameParagraph">Enter your username.</p> -->
+        <div class="error" id="usernameError"></div> <!-- Error message for username -->
+        <input type="email" name="email" placeholder="Email" onfocus="showParagraph('emailParagraph')"><br>
+        <p id="emailParagraph">Enter your college email.</p>
+        <div class="error" id="emailError"></div> <!-- Error message for email -->
+        <input type="tel" name="mobile" placeholder="Mobile Number" onfocus="showParagraph('mobileParagraph')">
+        <p id="mobileParagraph">I send you a Watsapp link on this no.</p>
+        <div class="error" id="mobileError"></div> <!-- Error message for mobile -->
+        <input type="password" name="password" placeholder="Password" onfocus="showParagraph('passwordParagraph')"><br>
+        <!-- <p id="passwordParagraph">Enter your password.</p> -->
+        <div class="error" id="passwordError"></div> <!-- Error message for password -->
+        <input type="date" name="signup_date" id="signup_date" placeholder="Signup Date" onfocus="showParagraph('signupDateParagraph')">
+        <p id="signupDateParagraph">Enter Today's date.</p>
+        <div class="error" id="signupDateError"></div> <!-- Error message for signup date -->
         <input type="submit" value="Sign Up">
     </form>
-    <a href="login.php" class="login-button">If already have an account - login</a>
+    
+    <a href="login.php" class="login-button">already registered - login</a>
+
+    <!-- JavaScript to validate form fields -->
+    <script>
+        // Function to show paragraph when input is focused
+        function showParagraph(paragraphId) {
+            var paragraph = document.getElementById(paragraphId);
+            paragraph.style.display = "block"; // Show paragraph
+        }
+
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const username = document.querySelector('input[name="username"]').value.trim();
+            const email = document.querySelector('input[name="email"]').value.trim();
+            const mobile = document.querySelector('input[name="mobile"]').value.trim();
+            const password = document.querySelector('input[name="password"]').value.trim();
+            const signupDate = document.querySelector('input[name="signup_date"]').value.trim();
+
+            let isValid = true;
+
+            // Validate username
+            if (username === '') {
+                document.getElementById('usernameError').innerText = 'Empty';
+                isValid = false;
+            } else {
+                document.getElementById('usernameError').innerText = '';
+            }
+
+            // Validate email
+            if (email === '') {
+                document.getElementById('emailError').innerText = 'Empty';
+                isValid = false;
+            } else {
+                document.getElementById('emailError').innerText = '';
+            }
+
+            // Validate mobile number
+            if (mobile === '') {
+                document.getElementById('mobileError').innerText = 'Empty';
+                isValid = false;
+            } else {
+                document.getElementById('mobileError').innerText = '';
+            }
+
+            // Validate password
+            if (password === '') {
+                document.getElementById('passwordError').innerText = 'Empty';
+                isValid = false;
+            } else {
+                document.getElementById('passwordError').innerText = '';
+            }
+
+            // Validate signup date
+            if (signupDate === '') {
+                document.getElementById('signupDateError').innerText = 'Empty';
+                isValid = false;
+            } else {
+                document.getElementById('signupDateError').innerText = '';
+            }
+
+            if (!isValid) {
+                e.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
 ```
@@ -321,16 +407,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $mobile = $_POST['mobile']; // New field for mobile number
+    $signup_date = $_POST['signup_date']; // New field for signup date
 
     // Check if email ends with "edu.in"
     if (!preg_match("/@(.+)\.edu\.in$/", $email)) {
-        $signup_error = "must use collage email";
+        $signup_error = "Must use college email";
     } else {
         // Hash the password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         // SQL to insert data into table
-        $sql = "INSERT INTO user (username, email, password) VALUES ('$username', '$email', '$hashed_password')";
+        $sql = "INSERT INTO user (username, email, password, mobile, signup_date) 
+                VALUES ('$username', '$email', '$hashed_password', '$mobile', '$signup_date')";
 
         if ($conn->query($sql) === TRUE) {
             // Redirect user after successful signup
@@ -377,14 +466,18 @@ $conn->close();
 
         input[type="text"],
         input[type="email"],
-        input[type="password"] {
-            width: 100%;
+        input[type="password"],
+        input[type="date"],
+        input[type="tel"] {
+            width: calc(100% - 22px); /* Adjusted width for better alignment */
             padding: 10px;
             margin-bottom: 10px;
             box-sizing: border-box;
+            display: inline-block; /* Ensure inline display */
         }
 
         input[type="submit"] {
+            width: 100%; /* Full width submit button */
             background-color: transparent;
             color: #3498db;
             padding: 10px 15px;
@@ -395,6 +488,9 @@ $conn->close();
 
         .error {
             color: red;
+            font-size: 12px;
+            position: relative;
+            top: -20px;
         }
 
         .login-button {
@@ -406,24 +502,84 @@ $conn->close();
             cursor: pointer;
             text-decoration: none;
             display: block;
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: auto;
+            margin-top: 20px; /* Added margin to separate from form */
+        
         }
     </style>
 </head>
 <body>
     <h1>Sign Up</h1>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+    <form action="register.php" method="post">
         <input type="text" name="username" placeholder="Username"><br>
+        <div class="error" id="usernameError"></div> <!-- Error message for username -->
         <input type="email" name="email" placeholder="Email"><br>
+        <div class="error" id="emailError"></div> <!-- Error message for email -->
+        <input type="tel" name="mobile" placeholder="Mobile Number"><br>
+        <div class="error" id="mobileError"></div> <!-- Error message for mobile -->
         <input type="password" name="password" placeholder="Password"><br>
+        <div class="error" id="passwordError"></div> <!-- Error message for password -->
+        <input type="date" name="signup_date" id="signup_date" placeholder="Signup Date"><br>
+        <div class="error" id="signupDateError"><?php echo $signup_error; ?></div> <!-- Error message for signup date -->
         <input type="submit" value="Sign Up">
     </form>
-    <div class="error"><?php echo $signup_error; ?></div>
-    <a href="login.php" class="login-button">If already have an account - login</a>
+    <a href="login.php" class="login-button">already registered - login</a>
+
+    <!-- JavaScript to validate form fields -->
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const username = document.querySelector('input[name="username"]').value.trim();
+            const email = document.querySelector('input[name="email"]').value.trim();
+            const mobile = document.querySelector('input[name="mobile"]').value.trim();
+            const password = document.querySelector('input[name="password"]').value.trim();
+            const signupDate = document.querySelector('input[name="signup_date"]').value.trim();
+
+            let isValid = true;
+
+            // Validate username
+            if (username === '') {
+                document.getElementById('usernameError').innerText = 'Empty';
+                isValid = false;
+            } else {
+                document.getElementById('usernameError').innerText = '';
+            }
+
+            // Validate email
+            if (email === '') {
+                document.getElementById('emailError').innerText = 'Empty';
+                isValid = false;
+            } else {
+                document.getElementById('emailError').innerText = '';
+            }
+
+            // Validate mobile number
+            if (mobile === '') {
+                document.getElementById('mobileError').innerText = 'Empty';
+                isValid = false;
+            } else {
+                document.getElementById('mobileError').innerText = '';
+            }
+
+            // Validate password
+            if (password === '') {
+                document.getElementById('passwordError').innerText = 'Empty';
+                isValid = false;
+            } else {
+                document.getElementById('passwordError').innerText = '';
+            }
+
+            // Validate signup date
+            if (signupDate === '') {
+                document.getElementById('signupDateError').innerText = 'Empty';
+                isValid = false;
+            } else {
+                document.getElementById('signupDateError').innerText = '';
+            }
+
+            if (!isValid) {
+                e.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
 ```
