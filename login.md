@@ -59,7 +59,7 @@
 </head>
 <body>
     <div class="button-container">
-        <h1>Welcome to our website</h1>
+        <h1>Welcome to my App</h1>
         <a href="signup.php" class="button">Sign Up</a>
         <a href="login.php" class="button">Login</a>
     </div>
