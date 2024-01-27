@@ -344,3 +344,5 @@ This configuration explicitly allows cleartext traffic (HTTP) for the domain "fr
 ```
 
 With these changes, your app should now allow connections to "https://freecadapp2.000.pe/" over HTTP, and you shouldn't encounter the "net::ERR_CLEARTEXT_NOT_PERMITTED" error anymore.
+
+[project file - last update 27/01/2024](https://drive.google.com/drive/folders/1vS-mojTxOPfu-D_3bTnCu1GUyONv196h?usp=drive_link)
