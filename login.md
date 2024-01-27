@@ -787,7 +787,7 @@ if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'akashdip2001') {
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['password'])) {
     $entered_password = $_POST['password'];
     // Check if entered password matches the correct password
-    if ($entered_password === 'subscribe_akashdip') {
+    if ($entered_password === 'kali2001') {
         // Password is correct, continue to display user data
     } else {
         // Incorrect password, display error message and exit
@@ -841,7 +841,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['password'])) {
     </head>
     <body>
         <div class="password-popup">
-            <h2>This page is only for Akashdip Mahapatra, enter password</h2>
+            <h2>This page is only for Akashdip Mahapatra</h2>
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <input type="password" name="password" placeholder="Enter Password">
                 <br>
