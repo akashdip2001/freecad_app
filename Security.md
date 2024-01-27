@@ -16,6 +16,8 @@
 | [From !st page](https://tiny-hamster-b2a057.netlify.app) | [Aftre passward](https://engineering-college-btech.github.io/custom-player-9-16/) |
 |---|---|
 
+❌ ***for security - i change the 1st page to "tiny-hamster" to "Giyhub - freecad_app_02 - repo"***
+
 # This modification adds an alert function to display a popup with the same message
 
 ```html
