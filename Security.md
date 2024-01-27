@@ -6,9 +6,6 @@
 
 <p align="center">
   <img src="https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/8ade5922-834e-4910-8880-2c13ecc600fc" width="30%" height="30%">
-  <img src="https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/74e83c2f-6355-4334-b76e-3c572d2229b2" width="30%" height="30%">
-  </p>
-<p align="center">
   <img src="https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/d3ddf6ce-18c8-4d24-a0d1-d473d754eb68" width="30%" height="30%">
   <img src="https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/e70bc65e-fc85-48d0-a26b-e52adfcfb799" width="30%" height="30%">
 </p>
@@ -17,7 +14,8 @@
 |---|---|
 
 ❌ ***for security - i change the 1st page to "tiny-hamster" to "Giyhub - freecad_app_02 - repo"***
-
+<img src="https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/74e83c2f-6355-4334-b76e-3c572d2229b2" width="30%" height="30%">
+ 
 # This modification adds an alert function to display a popup with the same message
 
 ```html
