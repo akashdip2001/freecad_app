@@ -1,8 +1,14 @@
+| [README.md](https://github.com/Engineering-college-btech/custom-video-player/edit/main/README.md) | [2nd repo.md](https://github.com/Engineering-college-btech/custom-video-player/blob/main/2nd%20repository.md) | [Security.md](https://github.com/Engineering-college-btech/custom-video-player/blob/main/Security.md) | [Style.md](https://github.com/Engineering-college-btech/custom-video-player/blob/main/Style.md) | [app.md](https://github.com/Engineering-college-btech/custom-video-player/blob/main/app.md) | [Ligin.md](https://github.com/Engineering-college-btech/custom-video-player/blob/main/login.md)
+|---|---|---|---|---|---|
+
 | All repo | main | Old |
 |---|---|---|
 
 <p align="center">
   <img src="https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/8ade5922-834e-4910-8880-2c13ecc600fc" width="30%" height="30%">
+  <img src="https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/74e83c2f-6355-4334-b76e-3c572d2229b2" width="30%" height="30%">
+  </p>
+<p align="center">
   <img src="https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/d3ddf6ce-18c8-4d24-a0d1-d473d754eb68" width="30%" height="30%">
   <img src="https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/e70bc65e-fc85-48d0-a26b-e52adfcfb799" width="30%" height="30%">
 </p>
