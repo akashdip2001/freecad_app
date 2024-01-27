@@ -6,7 +6,7 @@
 ![Screenshot (84)](https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/792d43b3-da9f-4756-804e-93ab0fd01a11)
 
 
-# index.php
+# index.php (simple) ❌❌❌
 ```php
 <!DOCTYPE html>
 <html lang="en">
@@ -66,6 +66,107 @@
 </body>
 </html>
 ```
+# index.php (Update) ✅✅✅
+```php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/akashdip2001/website-2/main/images/favicon.jpg?token=GHSAT0AAAAAACMGYPVOP4ZUPUDP4Q2FKSEWZNNHMWA">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px; /* Adjusted font size for better visibility on mobile */
+            padding: 0 20px; /* Added padding to ensure text doesn't overflow */
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .image-container {
+            display: none; /* Initially hide the image container */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent black background */
+            z-index: 999; /* Ensure it appears on top of other elements */
+            overflow: auto;
+        }
+
+        .image-container img {
+            display: block;
+            margin: auto;
+            max-width: 90%; /* Adjust the maximum width of images */
+            max-height: 90%; /* Adjust the maximum height of images */
+            padding: 20px; /* Add padding around the images */
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <h1>Welcome to my app</h1><br>
+        <p> Akashdip Mahapatra 3rd year<br>Mechanical Engineering<br>it's my 2nd app 27/01/2024</p><br>
+        <p>National Award from India president<br>Pranab Mukherjee 2012<br>Delhi - Vigyan Bhavan</p><br>
+        <button onclick="showImages()" class="button">Show Images</button>
+        <div class="image-container" id="imageContainer">
+            <span onclick="hideImages()" style="color: white; position: absolute; top: 20px; right: 20px; cursor: pointer;">&times;</span>
+            <img src="https://akashdipmahapatra.netlify.app/wp-content/uploads/2022/06/Screenshot_20220625-012147_Photos.jpg" alt="Image 1">
+            <img src="https://akashdipmahapatra.netlify.app/wp-content/uploads/2022/06/Screenshot_20220625-011521_Photos.jpg" alt="Image 2">
+            <img src="https://akashdipmahapatra.netlify.app/wp-content/uploads/2022/06/FKitsPTakAAQf83.jpeg" alt="Image 3">
+            <img src="https://akashdipmahapatra.netlify.app/wp-content/uploads/2022/06/FKitrVcakAEVAfK.jpeg" alt="Image 4">
+        </div>
+        <a href="signup.php" class="button">Sign Up</a>
+        <a href="login.php" class="button">Login</a>
+    </div>
+
+    <script>
+        function showImages() {
+            document.getElementById("imageContainer").style.display = "block";
+        }
+
+        function hideImages() {
+            document.getElementById("imageContainer").style.display = "none";
+        }
+    </script>
+</body>
+</html>
+```
+
 # login.php
 ```php
 <?php
