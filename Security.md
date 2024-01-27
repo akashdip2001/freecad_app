@@ -14,7 +14,7 @@
 |---|---|
 
 ❌ ***for security - i change the 1st page to "tiny-hamster" to "Giyhub - freecad_app_02 - repo"***
-<img src="https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/74e83c2f-6355-4334-b76e-3c572d2229b2" width="30%" height="30%">
+<img src="https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/74e83c2f-6355-4334-b76e-3c572d2229b2">
  
 # This modification adds an alert function to display a popup with the same message
 
