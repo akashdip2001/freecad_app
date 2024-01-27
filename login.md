@@ -3,6 +3,9 @@
 
 # Log in project
 
+![Screenshot (84)](https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/792d43b3-da9f-4756-804e-93ab0fd01a11)
+
+
 # index.php
 ```php
 <!DOCTYPE html>
