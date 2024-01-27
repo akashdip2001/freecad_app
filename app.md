@@ -306,3 +306,38 @@ public class MyWebViewClient extends WebViewClient {
 ```
 
 [source code + apk](https://github.com/Engineering-college-btech/custom-video-player/releases/tag/freecad_2.0)
+
+# Update for Login Page (http error)
+
+To fix the "net::ERR_CLEARTEXT_NOT_PERMITTED" error in your Android app, you need to enable cleartext traffic for the specific domain you are trying to access. In your case, it's "https://freecadapp2.000.pe/".
+
+To enable cleartext traffic for this domain, you can add a network security configuration file to your project and specify the domain in it.
+
+Here's how you can do it:
+
+1. Create a new XML file in the `res/xml` directory of your Android project. You can name it `network_security_config.xml`.
+
+2. Add the following content to the `network_security_config.xml` file:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">freecadapp2.000.pe</domain>
+    </domain-config>
+</network-security-config>
+```
+
+This configuration explicitly allows cleartext traffic (HTTP) for the domain "freecadapp2.000.pe".
+
+3. Now, update your `AndroidManifest.xml` to use this network security configuration file:
+
+```xml
+<application
+    android:networkSecurityConfig="@xml/network_security_config"
+    ...>
+    ...
+</application>
+```
+
+With these changes, your app should now allow connections to "https://freecadapp2.000.pe/" over HTTP, and you shouldn't encounter the "net::ERR_CLEARTEXT_NOT_PERMITTED" error anymore.
