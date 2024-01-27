@@ -345,4 +345,52 @@ This configuration explicitly allows cleartext traffic (HTTP) for the domain "fr
 
 With these changes, your app should now allow connections to "https://freecadapp2.000.pe/" over HTTP, and you shouldn't encounter the "net::ERR_CLEARTEXT_NOT_PERMITTED" error anymore.
 
-[project file - last update 27/01/2024](https://drive.google.com/drive/folders/1vS-mojTxOPfu-D_3bTnCu1GUyONv196h?usp=drive_link)
+# uplode in Google playStore - 
+
+To upload your app to the Google Play Store, follow these steps:
+
+1. **Generate a Signed APK:**
+   Before you can upload your app to the Play Store, you need to generate a signed APK (Android Package) file. This is a release version of your app that is signed with your private key to ensure its authenticity.
+
+   In Android Studio:
+   - Go to "Build" > "Generate Signed Bundle / APK".
+   - Choose "APK" and click "Next".
+   - Select or create a new keystore and fill in the required information.
+   - Click "Next" and specify the destination folder for the signed APK.
+   - Click "Finish" to generate the signed APK.
+
+![Screenshot (81)](https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/a7b9a377-fbac-44b5-b1d1-60ba06a0bcb3)
+![Screenshot (82)](https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/1bcb2069-49d1-45f9-b1fc-fd265a00dd04)
+![Screenshot (83)](https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/94e0f534-2aea-4828-89de-47dc1fb294a8)
+
+
+2. **Create a Developer Account:**
+   If you haven't already, you need to create a Google Play Developer account. Go to the Google Play Console website and sign in with your Google account. Follow the instructions to create a developer account and pay the one-time registration fee.
+
+3. **Prepare Store Listing:**
+   - Log in to the Google Play Console.
+   - Click on "Create app" and enter the app details, including the title, description, screenshots, and other required information.
+   - Upload your app's APK file that you generated in step 1.
+
+4. **Set Pricing and Distribution:**
+   - Choose whether your app will be free or paid.
+   - Select the countries where you want to distribute your app.
+
+5. **Content Rating:**
+   - Fill out the content rating questionnaire to specify the appropriate content rating for your app.
+
+6. **Review and Publish:**
+   - Review all the information you've provided and make sure everything is accurate.
+   - Click "Publish" to submit your app to the Play Store.
+
+7. **Wait for Review:**
+   - Once submitted, your app will undergo review by Google Play for compliance with their policies. This process can take several hours to a few days.
+   - You'll receive an email notification once your app is published or if any issues need to be addressed.
+
+8. **Promote Your App:**
+   - After your app is published, promote it to reach a wider audience. Share the link to your app's listing on social media, your website, or through other marketing channels.
+
+That's it! Your app should now be available on the Google Play Store for users to download and install. Keep monitoring user feedback and update your app as needed to improve its performance and features.
+
+| [project file - last update 27/01/2024](https://drive.google.com/drive/folders/1vS-mojTxOPfu-D_3bTnCu1GUyONv196h?usp=drive_link) |
+|---|
