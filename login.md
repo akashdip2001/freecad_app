@@ -854,7 +854,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['password'])) {
     exit(); // Exit script after displaying password popup
 }
 
-// If password is correct, continue to display user data
+// Include database connection
+$servername = "sql209.byetcluster.com";
+$username = "if0_35853988"; // Replace with your MySQL username
+$password = "eFCjtRCxB8"; // Replace with your MySQL password
+$dbname = "if0_35853988_freecad_app_02_database"; // Replace with your database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -891,9 +904,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['password'])) {
             <th>Signup Date</th>
         </tr>
         <?php
-        // Include database connection
-        require_once 'db_config.php';
-
         // Fetch and display user data from the database
         $sql = "SELECT username, email, mobile, signup_date FROM user";
         $result = $conn->query($sql);
@@ -920,79 +930,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['password'])) {
 </html>
 ```
 # home.php ( to access userdata.php )
-```php
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Page</title>
-    <style>
-        /* General CSS for styling */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        p {
-            color: #666;
-            margin-bottom: 20px; /* Added margin for better spacing */
-        }
-
-        /* Button CSS */
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            text-decoration: none; /* Remove default underline */
-            margin: 10px; /* Added margin for spacing */
-        }
-
-        .button:hover {
-            background-color: #45a049;
-        }
-
-        /* Additional styling for links */
-        a {
-            text-decoration: none;
-            color: #fff; /* Set text color for links */
-        }
-
-        /* Styling for the paragraph containing the password */
-        .password-info {
-            background-color: #ddd; /* Light gray background */
-            padding: 10px;
-            border-radius: 5px;
-            max-width: 400px; /* Limiting width for better readability */
-            margin: 0 auto 20px; /* Centering the paragraph and adding margin */
-        }
-    </style>
-</head>
-<body>
-    <!-- Heading -->
-    <h1>Welcome, <?php echo $_SESSION['username']; ?>!</h1>
-    
-    <!-- Paragraph -->
-    <p class="password-info">The password is subscribe_akashdip.</p>
-    
-    <!-- Button -->
-    <a href="https://engineering-college-btech.github.io/password-html/pRi3sEnT4tIoN7pAsS8wOrD.html" class="button">Click</a>
-    <a href="userdata.php" class="button">Private</a>
-</body>
-</html>
-```
-# home ( Update for this )
 
 ```php
 <!DOCTYPE html>
