@@ -13,7 +13,8 @@
 | [From !st page](https://tiny-hamster-b2a057.netlify.app) | [Aftre passward](https://engineering-college-btech.github.io/custom-player-9-16/) |
 |---|---|
 
-❌ ***for security - i change the 1st page to "tiny-hamster" to "Giyhub - freecad_app_02 - repo"***
+❌ ***for security - i change the 1st page to "tiny-hamster" to "Giyhub - freecad_app_02 - repo"*** 
+<br>
 <img src="https://github.com/Engineering-college-btech/custom-video-player/assets/81384987/74e83c2f-6355-4334-b76e-3c572d2229b2">
  
 # This modification adds an alert function to display a popup with the same message
