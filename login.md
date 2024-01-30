@@ -1005,3 +1005,95 @@ if ($conn->connect_error) {
 </body>
 </html>
 ```
+# Secutity 1
+# added checks for the uniqueness of both email and mobile number in addition to the username. If any of them already exist in the database
+
+# register.php ( php part )
+```php
+<?php
+$servername = "sql209.byetcluster.com";
+$username = "if0_35853988"; // Replace with your MySQL username
+$password = "eFCjtRCxB8"; // Replace with your MySQL password
+$dbname = "if0_35853988_freecad_app_02_database"; // Replace with your database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$signup_error = ''; // Initialize signup error variable
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get form data
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $mobile = $_POST['mobile']; // New field for mobile number
+    $signup_date = $_POST['signup_date']; // New field for signup date
+
+    // Check if username already exists
+    $check_username_sql = "SELECT * FROM user WHERE username = ?";
+    $check_username_stmt = $conn->prepare($check_username_sql);
+    $check_username_stmt->bind_param("s", $username);
+    $check_username_stmt->execute();
+    $existing_username = $check_username_stmt->get_result()->fetch_assoc();
+
+    // Check if email already exists
+    $check_email_sql = "SELECT * FROM user WHERE email = ?";
+    $check_email_stmt = $conn->prepare($check_email_sql);
+    $check_email_stmt->bind_param("s", $email);
+    $check_email_stmt->execute();
+    $existing_email = $check_email_stmt->get_result()->fetch_assoc();
+
+    // Check if mobile number already exists
+    $check_mobile_sql = "SELECT * FROM user WHERE mobile = ?";
+    $check_mobile_stmt = $conn->prepare($check_mobile_sql);
+    $check_mobile_stmt->bind_param("s", $mobile);
+    $check_mobile_stmt->execute();
+    $existing_mobile = $check_mobile_stmt->get_result()->fetch_assoc();
+
+    if ($existing_username) {
+        $signup_error = "Username already exists";
+    } elseif ($existing_email) {
+        $signup_error = "Email already exists,<br>any problam WatsApp 7076033011";
+    } elseif ($existing_mobile) {
+        $signup_error = "Mobile number already exists";
+    } else {
+        // Check if email ends with "edu.in"
+        if (!preg_match("/@(.+)\.edu\.in$/", $email)) {
+            $signup_error = "Must use college email";
+        } else {
+            // Hash the password
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+            // SQL to insert data into table
+            $sql = "INSERT INTO user (username, email, password, mobile, signup_date) 
+                    VALUES (?, ?, ?, ?, ?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("sssss", $username, $email, $hashed_password, $mobile, $signup_date);
+            if ($stmt->execute()) {
+                // Redirect user after successful signup
+                header("Location: login.php");
+                exit();
+            } else {
+                $signup_error = "Error: " . $stmt->error;
+            }
+        }
+    }
+}
+
+$conn->close();
+?>
+```
+# style update - to increse the error msg text size & adjast the position
+```css
+.error {
+            color: red;
+            font-size: 15px;
+            position: relative;
+            top: -30px;
+        }
+```
